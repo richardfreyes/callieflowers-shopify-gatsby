@@ -1,0 +1,340 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+
+.page-home {
+  margin-top: 185px;
+
+  .section {
+    &.intro {
+      padding-top: 20px;
+      background: #fff7fb;
+      // background-image: url(.cl./assets/images/footer/bg-flower.svg);
+      background-position: center;
+      background-size: cover;
+
+      .container {
+        .row-holder {
+          padding-bottom: 23px;
+
+          .col-holder {
+            .featured-slider {
+              position: relative;
+              border: 1px solid rgba(237,69,151,0.32);
+              border-radius: 4px;
+              visibility: hidden;
+
+              &.slick-initialized { visibility: visible; }
+
+              img {
+                border-radius: 4px;
+                outline: none;
+              }
+
+              ul {
+                &.slick-dots {
+                  display: block;
+                  top: 12px;
+                  right: 12px;
+                  bottom: inherit;
+                  left: inherit;
+                  line-height: 12px;
+                  transform: inherit;
+                }
+              }
+            }
+
+            .flash-sale {
+              @include flexbox;
+              flex-wrap: wrap;
+              margin-bottom: 15px;
+              border: 1px solid rgba(237,69,151,0.32);
+              border-radius: 4px;
+              background: #fff;
+
+              .img-holder {
+                padding: 10px;
+
+                img {
+                  height: 175px;
+                  width: auto;
+                }
+              }
+
+              .desc {
+                margin: auto;
+
+                p {
+                  .decimal {
+                    font-size: 10px;
+                  }
+
+                  &.product-name {
+                    margin-bottom: 8px;
+                    color: #312952;
+                    font: bold 20px/32px "Pacifico";
+                  }
+
+                  &.original-price {
+                    color: #ed4597;
+                    font: bold 14px/22px "Roboto";
+                    margin: 0;
+                  }
+
+                  &.old-price {
+                    color: rgba(49,41,82,0.54);
+                    font: normal 14px/16px "Roboto";
+                    margin: 0;
+
+                    .f-price {
+                      text-decoration: line-through;
+                    }
+                  }
+                }
+              }
+
+              .bar-wrapper {
+                @include flexbox;
+                width: 100%;
+                padding: 3px 12px;
+                border-radius: 0 0 4px 4px;
+                background-color: #ED4597;
+
+                p {
+                  margin: 0;
+                  color: #fff;
+                  font: 800 11px/16px "Open Sans";
+
+                  &.label {
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    line-height: 16px;
+                  }
+
+                  &.count-down {
+                    margin-left: auto;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include respond-to(lg-down) {
+    .section {
+      &.intro {
+
+        .container {
+          .row-holder {
+
+            .col-holder {
+              .featured-slider {
+
+                img {
+                }
+
+                ul {
+                  &.slick-dots {
+                  }
+                }
+              }
+
+              .flash-sale {
+
+                .img-holder {
+
+                  img {
+                    height: 120px;
+                  }
+                }
+
+                .desc {
+
+                  p {
+                    .decimal {
+                    }
+
+                    &.product-name {
+                    }
+
+                    &.original-price {
+                    }
+
+                    &.old-price {
+
+                      .f-price {
+                      }
+                    }
+                  }
+                }
+
+                .bar-wrapper {
+
+                  p {
+
+                    &.label {
+                    }
+
+                    &.count-down {
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include respond-to(md-down) {
+    margin-top: 160px;
+
+    .section {
+      &.intro {
+        .container {
+          .row-holder {
+            padding-bottom: 15px;
+
+            .col-holder {
+              .featured-slider {
+
+                img {
+
+                }
+
+                ul {
+                  &.slick-dots {
+                  }
+                }
+              }
+
+              .flash-sale {
+                margin-bottom: 5px;
+
+                .img-holder {
+                  padding: 5px;
+
+                  img {
+                    height: 90px;
+                  }
+                }
+
+                .desc {
+
+                  p {
+                    .decimal {
+                    }
+
+                    &.product-name {
+                      font-size: 18px;
+                    }
+
+                    &.original-price {
+                      font-size: 13px;
+                    }
+
+                    &.old-price {
+                      font-size: 13px;
+
+                      .f-price {
+                        font-size: 13px;
+                      }
+                    }
+                  }
+                }
+
+                .bar-wrapper {
+
+                  p {
+
+                    &.label {
+                    }
+
+                    &.count-down {
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include respond-to(sm-down) {
+    .section {
+      &.intro {
+
+        .container {
+          max-width: 100%;
+          // padding-right: 5px;
+          // padding-left: 5px;
+
+          .row-holder {
+
+            .col-holder {
+              .featured-slider {
+
+                img {
+                }
+
+                ul {
+                  &.slick-dots {
+                  }
+                }
+              }
+
+              .flash-sale {
+
+                .img-holder {
+
+                  img {
+                  }
+                }
+
+                .desc {
+
+                  p {
+                    .decimal {
+                    }
+
+                    &.product-name {
+                    }
+
+                    &.original-price {
+                    }
+
+                    &.old-price {
+
+                      .f-price {
+                      }
+                    }
+                  }
+                }
+
+                .bar-wrapper {
+
+                  p {
+
+                    &.label {
+                    }
+
+                    &.count-down {
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the about-us page.
+// -----------------------------------------------------------------------------
+
+.about-us-page {
+  .section {
+    &.page-content {
+      .container {
+        h1 {
+          &.page-title {
+          }
+        }
+
+        h2 {
+          &.page-desc {
+
+          }
+        }
+
+        p {
+          &.page-desc {
+            margin-bottom: 7px;
+          }
+        }
+      }
+    }
+  }
+}

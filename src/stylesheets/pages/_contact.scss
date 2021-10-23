@@ -1,0 +1,76 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the contact page.
+// -----------------------------------------------------------------------------
+
+.contact-page {
+  .section {
+    &.content {
+      .container {
+        .page-title {
+          margin-bottom: 24px;
+        }
+
+        .row-holder {
+          margin-top: 40px;
+
+          .col-holder {
+            margin-top: 45px;
+
+            &.static {
+              text-align: center;
+
+              .featured-holder {
+                margin-bottom: 10px;
+              }
+            }
+
+            .fr-icon {
+              color: $color-hotpink;
+              font-size: 72px;
+              line-height: 72px;
+            }
+
+            .featured-title {
+              color: #000042;
+              font: 800 italic 18px/24px "Open Sans";
+            }
+
+            .desc {
+              color: #000042;
+              font: normal 14px/20px "Roboto";
+            }
+          }
+        }
+      }
+
+      @include respond-to(sm-down) {
+        .container {
+          .page-title {
+            margin-bottom: 15px;
+          }
+
+          .row-holder {
+            margin-top: 15px;
+
+            .col-holder {
+              margin-top: 15px;
+
+              .fr-icon {
+              }
+
+              .featured-title {
+                font-size: 16px;
+              }
+
+              .desc {
+                font-size: 13px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

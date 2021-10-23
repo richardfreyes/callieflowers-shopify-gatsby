@@ -1,0 +1,31 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the product-detail page.
+// -----------------------------------------------------------------------------
+
+.template-page {
+  .terms-conditions-page {
+
+    .section {
+      &.page-content {
+        .container {
+          .page-title {
+          }
+
+          .page-desc {
+          }
+
+          ol {
+            li {
+              h4 {
+                &.sub-title {
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

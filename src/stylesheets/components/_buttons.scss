@@ -1,0 +1,102 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+
+.btn-brand-gradient {
+  display: inline-block;
+  padding: 13px;
+  text-decoration: none;
+  letter-spacing: 2px;
+  border-radius: 24px;
+  background: #F87A7B;
+  transition: none;
+
+
+  color: #fff;
+  font: bold 16px/22px "Roboto";
+  text-align: center;
+
+  @include on-event {
+    text-decoration: none;
+    color: #fff;
+    background: #ff228e;
+    transition: none;
+  }
+
+  &:not([disabled]):hover, &:focus {
+    color: #fff;
+  }
+
+  @include respond-to(sm-down) {
+    padding: 4px 35px;
+    font-size: 13px;
+  }
+}
+
+// start slick dots
+.slick-dots {
+  display: none;
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  @include transform(translate(-50%, 0));
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 0 3px;
+    border: 1px solid $color-hotpink;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+
+    button {
+      display: none;
+    }
+
+    &.slick-active {
+      background-color: $color-hotpink;
+    }
+  }
+}
+// end slick dots
+
+// start slick next and prev buttons
+.fr-slick-next,
+.fr-slick-prev {
+  color: rgba(236,64,122,0.32);
+  font-size: 14px;
+  line-height: 14px;
+  cursor: pointer;
+}
+// end slick next and prev buttons
+
+.btn-load-more {
+  display: inline-block;
+  padding: 13px 24px;
+  color: #ed4597;
+  font: bold 16px/22px "Open Sans";
+  text-decoration: none;
+  box-sizing: border-box;
+  border: 1px solid #ed4597;
+  border-radius: 5px;
+  transition: all 0.1s ease-in;
+
+  @include on-event {
+    color: #fff;
+    text-decoration: none;
+    background: $color-hotpink;
+    transition: all 0.1s ease-in;
+    border: 1px solid #fff;
+  }
+
+  @include respond-to(md-down) {
+    font-size: 14px;
+    padding: 7px 20px;
+  }
+}

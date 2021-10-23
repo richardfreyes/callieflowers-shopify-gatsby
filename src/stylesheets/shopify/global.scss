@@ -1,0 +1,46 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the global shopify page.
+// -----------------------------------------------------------------------------
+
+
+.template-customers-login,
+.template-customers-register,
+.template-404 {
+  .section {
+    &.payment-methods {
+      margin-top: 0;
+    }
+  }
+}
+
+.template-product {
+  .section {
+    margin-bottom: 60px;
+  }
+}
+
+// .template-index,
+// .template-product {
+//   main {
+//     &.main-sidenav {
+//       @include flexbox;
+//
+//       .sections-wrapper {
+//         width: 100%;
+//       }
+//     }
+//   }
+// }
+
+
+main {
+  &.main-sidenav {
+    @include flexbox;
+
+    .sections-wrapper {
+      width: 100%;
+    }
+  }
+}

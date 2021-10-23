@@ -1,0 +1,259 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+
+.page-home,
+.index {
+  .section {
+    &.intro {
+      padding-top: 20px;
+      background: #FFF2F2;
+
+      .container {
+        .row-holder {
+          padding-bottom: 16px;
+
+          .col-holder {
+            .featured-slider {
+              // height: 100%;
+              position: relative;
+              border: 1px solid rgba(237,69,151,0.32);
+              border-radius: 4px;
+              visibility: hidden;
+
+              &.slick-initialized {
+                visibility: visible;
+
+                .slick-list,
+                .slick-track {
+                    // height: 100%;
+                }
+              }
+
+              img {
+                height: 100%;
+                border-radius: 4px;
+                outline: none;
+              }
+
+              ul {
+                &.slick-dots {
+                  display: block;
+                  top: 12px;
+                  right: 12px;
+                  bottom: inherit;
+                  left: inherit;
+                  line-height: 12px;
+                  transform: inherit;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include respond-to(lg-down) {
+    .section {
+      &.intro {
+
+        .container {
+          .row-holder {
+
+            .col-holder {
+              .featured-slider {
+                height: 100%;
+
+                &.slick-initialized {
+
+                  .slick-list,
+                  .slick-track {
+                      height: 100%;
+                  }
+                }
+
+                img {
+                  object-fit: cover;
+                }
+
+                ul {
+                  &.slick-dots {
+                  }
+                }
+              }
+
+              .flash-sale {
+
+                .img-holder {
+
+                  img {
+                    height: 120px;
+                  }
+                }
+
+                .desc {
+
+                  p {
+                    .decimal {
+                    }
+
+                    &.product-name {
+                    }
+
+                    &.original-price {
+                    }
+
+                    &.old-price {
+
+                      .f-price {
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include respond-to(md-down) {
+    margin-top: 99px;
+
+    .section {
+      &.intro {
+        .container {
+          .row-holder {
+            padding-bottom: 15px;
+
+            .col-holder {
+              .featured-slider {
+                &.slick-initialized {
+
+                  .slick-list,
+                  .slick-track {
+                      height: inherit;
+                  }
+                }
+
+                img {
+
+                }
+
+                ul {
+                  &.slick-dots {
+                  }
+                }
+              }
+
+              .flash-sale {
+                margin-bottom: 5px;
+
+                .img-holder {
+                  padding: 5px;
+
+                  img {
+                    height: 90px;
+                  }
+                }
+
+                .desc {
+
+                  p {
+                    .decimal {
+                    }
+
+                    &.product-name {
+                      font-size: 18px;
+                    }
+
+                    &.original-price {
+                      font-size: 13px;
+                    }
+
+                    &.old-price {
+                      font-size: 13px;
+
+                      .f-price {
+                        font-size: 13px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include respond-to(sm-down) {
+    margin-top: 88px;
+
+    .section {
+      &.intro {
+        padding-top: 10px;
+
+        .container {
+          max-width: 100%;
+          // padding-right: 5px;
+          // padding-left: 5px;
+
+          .row-holder {
+            padding-bottom: 10px;
+
+            .col-holder {
+              padding-right: 5px;
+              padding-left: 5px;
+
+              .featured-slider {
+
+                img {
+                }
+
+                ul {
+                  &.slick-dots {
+                  }
+                }
+              }
+
+              .flash-sale {
+
+                .img-holder {
+
+                  img {
+                  }
+                }
+
+                .desc {
+
+                  p {
+                    .decimal {
+                    }
+
+                    &.product-name {
+                    }
+
+                    &.original-price {
+                    }
+
+                    &.old-price {
+
+                      .f-price {
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

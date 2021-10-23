@@ -1,0 +1,45 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the flowers meaning page.
+// -----------------------------------------------------------------------------
+
+.flowers-meaning-page {
+  .section {
+    &.page-content {
+      .container {
+        h1 {
+          &.page-title {
+
+          }
+        }
+
+        h2 {
+          &.sub-title {
+            margin-top: 24px;
+          }
+        }
+
+        .row-holder {
+          .col-holder {
+            margin-top: 40px;
+            text-align: center;
+
+            .content-holder {
+              .sub-title {
+                margin-top: 10px;
+              }
+
+              img {
+                width: 170px;
+                height: 170px;
+                border-radius: 50%;
+                box-shadow: 0 0 12px 9px #5454541f;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

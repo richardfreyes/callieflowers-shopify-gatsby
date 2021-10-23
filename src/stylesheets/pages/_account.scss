@@ -1,0 +1,276 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the account page.
+// -----------------------------------------------------------------------------
+
+.account-page {
+  .section {
+    &.fr-address {
+      padding: 72px 0;
+
+      .container {
+        .title-logout-wrapper {
+          @include flexbox;
+          margin-bottom: 24px;
+
+          .title {
+            margin: 0;
+            color: #000042;
+            font: 800 italic 32px/40px "Open Sans";
+          }
+
+          .logout {
+            margin: auto 0 auto auto;
+            color: #000042;
+            text-decoration: none;
+            font: bold 14px/20px "Roboto";
+
+            .text {
+              line-height: 20px;
+            }
+
+            .fr-icon {
+              margin-left: 8px;
+              color: rgba(0,0,66,0.32);
+              font-size: 20px;
+              text-align: center;
+            }
+          }
+        }
+
+        h2 {
+          margin-bottom: 8px;
+          color: #000042;
+          font: bold 14px/20px "Roboto";
+        }
+
+        .fr-icon {
+          position: relative;
+          top: 3px;
+        }
+
+        .row-holder {
+          .col-holder {
+
+            h2 {
+              .fr-icon {
+                margin-left: 8px;
+                color: rgba(0,0,66,0.32);
+                font-size: 20px;
+              }
+            }
+
+            .content-wrapper {
+              height: calc(100% - 33px);
+              padding: 16px;
+              border: 2px solid #EDF4FF;
+              border-radius: 4px;
+
+              p {
+                margin: 0;
+                color: #000042;
+                font: normal 14px/20px "Roboto";
+
+                &.name {
+                  font-weight: bold;
+                }
+
+                &.no-address {
+                  color: rgba(0,0,66,0.32);
+                }
+              }
+            }
+          }
+        }
+
+        .order-history {
+          margin-top: 32px;
+
+          h2 {
+          }
+
+          table {
+            width: 100%;
+            border: 2px solid #EDF4FF;
+            border-radius: 4px;
+
+            th, td {
+              padding: 8px 16px;
+              color: #000042;
+              font: bold 14px/14px "Roboto";
+            }
+
+            thead {
+              height: 36px;
+              border: 2px solid #EDF4FF;
+              border-radius: 4px 4px 0 0;
+              background-color: #EDF4FF;
+
+              tr {
+                th {
+                }
+              }
+            }
+
+            tbody {
+              tr {
+                th {
+
+                  a {
+                    color: #000042;
+                  }
+                }
+
+                td {
+                }
+              }
+            }
+          }
+
+          .pagination {
+            padding-top: 30px;
+
+            ul {
+              margin: 0 auto;
+              padding: 0;
+
+              li {
+                &.pagination__text {
+                  margin: auto;
+                }
+
+                a, button {
+                  .icon {
+                    height: 10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .no-recent-orders {
+          width: 100%;
+          padding: 48px 15px;
+          border: 2px solid #EDF4FF;
+          border-radius: 4px;
+
+          .icon-wrapper {
+            text-align: center;
+            margin-bottom: 24px;
+
+            .fr-icon {
+              color: rgba(0,0,66,0.32);
+              font-size: 72px;
+              line-height: 72px;
+            }
+          }
+
+          p {
+            text-align: center;
+            color: rgba(0,0,66,0.32);
+            font: 800 italic 24px/32px "Open Sans";
+          }
+        }
+      }
+    }
+
+    @include respond-to(md-down) {
+      &.fr-address {
+        padding: 30px 0;
+      }
+    }
+
+    @include respond-to(sm-down) {
+      &.fr-address {
+
+        .container {
+          .title-logout-wrapper {
+            margin-bottom: 25px;
+
+            .title {
+              margin: auto 0 auto 0;
+              font-size: 19px;
+              line-height: 19px;
+            }
+
+            .logout {
+
+              .text {
+                line-height: 30px;
+              }
+
+              .fr-icon {
+                margin-left: 0;
+              }
+            }
+          }
+
+          h2 {
+            margin-bottom: 5px;
+          }
+
+          .row-holder {
+            .col-holder {
+              &:first-child {
+                margin-bottom: 25px;
+              }
+
+              h2 {
+                .fr-icon {
+                }
+              }
+
+              .content-wrapper {
+                padding: 10px;
+                height: calc(100% - 30px);
+
+                p {
+                  font: normal 13px/16px "Roboto";
+
+                  &.name {
+                  }
+                }
+              }
+            }
+          }
+
+          .order-history {
+            margin-top: 25px;
+
+            h2 {
+            }
+
+            table {
+
+              th, td {
+              }
+
+              thead {
+
+                tr {
+                  th {
+                  }
+                }
+              }
+
+              tbody {
+                tr {
+                  th {
+
+                    a {
+                    }
+                  }
+
+                  td {
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

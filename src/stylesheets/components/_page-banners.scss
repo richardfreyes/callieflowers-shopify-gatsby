@@ -1,0 +1,124 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the page-banners component.
+// -----------------------------------------------------------------------------
+
+.section {
+  &.page-banner {
+    // padding: 47px 0 100px;
+    padding: 47px 0 40px;
+    background-color: $color-brand;
+
+    .desc-wrapper {
+      .page-title {
+        margin-bottom: 16px;
+        color: #312952;
+        font: normal 800 32px/40px "Pacifico";
+        text-align: center;
+      }
+
+      .page-desc, p {
+        margin: 0;
+        color: #312952;
+        font: normal 14px/20px "Roboto";
+        text-align: center;
+      }
+    }
+
+    .services-wrapper {
+      margin-top: 40px;
+
+      .row-holder {
+        .col-holder {
+          .text-holder {
+            p {
+              color: #312952;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.product-nav {
+    padding-bottom: 0;
+    background-color: #fff;
+  }
+
+  @include respond-to(md-down) {
+    &.page-banner {
+      padding: 30px 0 60px;
+
+      .desc-wrapper {
+        .page-title {
+        }
+
+        .page-desc {
+        }
+      }
+
+      .services-wrapper {
+
+        .row-holder {
+          .col-holder {
+            .text-holder {
+              p {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include respond-to(sm-down) {
+    &.page-banner {
+      padding: 15px 0 30px;
+
+      .desc-wrapper {
+        .page-title {
+          margin-bottom: 5px;
+          font-size: 25px;
+        }
+
+        .page-desc {
+          font-size: 13px;
+        }
+      }
+
+      .services-wrapper {
+        margin-top: 30px;
+
+        .row-holder {
+          .col-holder {
+            .text-holder {
+              p {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.page-banner-image {
+  height: 300px;
+  overflow: hidden;
+
+  img {
+    width: auto;
+    height: 100%;
+  }
+
+  @include respond-to(md-down) {
+    display: none;
+    height: 200px;
+
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+}

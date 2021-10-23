@@ -1,0 +1,369 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the product-detail page.
+// -----------------------------------------------------------------------------
+.shopify-section {
+  .page-width {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .product-page-detail {
+    .section {
+      &.product-view-content {
+        .container {
+          .row-holder {
+            .col-holder {
+              .product-view {
+
+                img {
+                }
+              }
+
+              .image-view-option {
+
+                .image-holder {
+
+                  @include on-event {
+                  }
+
+                  // &:first-child {
+                  // }
+                  //
+                  // &:last-child {
+                  // }
+
+                  img {
+                  }
+                }
+              }
+
+              .product-desc-holder {
+                .product-title {
+                }
+
+                .product-desc {
+                }
+
+                .product-add-minus-holder {
+
+                  .f-price {
+                    p {
+
+                      .old-price {
+                      }
+
+                      &.current-price {
+                      }
+
+                      &.current-price-not-sale {
+                      }
+                    }
+                  }
+
+                  .add-minus {
+
+                    a {
+
+                      @include on-event {
+                      }
+
+                      .icon {
+                      }
+                    }
+
+                    .value {
+                    }
+                  }
+                }
+
+                .addons-title {
+                }
+
+                .addons-carousel {
+                  .slick-arrow {
+
+                    &:before {
+                    }
+
+                      &.fr-slick-next {
+                      }
+
+                      &.fr-slick-next {
+                      }
+                  }
+
+                  .addons-item {
+
+                    label {
+
+                      @include on-event {
+                      }
+
+                      input {
+                      }
+                    }
+
+                    .img-holder {
+
+                      img {
+                      }
+                    }
+
+                    .addons-name {
+                    }
+
+                    .addons-price {
+                    }
+                  }
+                }
+              }
+
+              form {
+              }
+
+              .btn-add-cart {
+
+                @include on-event {
+                }
+              }
+            }
+          }
+        }
+      }
+
+      @include respond-to(md-down) {
+        &.product-view-content {
+
+          .container {
+            .row-holder {
+              .col-holder {
+                .product-view {
+
+                  img {
+
+                  }
+                }
+
+                .image-view-option {
+                  margin-top: 15px;
+
+                  .slick-arrow {
+                    font-size: 30px;
+                  }
+
+                  .image-holder {
+
+                    &:first-child {
+                    }
+
+                    &:last-child {
+                    }
+
+                    img {
+                    }
+                  }
+                }
+
+                .product-desc-holder {
+                  .product-title {
+                  }
+
+                  .product-desc {
+                  }
+
+                  .product-add-minus-holder {
+
+                    .f-price {
+                      p {
+
+                        .old-price {
+                        }
+
+                        &.current-price {
+                        }
+                      }
+                    }
+
+                    .add-minus {
+
+                      a {
+
+                        @include on-event {
+                        }
+
+                        .icon {
+                        }
+                      }
+
+                      .value {
+                      }
+                    }
+                  }
+
+                  .addons-title {
+                  }
+
+                  .addons-carousel {
+
+                    .slick-arrow {
+
+                      &:before {
+                      }
+
+                        &.fr-slick-next {
+                        }
+
+                        &.fr-slick-next {
+                        }
+                    }
+
+                    .addons-item {
+                      .img-holder {
+
+                        img {
+                        }
+                      }
+
+                      .addons-name {
+                      }
+
+                      .addons-price {
+                      }
+                    }
+                  }
+                }
+
+                .btn-add-cart {
+                }
+              }
+            }
+          }
+        }
+
+        &.featured-products {
+        }
+      }
+
+      @include respond-to(sm-down) {
+        &.product-view-content {
+
+          .container {
+
+            .row-holder {
+              .col-holder {
+                .product-view {
+                  .product-single__media {
+                    padding-top: 0 !important;
+
+                    img {
+                      position: relative;
+                      width: auto;
+                      height: 250px;
+                      max-width: inherit;
+                      max-height: inherit;
+                    }
+                  }
+                }
+
+                .image-view-option {
+
+                  .image-holder {
+
+                    &:first-child {
+                    }
+
+                    &:last-child {
+                    }
+
+                    img {
+                    }
+                  }
+                }
+
+                .product-desc-holder {
+                  .product-title {
+                  }
+
+                  .product-desc {
+                  }
+
+                  .product-add-minus-holder {
+
+                    .f-price {
+                      p {
+
+                        .old-price {
+                        }
+
+                        &.current-price {
+                        }
+                      }
+                    }
+
+                    .add-minus {
+
+                      a {
+
+                        @include on-event {
+                        }
+
+                        .icon {
+                        }
+                      }
+
+                      .value {
+                      }
+                    }
+                  }
+
+                  .addons-title {
+                  }
+
+                  .addons-carousel {
+
+                    .slick-arrow {
+
+                      &:before {
+                      }
+
+                        &.fr-slick-next {
+                        }
+
+                        &.fr-slick-next {
+                        }
+                    }
+
+                    .addons-item {
+                      margin: 0;
+
+                      .img-holder {
+
+                        img {
+                        }
+                      }
+
+                      .addons-name {
+                        margin-bottom: 5px;
+                      }
+
+                      .addons-price {
+                        margin-bottom: 5px;
+                      }
+                    }
+                  }
+                }
+
+                .btn-add-cart {
+                }
+              }
+            }
+          }
+        }
+
+        &.all-right-reserved {
+        }
+      }
+    }
+  }
+}

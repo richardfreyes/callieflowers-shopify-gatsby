@@ -1,0 +1,160 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the orders shopify page.
+// -----------------------------------------------------------------------------
+
+.template-customers-order {
+  .orders-page {
+    .section {
+      &.orders {
+        padding: 48px 0;
+
+        .container {
+          .row-holder {
+            margin-top: 20px;
+
+            .col-holder {
+              h2 {
+                margin-bottom: 10px;
+                color: #000042;
+                font: bold 18px/20px "Roboto";
+              }
+
+              p {
+                &.date-placed {
+                  margin-bottom: 10px;
+                  font-size: 14px;
+                }
+              }
+
+              table {
+                &.order-table {
+                  thead {
+                    height: 36px;
+                    border: 2px solid #edf4ff;
+                    border-radius: 4px 4px 0 0;
+                    background-color: #edf4ff;
+
+                    tr {
+                      th {
+                        padding: 8px 16px;
+                        color: #000042;
+                        font: bold 14px/14px "Roboto";
+                      }
+                    }
+                  }
+
+                  tbody {
+                    tr {
+                      th {
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+
+                        .note {
+                          margin-bottom: 0;
+                          padding: 5px;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+
+              .row-holder-inner {
+                .col-holder-inner {
+                  h3 {
+                    margin-bottom: 8px;
+                    color: #000042;
+                    font: bold 14px/20px "Roboto";
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      @include respond-to(md-down) {
+        &.orders {
+          padding: 30px 0;
+        }
+      }
+
+      @include respond-to(sm-down){
+        &.orders {
+
+          .container {
+            .row-holder {
+
+              .col-holder {
+                h2 {
+                }
+
+                p {
+                  &.date-placed {
+                  }
+                }
+
+                table {
+                  &.order-table {
+                    thead {
+
+                      tr {
+                        th {
+                        }
+                      }
+                    }
+
+                    tbody {
+                      tr {
+                        th, td {
+                          padding-top: 5px;
+                          padding-bottom: 5px;
+                          font-size: 13px;
+
+                          &:before {
+                            font-size: 13px;
+                            font-weight: normal;
+                          }
+
+                          dl {
+                            margin: 0;
+
+                            dd {
+                              margin: 0;
+                            }
+                          }
+                        }
+
+                        th {
+
+
+                          .note {
+                            margin-left: 15px;
+                            padding: 0px 7px;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+
+                .row-holder-inner {
+                  .col-holder-inner {
+                    &:last-child {
+                      margin-top: 15px;
+                    }
+
+                    h3 {
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

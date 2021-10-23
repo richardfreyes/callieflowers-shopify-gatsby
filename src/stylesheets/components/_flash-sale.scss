@@ -1,0 +1,185 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the flash-sale component.
+// -----------------------------------------------------------------------------
+
+.flash-sale {
+  .link-wrap {
+    position: relative;
+    @include flexbox;
+    flex-wrap: wrap;
+    height: 100%;
+    border: 1px solid rgba(248, 122, 123, 0.32);
+    border-radius: 2px;
+    background: #fff;
+
+    .img-holder {
+      margin: auto;
+
+      img {
+        height: auto;
+        width: 100%;
+      }
+    }
+
+    .desc {
+      margin: 0 8px 0 8px;
+
+      p {
+        &.badge {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          padding: 2px 4px;
+          text-align: center;
+          text-transform: uppercase;
+          color: #fff;
+          letter-spacing: 8px;
+          font: 800 8px/12px "Open Sans";
+          letter-spacing: 0.67px;
+          border-radius: 2px;
+
+          &.best-seller {
+            background-color: #42A5F5;
+          }
+
+          &.artist-choice {
+            background-color: #FFA726;
+          }
+
+          &.sale {
+            background-color: #ED4597;
+          }
+        }
+        .decimal {
+          font-size: 10px;
+        }
+
+        &.product-name {
+          margin-bottom: 8px;
+          color: #312952;
+          font: normal 12px/16px 'Source Sans Pro';
+        }
+
+        &.original-price {
+          color: #F87A7B;
+          font: bold 14px/22px "Roboto";
+          margin: 0;
+        }
+
+        &.old-price {
+          color: rgba(49,41,82,0.54);
+          font: normal 14px/16px "Roboto";
+          margin: 0;
+
+          .f-price {
+            text-decoration: line-through;
+          }
+        }
+      }
+    }
+  }
+
+  @include respond-to(md-down) {
+    padding-top: 30px;
+    margin-bottom: 30px;
+
+    .container {
+      .title {
+        margin-bottom: 21px;
+        text-align: center;
+        font: normal 32px/40px "Pacifico";
+      }
+
+      .row-holder {
+        .col-holder {
+          a {
+            &.link-wrap {
+              @include flexbox;
+              @include boxshadow(0 0.125rem 0.25rem #00000021);
+              padding: 10px;
+              flex-wrap: nowrap;
+
+              .img-holder {
+                margin: 0;
+
+                img {
+                  // height: 109px;
+                  // object-fit: cover;
+                }
+              }
+
+              .desc {
+                margin: auto 30px;
+
+                p {
+                  &.product-name {
+                    font-weight: bold;
+
+                  }
+
+                  &.origina-price {
+
+                  }
+
+                  &.old-price {
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include respond-to(sm-down) {
+    padding-top: 15px;
+    margin-bottom: 15px;
+
+    .container {
+      .title {
+        margin-bottom: 10px;
+        font-size: 22px;
+      }
+
+      .row-holder {
+        .col-holder {
+          padding-right: 5px;
+          padding-left: 5px;
+
+          a {
+            &.link-wrap {
+
+              .img-holder {
+
+                img {
+                }
+              }
+
+              .desc {
+                margin: auto 5px;
+                
+                p {
+                  &.product-name {
+
+                  }
+
+                  &.origina-price {
+
+                  }
+
+                  &.old-price {
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

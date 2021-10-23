@@ -1,0 +1,496 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the product-detail page.
+// -----------------------------------------------------------------------------
+.product-page-detail {
+  .section {
+    &.product-view-content {
+      display: block;
+      padding-top: 72px;
+
+      .container {
+        .row-holder {
+          .col-holder {
+            .product-view {
+              text-align: center;
+              border: 1px solid rgba(237,69,151,0.32);
+              border-radius: 4px;
+
+              img {
+                width: 100%;
+              }
+            }
+
+            .image-view-option {
+              position: relative;
+              display: block;
+              margin-top: 24px;
+              display: none;
+
+              &.slick-initialized { display: block; }
+
+              .slick-arrow {
+                position: absolute;
+                z-index: 1;
+                top: 50%;
+                transform: translate(0, -50%);
+
+                &.fr-slick-prev {
+                  left: 25px;
+                }
+
+                &.fr-slick-next {
+                  right: 25px;
+                }
+              }
+
+              .image-holder {
+                margin: 0 8px;
+                border-radius: 4px;
+                border: 2px solid rgba(237,69,151,0.32);
+
+                @include on-event {
+                  border: 2px solid $color-hotpink;
+                }
+
+                // &:first-child {
+                //   margin-left: auto;
+                // }
+                //
+                // &:last-child {
+                //   margin-right: auto;
+                // }
+
+                img {
+                  width: 100%;
+                  height: auto;
+                }
+              }
+            }
+
+            .product-desc-holder {
+              .product-title {
+                color: #000042;
+                font: normal 800 32px/40px "Pacifico";
+              }
+
+              .product-desc {
+                color: #000042;
+                font: normal 14px/20px "Roboto";
+              }
+
+              .product-add-minus-holder {
+                @include flexbox;
+
+                .f-price {
+                  p {
+                    margin: 0;
+                    color: #000042;
+                    font: normal 14px/20px "Roboto";
+
+                    .old-price {
+                      font-weight: bold;
+                      text-decoration: line-through;
+                    }
+
+                    &.current-price {
+                      color: #F32163;
+                      font: bold 18px/24px "Roboto";
+                    }
+
+                    &.current-price-not-sale {
+                      font: bold 18px/24px "Roboto";
+                    }
+                  }
+                }
+
+                .add-minus {
+                  @include flexbox;
+                  width: 150px;
+                  margin-left: auto;
+                  border: 1px solid rgba(0,0,67,0.16);
+                  border-radius: 5px;
+                  background-color: #FFFFFF;
+
+                  a {
+                    @include flexbox;
+                    text-decoration: none;
+                    margin: auto;
+
+                    @include on-event {
+                      text-decoration: none;
+                    }
+
+                    .icon {
+                      margin: auto;
+                      color: #F32163;
+                      font-size: 32px;
+                      line-height: 32px;
+                    }
+                  }
+
+                  .value {
+                    margin: auto;
+                    color: rgba(0,0,67,0.32);
+                    font: normal 16px/22px "Roboto";
+                  }
+                }
+              }
+
+              .addons-title {
+                color: #000042;
+                font: italic 800 18px/24px "Open Sans";
+              }
+
+              .addons-carousel {
+                position: relative;
+                padding: 0 40px;
+                visibility: hidden;
+
+                &.slick-initialized { visibility: visible; }
+
+                .slick-arrow {
+                  position: absolute;
+                  top: 0;
+                  height: 100%;
+                  width: 40px;
+                  font-size: 40px;
+                  background-color: rgba(237,69,151,0.16);
+                  transform: none;
+                  // background: linear-gradient(90deg, rgba(255,255,255,0) 0%, #FFFFFF 100%);
+
+                  &:before {
+                    position: absolute;
+                    top: 50%;
+                    transform: translate(10px, -50%);
+                  }
+
+                  &.fr-slick-prev {
+                    left: 0;
+                  }
+
+                  &.fr-slick-next {
+                    right: -1px;
+                  }
+                }
+
+                .addons-item {
+                  margin: 0 5px;
+                  outline: none;
+
+                  label {
+                    position: relative;
+                    margin: 0;
+                    border: #ddd solid 1px;
+                    cursor: pointer;
+
+                    @include on-event {
+                      border: 1px solid;
+                      border-image-source: linear-gradient(90deg, #FDC800 0%, #FF15FF 100%);
+                      border-image-slice: 1;
+                    }
+
+                    input {
+                      display: block;
+                      margin: 0 auto 5px auto;
+                    }
+                  }
+
+                  .img-holder {
+                    width: 100%;
+                    height: auto;
+                    margin: auto;
+                    padding: 5px;
+
+                    img {
+                      width: 100%;
+                    }
+                  }
+
+                  .addons-name {
+                    display: block;
+                    min-height: 40px;
+                    color: #000042;
+                    font: normal 14px/20px "Roboto";
+                    text-align: center;
+                  }
+
+                  .addons-price {
+                    display: block;
+                    color: #000042;
+                    font: bold 14px/20px "Roboto";
+                    text-align: center;
+                  }
+                }
+              }
+            }
+
+            form {
+              max-width: 100%;
+            }
+
+            .btn-add-cart {
+              display: inline-block;
+              border: none;
+              width: 100%;
+              margin-top: 40px;
+              padding: 12px;
+              text-align: center;
+              color: #fff;
+              font: 800 16px/24px "Open Sans";
+              letter-spacing: 2px;
+              border-radius: 24px;
+              background: $color-hotpink;
+
+              @include on-event {
+                background: $color-hotpink2;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @include respond-to(md-down) {
+      &.product-view-content {
+        padding-top: 30px;
+
+        .container {
+          .row-holder {
+            .col-holder {
+              .product-view {
+
+                img {
+
+                }
+              }
+
+              .image-view-option {
+                margin-top: 15px;
+
+                .slick-arrow {
+                  font-size: 30px;
+                }
+
+                .image-holder {
+
+                  &:first-child {
+                  }
+
+                  &:last-child {
+                  }
+
+                  img {
+                  }
+                }
+              }
+
+              .product-desc-holder {
+                .product-title {
+                }
+
+                .product-desc {
+                }
+
+                .product-add-minus-holder {
+
+                  .f-price {
+                    p {
+
+                      .old-price {
+                      }
+
+                      &.current-price {
+                      }
+                    }
+                  }
+
+                  .add-minus {
+
+                    a {
+
+                      @include on-event {
+                      }
+
+                      .icon {
+                      }
+                    }
+
+                    .value {
+                    }
+                  }
+                }
+
+                .addons-title {
+                }
+
+                .addons-carousel {
+
+                  .slick-arrow {
+
+                    &:before {
+                    }
+
+                      &.fr-slick-prev {
+                      }
+
+                      &.fr-slick-next {
+                      }
+                  }
+
+                  .addons-item {
+                    .img-holder {
+                      width: 100%;
+                      height: auto;
+
+                      img {
+                      }
+                    }
+
+                    .addons-name {
+                    }
+
+                    .addons-price {
+                    }
+                  }
+                }
+              }
+
+              .btn-add-cart {
+              }
+            }
+          }
+        }
+      }
+
+      &.featured-products {
+        margin-top: 30px;
+      }
+    }
+
+    @include respond-to(sm-down) {
+      &.product-view-content {
+        padding-top: 15px;
+
+        .container {
+          max-width: 100%;
+
+          .row-holder {
+            .col-holder {
+              .product-view {
+
+                img {
+                  width: auto;
+                  height: 250px;
+
+                }
+              }
+
+              .image-view-option {
+
+                .image-holder {
+
+                  &:first-child {
+                  }
+
+                  &:last-child {
+                  }
+
+                  img {
+                  }
+                }
+              }
+
+              .product-desc-holder {
+                .product-title {
+                  margin: 10px 0;
+                  font-size: 23px;
+                }
+
+                .product-desc {
+                  font-size: 13px;
+                }
+
+                .product-add-minus-holder {
+
+                  .f-price {
+                    p {
+
+                      .old-price {
+                      }
+
+                      &.current-price {
+                      }
+                    }
+                  }
+
+                  .add-minus {
+
+                    a {
+
+                      @include on-event {
+                      }
+
+                      .icon {
+                      }
+                    }
+
+                    .value {
+                    }
+                  }
+                }
+
+                .addons-title {
+                }
+
+                .addons-carousel {
+
+                  .slick-arrow {
+
+                    &:before {
+                    }
+
+                      &.fr-slick-prev {
+                      }
+
+                      &.fr-slick-next {
+                      }
+                  }
+
+                  .addons-item {
+                    .img-holder {
+
+                      img {
+                      }
+                    }
+
+                    .addons-name {
+                    }
+
+                    .addons-price {
+                    }
+                  }
+                }
+              }
+
+              .btn-add-cart {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                z-index: 2;
+                width: 100%;
+                margin: 0;
+                border-radius: 0;
+              }
+            }
+          }
+        }
+      }
+
+      &.all-right-reserved {
+        padding-bottom: 49px;
+      }
+    }
+  }
+}

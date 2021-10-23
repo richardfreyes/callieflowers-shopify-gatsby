@@ -1,0 +1,13 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the hamburger component.
+// -----------------------------------------------------------------------------
+
+.navbar-toggler[aria-expanded="true"] {
+  &::after {
+    content: "";
+    position: absolute;
+    
+  }
+}

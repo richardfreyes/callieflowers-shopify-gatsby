@@ -1,0 +1,189 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the services component.
+// -----------------------------------------------------------------------------
+
+.services-wrapper {
+  .row-holder {
+    .col-holder {
+      .holder {
+        @include flexbox;
+        flex-wrap: wrap;
+        padding: 5px;
+        border: 1px dashed rgba(237,69,151,0.32);
+        background: #fff;
+
+        .icon-holder {
+          margin-right: 19px;
+
+          span {
+            font-size: 32px;
+            color: $color-hotpink;
+          }
+        }
+
+        .text-holder {
+          margin: auto 0;
+
+          p {
+            margin: 0;
+
+            &.text-heading {
+              margin: 0;
+              color: #000043;
+              font: 800 14px/18px "Open Sans";
+            }
+
+            &.desc {
+              color: #000042;
+              font: 14px/20px "Roboto";
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include respond-to(lg-down) {
+  .services-wrapper {
+    .row-holder {
+      .col-holder {
+        .holder {
+
+          .icon-holder {
+            margin-right: 5px;
+
+            span {
+            }
+          }
+
+          .text-holder {
+
+            p {
+
+              &.text-heading {
+                font: 800 13px/18px "Open Sans";
+              }
+
+              &.desc {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include respond-to(md-down) {
+  .services-wrapper {
+    position: relative;
+
+    .row-holder {
+      .col-holder {
+        flex-wrap: wrap;
+
+        .holder {
+          .icon-holder {
+            width: 100%;
+            margin-right: 0;
+            margin: 0;
+            text-align: center;
+
+            img {
+              width: 35px;
+            }
+          }
+
+          .text-holder {
+            width: 100%;
+            text-align: center;
+
+            p {
+
+              &.text-heading {
+                font-size: 12px;
+              }
+
+              &.desc {
+                font-size: 11px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include respond-to(sm-down) {
+  .services-wrapper {
+    margin-top: 10px;
+
+    .row-holder {
+      .col-holder {
+        padding-right: 5px;
+        padding-left: 5px;
+
+        .holder {
+          height: 100%;
+          padding: 3px;
+
+          .icon-holder {
+            img {
+              width: 30px;
+            }
+          }
+
+          .text-holder {
+
+            p {
+
+              &.text-heading {
+                font-size: 10px;
+                line-height: 10px;
+              }
+
+              &.desc {
+                margin-top: 2px;
+                font-size: 9px;
+                line-height: 11px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include respond-to(xs) {
+  .services-wrapper {
+
+    .row-holder {
+      .col-holder {
+        .holder {
+          .icon-holder {
+
+            span {
+            }
+          }
+
+          .text-holder {
+
+            p {
+
+              &.text-heading {
+              }
+
+              &.desc {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

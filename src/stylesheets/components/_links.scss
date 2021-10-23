@@ -1,0 +1,150 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the link component.
+// -----------------------------------------------------------------------------
+
+.links {
+  position: relative;
+  width: 100%;
+  border-top: 1px solid #ed459621;
+  background: #feefef;
+  @include boxshadow(0px 4px 16px 0px rgba(0,0,66,0.16));
+
+  ul {
+    &.nav-tags {
+      position: relative;
+      margin: 0 30px;
+      padding: 0;
+      display: none;
+
+      &.slick-initialized { display: block; }
+
+      li {
+        &.tags {
+          display: inline-block;
+          padding: 8px 4px;
+          list-style: none;
+
+          a {
+            display: inline-block;
+            padding: 8px 12px;
+            color: #F87A7B;
+            font-size: 12px;
+            text-decoration: none;
+            background: rgba(248, 122, 123, 0.12);
+            border: 1px solid rgba(248, 122, 123, 0.32);
+            box-sizing: border-box;
+            border-radius: 100px;
+            transition: all 0.1s ease-in;
+
+            @include on-event {
+              color: #fff;
+              background: #F87A7B;
+              transition: all 0.1s ease-in;
+            }
+          }
+        }
+      }
+
+      .slick-arrow {
+        position: absolute;
+        top: 50%;
+        z-index: 1;
+        display: inline-block;
+        padding: 12px;
+        background-color: #feefef;
+        transform: translate(0, -50%);
+
+        @include on-event {
+          // padding: 18px;
+          // transition: all 0.1s ease-in;
+        }
+
+        &.slick-disabled {
+            display: none !important;
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          width: 100px;
+          padding: 20px;
+          transform: translate(0, -50%);
+          pointer-events: none;
+        }
+
+
+
+        &.fr-slick-next {
+          right: -15px;
+
+          &:after {
+            right: 22px;
+            background: linear-gradient(to left, #feefef 20%, rgba(253,231,234,0%) 80%);
+          }
+        }
+
+        &.fr-slick-prev {
+          left: -15px;
+
+          &:after {
+            left: 22px;
+            background: linear-gradient(to right, #feefef 20%, rgba(253,231,234,0%) 80%);
+          }
+        }
+      }
+    }
+
+    @include respond-to(sm-down) {
+      &.nav-tags {
+        margin: 0;
+
+        li {
+          &.tags {
+            padding: 4px;
+            line-height: 12px;
+
+            a {
+              padding: 5px 8px;
+              font-size: 10px;
+
+              @include on-event {
+              }
+            }
+          }
+        }
+
+        .slick-arrow {
+          padding: 7px;
+
+          @include on-event {
+          }
+
+          &.slick-disabled {
+          }
+
+          &:after {
+            width: 20px;
+            padding: 16px;
+          }
+
+
+
+          &.fr-slick-next {
+
+            &:after {
+            }
+          }
+
+          &.fr-slick-next {
+
+            &:after {
+            }
+          }
+        }
+      }
+    }
+  }
+}

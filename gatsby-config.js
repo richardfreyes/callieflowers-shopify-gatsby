@@ -1,13 +1,17 @@
+require("dotenv").config();
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Callie Flowers`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    author: `Richard Frey U. Reyes`,
+    siteUrl: `https://callieflowers.com/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-fontawesome-css`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -34,5 +38,15 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+
+    // Added plugins
+    {
+      resolve: "gatsby-source-shopify",
+      options: {
+        password: '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',
+        storeUrl: 'callieflowers.myshopify.com',
+      },
+    },
+    "gatsby-plugin-image",
   ],
 }

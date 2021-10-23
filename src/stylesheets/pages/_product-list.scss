@@ -1,0 +1,50 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the prodict-list page.
+// -----------------------------------------------------------------------------
+
+main {
+  &.product-list {
+    .section {
+      &.featured-products {
+        margin-top: 30px;
+        margin-bottom: 85px;
+
+        .btn-wrapper {
+          margin-top: 72px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  @include respond-to(md-down) {
+    &.product-list {
+
+      .section {
+        &.featured-products {
+          margin: 15px 0 30px;
+
+          .btn-wrapper {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+
+  @include respond-to(sm-down) {
+    &.product-list {
+
+      .section {
+        &.featured-products {
+
+          .btn-wrapper {
+            margin-top: 15px;
+          }
+        }
+      }
+    }
+  }
+}

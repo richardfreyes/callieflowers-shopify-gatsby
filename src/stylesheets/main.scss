@@ -1,0 +1,77 @@
+﻿@charset 'UTF-8';
+
+// 1. Configuration and helpers
+@import
+  'utils/variables',
+  'utils/functions',
+  'utils/mixins';
+
+// 2. Vendors
+// @import
+//   'vendors/bootstrap',
+//   'vendors/font-awesome';
+
+// 3. Base stuff
+@import
+  'base/base',
+  'base/fonts',
+  'base/typography',
+  'base/helpers',
+  'base/globals';
+
+// 4. Layout-related sections
+@import
+  // 'layout/header',
+  'layout/header2',
+  'layout/footer',
+  'layout/sidebar';
+
+// 5. Components
+@import
+  'components/buttons',
+  'components/services',
+  'components/products',
+  'components/categories',
+  'components/page-banners',
+  'components/overlays',
+  'components/links',
+  'components/flash-sale',
+  'components/hamburger',
+  'components/progress-bar';
+
+// 6. Page-specific styles
+@import
+  'pages/product-list',
+  'pages/product-detail',
+  'pages/cart',
+  'pages/cart-empty',
+  'pages/login',
+  'pages/account',
+  'pages/addresses',
+  'pages/faq',
+  'pages/contact',
+  'pages/terms-conditions',
+  'pages/flowers-meaning',
+  'pages/message-ideas',
+  'pages/care-instructions',
+  'pages/about-us',
+  'pages/home2';
+
+// 7. Themes
+@import
+  'themes/default';
+
+// 8. Shopify
+@import
+  'shopify/home',
+  'shopify/cart',
+  'shopify/product-detail',
+  'shopify/global',
+  'shopify/account',
+  'shopify/addresses',
+  'shopify/orders',
+  'shopify/contact',
+  'shopify/terms-conditions',
+  'shopify/privacy-policy',
+  'shopify/message-ideas',
+  'shopify/search';

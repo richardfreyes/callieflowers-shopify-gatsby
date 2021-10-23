@@ -1,0 +1,96 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the cart empty page.
+// -----------------------------------------------------------------------------
+
+.cart-empty-page {
+  &.empty-page-content {
+    padding: 0px;
+  }
+
+  .section {
+    &.shopping-cart-empty {
+      min-height: 590px;
+
+      .container {
+        h1 {
+          display: inline-block;
+          margin-top: 72px;
+          color: $color-hotpink;
+          font: normal 800 32px/40px "Pacifico";
+        }
+
+        .content {
+          margin-top: 40px;
+          margin-bottom: 104px;
+
+          .icon-cart {
+            color: rgba(0,0,66,0.32);
+            font: normal 72px/72px "Easy-Icns";
+            text-align: center;
+          }
+
+          .text {
+            margin-top: 24px;
+            color: rgba(0,0,66,0.32);
+            font: 800 normal 24px/32px "Open Sans";
+            text-align: center;
+          }
+
+          .btn-holder {
+            margin-top: 42px;
+            text-align: center;
+
+            a {
+              &.btn-brand-gradient {
+                &:not([disabled]):hover {
+                  color: #fff;
+                }
+
+                @include on-event {
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @include respond-to(sm-down) {
+      &.shopping-cart-empty {
+        min-height: 300px;
+
+        .container {
+          h1 {
+            margin-top: 15px;
+            font-size: 25px;
+          }
+
+          .content {
+
+            .icon {
+              font-size: 50px;
+            }
+
+            .text {
+              margin-top: 5px;
+              font-size: 20px;
+            }
+
+            .btn-holder {
+              margin-top: 20px;
+
+              a {
+                &.btn-brand-gradient {
+                  padding: 5px 20px;
+                  font-size: 11px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

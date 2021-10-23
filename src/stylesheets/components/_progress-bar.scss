@@ -1,0 +1,26 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the progress bar component.
+// -----------------------------------------------------------------------------
+
+:root{
+  --barColor : #F87A7B
+}
+.b33{
+  --barColor : #f47280
+}
+.b66{
+  --barColor : #F87A7B
+}
+
+.progress-scroll {
+  position: fixed;
+  z-index: 1;
+  width: 0;
+  height: 10px;
+  background: linear-gradient(45deg, #FFF2F2, var(--barColor) 100%);
+  bottom: 0;
+  left: 0;
+  transition: background 1s;
+}

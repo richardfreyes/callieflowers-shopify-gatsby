@@ -1,0 +1,50 @@
+//main: ../main.scss
+
+/**
+ * Basic typography style for copy text
+ */
+body {
+  color: $text-color;
+  font: normal 125% / 1.4 $text-font-stack;
+}
+
+.title {
+  margin: 0;
+  color: #000042;
+  font: 800 normal 32px/40px "Pacifico";
+
+  @include respond-to(sm-down) {
+    font-size: 19px;
+    line-height: 19px;
+  }
+}
+
+.page-title {
+  color: #000042;
+  font: 800 normal 32px/40px "Pacifico";
+
+  @include respond-to(sm-down) {
+    font-size: 22px;
+    line-height: 22px;
+  }
+}
+
+.sub-title {
+  color: #000042;
+  font: 800 normal 18px/24px "Pacifico";
+
+  @include respond-to(sm-down) {
+    font-size: 15px;
+    line-height: 15px;
+  }
+}
+
+.page-desc {
+  color: #000042;
+  font: normal 14px/20px "Roboto";
+
+  @include respond-to(sm-down) {
+    font-size: 13px;
+    line-height: 17px;
+  }
+}

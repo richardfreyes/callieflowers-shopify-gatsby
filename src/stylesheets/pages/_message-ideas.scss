@@ -1,0 +1,42 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the message-ideas page.
+// -----------------------------------------------------------------------------
+
+.message-ideas-page {
+  .section {
+    &.page-content {
+      .container {
+        h1 {
+          &.page-title {
+            margin-bottom: 24px;
+          }
+        }
+
+        li {
+          &.page-desc {
+            margin-bottom: 3px;
+          }
+        }
+      }
+    }
+
+    @include respond-to(sm-down) {
+      &.page-content {
+        .container {
+          h1 {
+            &.page-title {
+              margin-bottom: 15px;
+            }
+          }
+
+          li {
+            &.page-desc {
+            }
+          }
+        }
+      }
+    }
+  }
+}

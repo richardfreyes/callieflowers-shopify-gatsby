@@ -1,0 +1,55 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the care instructions page.
+// -----------------------------------------------------------------------------
+
+.care-instructions-page {
+  .section {
+    &.page-content {
+      .container {
+        h1 {
+          &.page-title {
+            margin-bottom: 24px;
+          }
+        }
+
+        .row-holder {
+          margin-top: 40px;
+
+          .col-holder {
+            text-align: center;
+            margin-bottom: 40px;
+
+            .featured-content {
+
+            }
+          }
+        }
+      }
+    }
+
+    @include respond-to(sm-down) {
+      &.page-content {
+        .container {
+          h1 {
+            &.page-title {
+            }
+          }
+
+          .row-holder {
+            margin-top: 15px;
+
+            .col-holder {
+                margin-bottom: 25px;
+
+              .featured-content {
+
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

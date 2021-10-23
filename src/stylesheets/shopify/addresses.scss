@@ -1,0 +1,142 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the address component.
+// -----------------------------------------------------------------------------
+
+.addresses-page {
+  .section {
+    &.your-addresses {
+
+      .container {
+        .title-logout-wrapper {
+
+          .title {
+          }
+
+          .anchor {
+
+            &.logout {
+            }
+
+            &.return {
+            }
+
+            .text {
+            }
+
+            .fr-icon {
+              &.ei-arrow-left {
+              }
+            }
+          }
+        }
+
+        button {
+          @include on-event {
+          }
+        }
+
+        .inner-content-wrapper {
+
+          p {
+            .icon-wrapper {
+
+              button {
+
+                &:first-child {
+                }
+
+                .fr-icon {
+                }
+              }
+            }
+          }
+        }
+
+        .form-vertical {
+          .btn-wrapper {
+            .fr-btn {
+              &:last-child {
+                color: $color-hotpink;
+                margin-left: 45px;
+                color: #fff;
+                font: 800 16px/24px "Open Sans";
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @include respond-to(xs) {
+      &.your-addresses {
+
+        .container {
+          .title-logout-wrapper {
+
+            .title {
+            }
+
+            .anchor {
+
+              &.logout {
+              }
+
+              &.return {
+              }
+
+              .text {
+              }
+
+              .fr-icon {
+
+                &.ei-arrow-left {
+                }
+              }
+            }
+          }
+
+          button {
+
+            @include on-event {
+            }
+          }
+
+          .inner-content-wrapper {
+
+            p {
+              .icon-wrapper {
+
+                button {
+
+                  &:first-child {
+                  }
+
+                  .fr-icon {
+                  }
+                }
+              }
+            }
+          }
+
+          .form-vertical {
+            .btn-wrapper {
+              text-align: center;
+
+              .fr-btn {
+                width: 100%;
+
+                &:last-child {
+                  margin: 0;
+                  margin-left: 0;
+                  margin-bottom: 25px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

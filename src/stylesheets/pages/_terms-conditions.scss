@@ -1,0 +1,55 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the terms conditions page.
+// -----------------------------------------------------------------------------
+
+.terms-conditions-page {
+  .section {
+    &.page-content {
+      .container {
+        .page-title {
+          margin-bottom: 24px;
+        }
+
+        .page-desc {
+          margin-bottom: 5px;
+        }
+
+        ol {
+          padding-left: 40px;
+          
+          li {
+            list-style-type: decimal;
+
+            h4 {
+              &.sub-title {
+                margin-top: 24px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @include respond-to(md-down) {
+      &.page-content {
+        .container {
+          .page-title {
+          }
+
+          ol {
+            padding-left: 15px;
+
+            li {
+              h4 {
+                &.sub-title {
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
