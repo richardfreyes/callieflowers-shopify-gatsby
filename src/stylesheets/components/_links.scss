@@ -11,7 +11,61 @@
   background: #feefef;
   @include boxshadow(0px 4px 16px 0px rgba(0,0,66,0.16));
 
-  ul {
+  .slick-slider {
+    .slick-arrow {
+      position: absolute;
+      top: 50%;
+      z-index: 1;
+      display: inline-block;
+      padding: 12px;
+      background-color: #feefef;
+      transform: translate(0, -50%);
+
+      @include on-event {
+        // padding: 18px;
+        // transition: all 0.1s ease-in;
+      }
+
+      &.slick-disabled {
+        display: none !important;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 100px;
+        padding: 20px;
+        transform: translate(0, -50%);
+        pointer-events: none;
+      }
+
+      &.fr-slick-next {
+        right: -15px;
+
+        &:after {
+          right: 22px;
+          background: linear-gradient(to left, #feefef 20%, rgba(253,231,234,0%) 80%);
+        }
+      }
+
+      &.fr-slick-prev {
+        left: -15px;
+
+        &:after {
+          left: 22px;
+          background: linear-gradient(to right, #feefef 20%, rgba(253,231,234,0%) 80%);
+        }
+      }
+    }
+    .slick-list {
+      .slick-track {
+        @include flexbox;
+      }
+    }
+  }
+
+  div {
     &.nav-tags {
       position: relative;
       margin: 0 30px;
@@ -20,7 +74,7 @@
 
       &.slick-initialized { display: block; }
 
-      li {
+      span {
         &.tags {
           display: inline-block;
           padding: 8px 4px;
@@ -43,55 +97,6 @@
               background: #F87A7B;
               transition: all 0.1s ease-in;
             }
-          }
-        }
-      }
-
-      .slick-arrow {
-        position: absolute;
-        top: 50%;
-        z-index: 1;
-        display: inline-block;
-        padding: 12px;
-        background-color: #feefef;
-        transform: translate(0, -50%);
-
-        @include on-event {
-          // padding: 18px;
-          // transition: all 0.1s ease-in;
-        }
-
-        &.slick-disabled {
-            display: none !important;
-        }
-
-        &:after {
-          content: "";
-          position: absolute;
-          top: 50%;
-          width: 100px;
-          padding: 20px;
-          transform: translate(0, -50%);
-          pointer-events: none;
-        }
-
-
-
-        &.fr-slick-next {
-          right: -15px;
-
-          &:after {
-            right: 22px;
-            background: linear-gradient(to left, #feefef 20%, rgba(253,231,234,0%) 80%);
-          }
-        }
-
-        &.fr-slick-prev {
-          left: -15px;
-
-          &:after {
-            left: 22px;
-            background: linear-gradient(to right, #feefef 20%, rgba(253,231,234,0%) 80%);
           }
         }
       }
