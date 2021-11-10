@@ -5,9 +5,9 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPhone, faShippingFast, faShoppingBasket, faUserAlt } from "@fortawesome/free-solid-svg-icons"
+import { StoreContext } from '../context/store-context'
 
-
-export default class Header extends React.Component {
+export function Header() {
   // constructor(props) {
   //   super(props);
   //   // this.state = { toggle: true };
@@ -49,9 +49,14 @@ export default class Header extends React.Component {
   //   // }
   // }
 
-  render() {
-    // const { data } = this.props.data;
-    // console.log('data', data);
+  // static contextType = StoreContext
+
+  const { checkout, loading, didJustAddToCart } = React.useContext(StoreContext)
+  const items = checkout ? checkout.lineItems : []
+  console.log('items', items)
+  const quantity = items.reduce((total, item) => { return total + item.quantity }, 0)
+
+  // render() {
     return (
       <header className="fb-header">
         <div className="top-nav">
@@ -88,7 +93,8 @@ export default class Header extends React.Component {
             <div className="container-fluid">
               <div className="row row-holder">
                 <div className="col-6 col-lg-6 col-holder logo">
-                  <button onClick={ this.burgerSideNav } className="navbar-toggler navbar-toggler-right" id="sidebarCollapse" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+                {/* <button onClick={ this.burgerSideNav } className="navbar-toggler navbar-toggler-right" id="sidebarCollapse" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation"> */}
+                  <button className="navbar-toggler navbar-toggler-right" id="sidebarCollapse" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
@@ -98,7 +104,7 @@ export default class Header extends React.Component {
                       <span className="icon-bar"></span>
                       <span className="icon-bar"></span>
                     </Navbar.Toggle> */}
-                  <Link className="navbar-brand" href="index.html">
+                  <Link className="navbar-brand" to="index.html">
                     <StaticImage src="../../images/logo.svg" alt="Logo" />
                   </Link>
                 </div>
@@ -117,10 +123,11 @@ export default class Header extends React.Component {
                   </div>
     
                   <div className="options-holder">
-                    <Link to="/">
+                    <Link to="/cart">
                       <span className="icon basket ei-shopping-basket">
                         <FontAwesomeIcon icon={faShoppingBasket}/>
-                        <span className="count" data-cart-count="">0</span>
+                        {/* <span className="count">0</span> */}
+                        {quantity > 0 && <span className="count">{quantity}</span>}
                       </span>
                     </Link>
                   </div>
@@ -128,9 +135,9 @@ export default class Header extends React.Component {
               </div>
             </div>
         </div>
-      </header>
+      </header> 
     )
-  }
+  // }
 }
 
 

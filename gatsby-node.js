@@ -5,7 +5,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     query {
-      allShopifyProduct(sort: { fields: [title] } filter: {productType: {eq: "addons"}) {
+      allShopifyProduct(sort: {fields: [title]}) {
         edges {
           node {
             title
@@ -26,8 +26,23 @@ exports.createPages = async ({ graphql, actions }) => {
             variants {
               compareAtPrice
               price
+              availableForSale
+              storefrontId
+              selectedOptions {
+                name
+                value
+              }
             }
             status
+            options {
+              name
+              position
+              values
+              id
+            }
+            productType
+            storefrontId
+            tags
           }
         }
       }
