@@ -25,7 +25,10 @@ const defaultValues = {
   },
 }
 
+console.log('defaultValues', defaultValues)
+
 export const StoreContext = React.createContext(defaultValues)
+
 
 const isBrowser = typeof window !== `undefined`
 const localStorageKey = `shopify_checkout_id`
@@ -70,7 +73,7 @@ export const StoreProvider = ({ children }) => {
     initializeCheckout()
   }, [])
 
-  const addVariantToCart = (variantId, quantity) => {
+  const addVariantToCart = (variantId, addOns, quantity) => {
     setLoading(true)
 
     const checkoutID = checkout.id
@@ -81,6 +84,10 @@ export const StoreProvider = ({ children }) => {
         quantity: parseInt(quantity, 10),
       },
     ]
+
+    Array.prototype.push.apply(lineItemsToUpdate, addOns); 
+
+    console.log('lineItemsToUpdate', lineItemsToUpdate)
 
     return client.checkout
       .addLineItems(checkoutID, lineItemsToUpdate)

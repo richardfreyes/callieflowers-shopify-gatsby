@@ -1,12 +1,12 @@
 import * as React from "react"
 import { StoreContext } from "../context/store-context"
 
-export function AddToCart({ variantId, quantity, available, ...props }) {
+export function AddToCart({ variantId, quantity, available, addOns, ...props }) {
   const { addVariantToCart, loading } = React.useContext(StoreContext)
-
+  
   function addToCart(e) {
     e.preventDefault()
-    addVariantToCart(variantId, quantity)
+    addVariantToCart(variantId, addOns, quantity)
   }
 
   return (

@@ -104,7 +104,7 @@ export function Header() {
                       <span className="icon-bar"></span>
                       <span className="icon-bar"></span>
                     </Navbar.Toggle> */}
-                  <Link className="navbar-brand" to="index.html">
+                  <Link className="navbar-brand" to="/">
                     <StaticImage src="../../images/logo.svg" alt="Logo" />
                   </Link>
                 </div>

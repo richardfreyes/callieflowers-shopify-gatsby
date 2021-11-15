@@ -73,6 +73,8 @@
                 }
 
                 .count {
+                  cursor: pointer;
+                  
                   .add-minus {
                     @include flexbox;
                     width: 150px;
@@ -200,6 +202,13 @@
                     }
                   }
                 }
+              }
+            }
+
+            .date-picker {
+              .react-datepicker,
+              .react-datepicker__month-container {
+                width: 100%;
               }
             }
 
