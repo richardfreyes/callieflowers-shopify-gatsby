@@ -2,25 +2,46 @@ import '../../stylesheets/main.scss'
 import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import deskSlider1 from "../../images/home/desk-slider-1.gif"
+import mobSlider1 from "../../images/home/mob-slider-1.gif"
+import Slider from "react-slick"
 
 export default class HeroBanner extends React.Component {
   render() {
+    const bannerSlider = {
+      lazyLoad: 'ondemand',
+      dots: true,
+      arrows: false,
+      infinite: true,
+      speed: 500,
+      fade: true,
+      adaptiveHeight: true,
+      autoplay: true,
+      autoplaySpeed: 1500,
+      cssEase: 'linear',
+      // nextArrow: '<i class="fr-slick-next fas fa-chevron-right"></i>',
+      // prevArrow: '<i class="fr-slick-prev fas fa-chevron-left"></i>',
+      // lazyLoad: 'ondemand',
+      // slidesToShow: 3,
+      // slidesToScroll: 1,
+      // infinite: true,
+      // nextArrow: `<FontAwesomeIcon className="fr-slick-next fas fa-chevron-right" icon={faChevronRight}/>`,
+      // prevArrow: `<FontAwesomeIcon className="fr-slick-prev fas fa-chevron-left" icon={faChevronRight}/>`,
+    };
     return (
       <div className="section intro">
         <div className="container">
           <div className="row row-holder">
             <div className="col-holder col-xl-10 col-lg-9 col-md-12 col-12">
               {/* <!-- desktop --> */}
-              <div className="featured-slider d-none d-md-block">
-                <StaticImage src="../../images/home/fb-slider-1.jpg" alt="Birthday Flowers" />
-                <StaticImage src="../../images/home/fb-slider-1.jpg" alt="Birthday Flowers" />
-              </div>
+              <Slider className="featured-slider d-none d-md-block" {...bannerSlider}>
+                <img src={deskSlider1} alt="Birthday Flowers" />
+              </Slider>
 
               {/* <!-- mobile --> */}
-              <div className="featured-slider d-xs-block d-md-none">
-                {/* <StaticImage src="../../images/home/mob-slider-3.gif" alt="Birthday Flowers" />
-                <StaticImage src="../../images/home/mob-slider-2.gif" alt="Birthday Flowers" /> */}
-              </div>
+              <Slider className="featured-slider d-xs-block d-md-none" {...bannerSlider}>
+                <img src={mobSlider1} alt="Birthday Flowers" />
+              </Slider>
             </div>
             <div className="flash-sale col-holder col-xl-2 col-lg-3 d-none d-lg-block">
               <Link to="/" className="link-wrap">

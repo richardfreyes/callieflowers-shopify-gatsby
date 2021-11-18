@@ -25,8 +25,6 @@ const defaultValues = {
   },
 }
 
-console.log('defaultValues', defaultValues)
-
 export const StoreContext = React.createContext(defaultValues)
 
 
@@ -48,15 +46,11 @@ export const StoreProvider = ({ children }) => {
 
   React.useEffect(() => {
     const initializeCheckout = async () => {
-      const existingCheckoutID = isBrowser
-        ? localStorage.getItem(localStorageKey)
-        : null
+      const existingCheckoutID = isBrowser ? localStorage.getItem(localStorageKey) : null
 
       if (existingCheckoutID && existingCheckoutID !== `null`) {
         try {
-          const existingCheckout = await client.checkout.fetch(
-            existingCheckoutID
-          )
+          const existingCheckout = await client.checkout.fetch(existingCheckoutID)
           if (!existingCheckout.completedAt) {
             setCheckoutItem(existingCheckout)
             return
@@ -86,8 +80,6 @@ export const StoreProvider = ({ children }) => {
     ]
 
     Array.prototype.push.apply(lineItemsToUpdate, addOns); 
-
-    console.log('lineItemsToUpdate', lineItemsToUpdate)
 
     return client.checkout
       .addLineItems(checkoutID, lineItemsToUpdate)
@@ -135,6 +127,8 @@ export const StoreProvider = ({ children }) => {
         checkout,
         loading,
         didJustAddToCart,
+        attributes: {"Delivery Date": "18/11/2021", "Delivery Slot": "8AM-1PM", "Sender Name": "asd"},
+        note: "asdasdas"
       }}
     >
       {children}

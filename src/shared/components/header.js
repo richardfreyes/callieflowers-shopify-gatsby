@@ -14,15 +14,11 @@ export function Header() {
   //   // this.sideBar = React.createRef();
   //   // this.burgerSideNav = this.burgerSideNav.bind(this);
 
-  //   // console.log('this.ref', this.ref)
   // }
 
   // burgerSideNav(e) {
   //   // this.setState(prevState => ({ toggle: !prevState.toggle }));
 
-  //   // console.log('toggle', this.state.toggle);
-
-  //   // console.log('this.sideBar', this.sideBar);
 
 
   //   // if(this.state.toggle) {
@@ -53,7 +49,6 @@ export function Header() {
 
   const { checkout, loading, didJustAddToCart } = React.useContext(StoreContext)
   const items = checkout ? checkout.lineItems : []
-  console.log('items', items)
   const quantity = items.reduce((total, item) => { return total + item.quantity }, 0)
 
   // render() {

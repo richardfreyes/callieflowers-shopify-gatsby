@@ -10,6 +10,7 @@ import { StoreContext } from "../context/store-context"
 import { AddToCart } from "../components/add-to-cart"
 import isEqual from "lodash.isequal"
 // import { formatPrice } from "../utils/format-price"
+import { Redirect } from 'react-router';
 
 export function ProductTemplate(props) {
     const [StoreFrontId, setStoreFrontId] = React.useState([])
@@ -29,6 +30,11 @@ export function ProductTemplate(props) {
       },
       [productVariant.storefrontId, client.product]
     )
+  
+    function handleClick() {
+      // history.push("/home");
+      <Redirect to="/cart" />
+    }
 
     function handleGetAddOnsValue(event) {
       // add to list
@@ -89,6 +95,7 @@ export function ProductTemplate(props) {
       <div className="product-page-detail">
         <div className="section product-view-content">
           <div className="container">
+            <button onClick={handleClick}>TEST</button>
             <div className="row row-holder">
               <div className="col-lg-5 col-md-5 col-holder">
                 <div className="product-view">
