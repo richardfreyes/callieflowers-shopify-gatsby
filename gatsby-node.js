@@ -11,6 +11,7 @@ exports.createPages = async ({ graphql, actions }) => {
             title
             images {
               originalSrc
+              gatsbyImageData(layout: CONSTRAINED, width: 640, aspectRatio: 1)
             }
             shopifyId
             handle
@@ -18,16 +19,18 @@ exports.createPages = async ({ graphql, actions }) => {
             priceRangeV2 {
               maxVariantPrice {
                 amount
+                currencyCode
               }
               minVariantPrice {
                 amount
+                currencyCode
               }
             }
             variants {
-              compareAtPrice
-              price
               availableForSale
               storefrontId
+              title
+              price
               selectedOptions {
                 name
                 value
@@ -36,7 +39,6 @@ exports.createPages = async ({ graphql, actions }) => {
             status
             options {
               name
-              position
               values
               id
             }
@@ -62,21 +64,24 @@ exports.createPages = async ({ graphql, actions }) => {
               description
               images {
                 originalSrc
+                gatsbyImageData(layout: CONSTRAINED, width: 640, aspectRatio: 1)
               }
               shopifyId
               priceRangeV2 {
-                minVariantPrice {
-                  amount
-                }
                 maxVariantPrice {
                   amount
+                  currencyCode
+                }
+                minVariantPrice {
+                  amount
+                  currencyCode
                 }
               }
               variants {
-                compareAtPrice
-                price
                 availableForSale
                 storefrontId
+                title
+                price
                 selectedOptions {
                   name
                   value
@@ -85,7 +90,6 @@ exports.createPages = async ({ graphql, actions }) => {
               status
               options {
                 name
-                position
                 values
                 id
               }

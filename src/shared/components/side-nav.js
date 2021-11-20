@@ -34,14 +34,17 @@ export default class SideNavigation extends React.Component {
           </Link>
         </li>
       </ul>
-      <ul className="list-unstyled menu dropdown" id="accordion" role="tablist">
-        <li className="fb-nav-item" role="tab" id="headingOne">
+      {/* role="tablist" */}
+      <ul className="list-unstyled menu dropdown" id="accordion">
+      {/* role="tab" */}
+        <li className="fb-nav-item" id="headingOne">
           <Link data-toggle="collapse" to="#occasions" aria-expanded="true" aria-controls="occasions">
             {/* <!-- <span className="icon ei-flower"></span> --> */}
             <span className="label">Occasions</span>
             <span className="arrow ei-chevron-down"></span>
           </Link>
-          <div id="occasions" className="collapse" role="tabpanel" aria-labelledby="headingOne">
+          {/* role="tabpanel" */}
+          <div id="occasions" className="collapse" aria-labelledby="headingOne">
             <ul className="list-unstyled">
               <li className="fb-category"><Link to="/">Anniversary</Link></li>
               <li className="fb-category"><Link to="/">Birthday</Link></li>
@@ -57,13 +60,15 @@ export default class SideNavigation extends React.Component {
           </div>
         </li>
 
-        <li className="fb-nav-item" role="tab" id="headingTwo">
+        {/* role="tab" */}
+        <li className="fb-nav-item" id="headingTwo">
           <Link data-toggle="collapse" to="#types" aria-expanded="true" aria-controls="types">
             {/* <!-- <span className="icon ei-gift"></span> --> */}
             <span className="label">Types</span>
             <span className="arrow ei-chevron-down"></span>
           </Link>
-          <div id="types" className="collapse" role="tabpanel" aria-labelledby="headingTwo">
+          {/* role="tabpanel" */}
+          <div id="types" className="collapse" aria-labelledby="headingTwo">
             <ul className="list-unstyled">
               <li className="fb-category"><Link to="/">Anniversary</Link></li>
               <li className="fb-category"><Link to="/">Birthday</Link></li>
@@ -79,7 +84,8 @@ export default class SideNavigation extends React.Component {
           </div>
         </li>
 
-        <li className="fb-nav-item" role="tab" id="headingThree">
+        {/* role="tab" */}
+        <li className="fb-nav-item" id="headingThree">
           <Link data-toggle="collapse" to="budget" aria-expanded="true" aria-controls="budget">
             <span className="label">Budget</span>
             <span className="arrow ei-chevron-down"></span>

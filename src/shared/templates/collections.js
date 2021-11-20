@@ -3,22 +3,12 @@ import Layout from "../components/layout"
 import { Link } from "gatsby"
 import PreviewCompatibleImage from '../components/preview-compatible-image'
 import SideNavigation from "../components/side-nav"
+import { StaticImage } from "gatsby-plugin-image"
 
-export function CollectionTemplate(props) {
+export default function CollectionTemplate(props) {
   const data = props.pageContext.product
-  console.log('data', data)
-  // console.log('props type', props.pageContext.type)
-  // console.log('props', props.pageContext.products)
-  // let collectionProducts = [];
-
-  // props.pageContext.products.map(({node}) => {
-  //   if(node.tags.includes(props.pageContext.type)) {  collectionProducts.push(node) }
-  // })
-
-  // console.log('collectionProducts', collectionProducts)
   return (
     <Layout>
-      <p>Product Works!</p>
       <SideNavigation/>
       <div className="sections-wrapper" id="content">
         <div className="section page-banner stars">
@@ -30,47 +20,55 @@ export function CollectionTemplate(props) {
               </p>
             </div>
             <div className="services-wrapper">
-              <div className="row row-holder">
-                <div className="col-3 col-holder">
-                  <div className="icon-holder">
-                    <span className="ei-clock"></span>
+            <div class="row row-holder">
+              <div class="col-3 col-holder">
+                <div class="holder">
+                  <div class="icon-holder">
+                    <StaticImage src="../../images/services/time.svg" alt="Order Time" />
                   </div>
-                  <div className="text-holder">
-                    <p className="text-heading">Same Day Delivery</p>
-                    <p className="desc">Orders before 2PM</p>
-                  </div>
-                </div>
-
-                <div className="col-3 col-holder">
-                  <div className="icon-holder">
-                    <span className="ei-truck-2"></span>
-                  </div>
-                  <div className="text-holder">
-                    <p className="text-heading">Free Flower Delivery</p>
-                    <p className="desc">Across Metro Manila</p>
-                  </div>
-                </div>
-
-                <div className="col-3 col-holder">
-                  <div className="icon-holder">
-                    <span className="ei-calendar"></span>
-                  </div>
-                  <div className="text-holder">
-                    <p className="text-heading">Choose Date</p>
-                    <p className="desc">Always on time</p>
-                  </div>
-                </div>
-
-                <div className="col-3 col-holder">
-                  <div className="icon-holder">
-                    <span className="ei-butterfly"></span>
-                  </div>
-                  <div className="text-holder">
-                    <p className="text-heading">Always Fresh</p>
-                    <p className="desc">Last 7 Days</p>
+                  <div class="text-holder">
+                    <p class="text-heading">Same Day Delivery</p>
+                    <p class="desc">Orders before 2PM</p>
                   </div>
                 </div>
               </div>
+
+              <div class="col-3 col-holder">
+                <div class="holder">
+                  <div class="icon-holder">
+                    <StaticImage src="../../images/services/delivery.svg" alt="Free Delivery" />
+                  </div>
+                  <div class="text-holder">
+                    <p class="text-heading">Free Flower Delivery</p>
+                    <p class="desc">Across Metro Manila</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-3 col-holder">
+                <div class="holder">
+                  <div class="icon-holder">
+                    <StaticImage src="../../images/services/calendar.svg" alt="Date" />
+                  </div>
+                  <div class="text-holder">
+                    <p class="text-heading">Choose Date</p>
+                    <p class="desc">Always on time</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-3 col-holder">
+                <div class="holder">
+                  <div class="icon-holder">
+                    <StaticImage src="../../images/services/fresh.svg" alt="Fresh Flowers" />
+                  </div>
+                  <div class="text-holder">
+                    <p class="text-heading">Always Fresh</p>
+                    <p class="desc">Last 7 Days</p>
+                  </div>
+                </div>
+              </div>
+            </div>
             </div>
           </div>
         </div>
@@ -79,7 +77,7 @@ export function CollectionTemplate(props) {
             <div className="row row-holder">
               {data.products.map((node) => {
                 return (
-                  <div className="col-lg-3 col-xl-2 col-sm-3 col-6 col-holder" key={node.shopifyId}>
+                  <div className="col-lg-2 col-sm-3 col-6 col-holder" key={node.shopifyId}>
                     <Link to={`/products/${node.handle}`} className="wrapper">
                       <div className="img-holder">
                       <PreviewCompatibleImage
@@ -113,5 +111,3 @@ export function CollectionTemplate(props) {
     </Layout>
   )
 }
-
-export default CollectionTemplate;

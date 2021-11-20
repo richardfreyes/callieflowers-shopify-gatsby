@@ -74,8 +74,8 @@ export default function CartPage() {
   function handleDateClick(data, i, type,) {
     setactiveDateIndex(i);
     isDateActive(true);
-    if(type == 'custom') { isDPActive(true) }
-    if(type == 'day') { isDPActive(false) }
+    if(type === 'custom') { isDPActive(true) }
+    if(type === 'day') { isDPActive(false) }
     if(i === 0) { dateChanged(TODAY_GLOBAL) }
     if(i === 1) { dateChanged(TOMORROW_GLOBAL) }
   }

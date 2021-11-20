@@ -1,24 +1,26 @@
 import React from "react"
 import Layout from "../components/layout"
 import { graphql  } from "gatsby"
-// import { StaticImage } from "gatsby-plugin-image"
 import PreviewCompatibleImage from "../components/preview-compatible-image"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { StoreContext } from "../context/store-context"
 import { AddToCart } from "../components/add-to-cart"
-import isEqual from "lodash.isequal"
-// import { formatPrice } from "../utils/format-price"
-import { Redirect } from 'react-router';
+import { formatPrice } from "../utils/format-price"
+// import { Redirect } from 'react-router'
+import Seo from "../../shared/components/seo"
+import { GatsbyImage, getSrc } from "gatsby-plugin-image"
 
-export function ProductTemplate(props) {
+
+export default function ProductTemplate(props) {
     const [StoreFrontId, setStoreFrontId] = React.useState([])
     const { product } = props.pageContext
-    const { options, variants, variants: [initialVariant], priceRangeV2, title, description, images, images: [firstImage] } = product
+    const { variants: [initialVariant], priceRangeV2, title, description, images, images: [firstImage] } = product
     const { client } = React.useContext(StoreContext)
-    const [variant, setVariant] = React.useState({ ...initialVariant })
-    const [quantity, setQuantity] = React.useState(1)
+    const [variant] = React.useState({ ...initialVariant })
+    // const [variant, setVariant] = React.useState({ ...initialVariant })
+    // const [quantity, setQuantity] = React.useState(1)
     const productVariant = client.product.helpers.variantForOptions(product, variant) || variant
     const [available, setAvailable] = React.useState( productVariant.availableForSale )
     const checkAvailablity = React.useCallback(
@@ -33,7 +35,7 @@ export function ProductTemplate(props) {
   
     function handleClick() {
       // history.push("/home");
-      <Redirect to="/cart" />
+      // <Redirect to="/cart" />
     }
 
     function handleGetAddOnsValue(event) {
@@ -51,24 +53,24 @@ export function ProductTemplate(props) {
       }
     }
 
-    const handleChange = (e) => {
-      this.setState({
-        [e.target.name]: e.target.value,
-      });
-    }
+    // const handleChange = (e) => {
+    //   this.setState({
+    //     [e.target.name]: e.target.value,
+    //   });
+    // }
 
-    const handleOptionChange = (index, event) => {
-      const value = event.target.value
-      if (value === "") { return }
-      const currentOptions = [...variant.selectedOptions]
-      currentOptions[index] = { ...currentOptions[index], value }
-      const selectedVariant = variants.find((variant) => { return isEqual(currentOptions, variant.selectedOptions) })
-      setVariant({ ...selectedVariant })
-    }
+    // const handleOptionChange = (index, event) => {
+    //   const value = event.target.value
+    //   if (value === "") { return }
+    //   const currentOptions = [...variant.selectedOptions]
+    //   currentOptions[index] = { ...currentOptions[index], value }
+    //   const selectedVariant = variants.find((variant) => { return isEqual(currentOptions, variant.selectedOptions) })
+    //   setVariant({ ...selectedVariant })
+    // }
 
     React.useEffect(() => { checkAvailablity(product.storefrontId) }, [productVariant.storefrontId, checkAvailablity, product.storefrontId])
-    // const price = formatPrice( priceRangeV2.minVariantPrice.currencyCode, variant.price )
-    const hasVariants = variants.length > 1
+    const price = formatPrice( priceRangeV2.minVariantPrice.currencyCode, variant.price )
+    // const hasVariants = variants.length > 1
     const hasImages = images.length > 0
     const hasMultipleImages = true || images.length > 1
     const addOnsLists = props.data.allShopifyProduct.edges;
@@ -92,6 +94,13 @@ export function ProductTemplate(props) {
 
     return (
     <Layout>
+      {firstImage ? (
+        <Seo
+          title={title}
+          description={description}
+          image={getSrc(firstImage.gatsbyImageData)}
+        />
+      ) : undefined}
       <div className="product-page-detail">
         <div className="section product-view-content">
           <div className="container">
@@ -99,26 +108,30 @@ export function ProductTemplate(props) {
             <div className="row row-holder">
               <div className="col-lg-5 col-md-5 col-holder">
                 <div className="product-view">
-                  <PreviewCompatibleImage
-                    imageInfo={{
-                      image: product.images[0]?.originalSrc,
-                      alt: `${product.title}`,
-                    }}
-                  />
+                  {hasImages && (
+                    <PreviewCompatibleImage
+                      imageInfo={{
+                        image: product.images[0]?.originalSrc,
+                        alt: `${product.title}`,
+                      }}
+                    />
+                  )}
                 </div>
                 <div className="image-view-option">
-                  <Slider {...productSlider}>
-                    {product.images && product.images.map((image) => (
-                      <div className="image-holder" key={image}>
-                        <PreviewCompatibleImage
-                          imageInfo={{
-                            image: image.originalSrc,
-                            alt: `${product.title}`,
-                          }}
-                        />
-                      </div>
-                    ))}
-                  </Slider>
+                  {hasMultipleImages && (
+                    <Slider {...productSlider}>
+                      {images && images.map((image, index) => (
+                        <div className="image-holder" key={image}>
+                          <GatsbyImage
+                            objectFit="contain"
+                            loading={index === 0 ? "eager" : "lazy"}
+                            alt={ image.altText ? image.altText : `Product Image of ${title} #${index + 1}` }
+                            image={image.gatsbyImageData}
+                          />
+                        </div>
+                      ))}
+                    </Slider>
+                  )}
                 </div>
               </div>
               <div className="col-lg-7 col-md-7 col-holder">
@@ -129,18 +142,18 @@ export function ProductTemplate(props) {
                     {product.variants[0].compareAtPrice ? 
                       <div className="f-price">
                         <p>Original Price: <span className="old-price">₱{product.variants[0].compareAtPrice}</span></p>
-                        <p className="current-price">Now: ₱{product.variants[0].price}</p>
+                        <p className="current-price">Now: {price}</p>
                       </div>
                       :
                       <div className="f-price">
-                        <p className="current-price-not-sale">Price: ₱{product.variants[0].price}</p>
+                        <p className="current-price-not-sale">Price: {price}</p>
                       </div>
                     }
-                    <div className="add-minus">
-                      <a href="#"><span className="icon ei-minus-circle-fill"></span></a>
+                    {/* <div className="add-minus">
+                      <Link to="/"><span className="icon ei-minus-circle-fill"></span></Link>
                       <span className="value">0</span>
-                      <a href="#"><span className="icon ei-plus-circle-fill"></span></a>
-                    </div>
+                      <Link to="/"><span className="icon ei-plus-circle-fill"></span></Link>
+                    </div> */}
                   </div>
                   <p className="addons-title">Make it Extra Special with our add ons!</p>
                   <div className="addons-carousel">
@@ -173,7 +186,7 @@ export function ProductTemplate(props) {
 
                   <AddToCart
                     variantId={productVariant.storefrontId}
-                    quantity={quantity}
+                    quantity={1}
                     available={available}
                     addOns={StoreFrontId}
                   />
@@ -206,5 +219,3 @@ export const addOns = graphql`
     }
   }
 `
-
-export default ProductTemplate;
