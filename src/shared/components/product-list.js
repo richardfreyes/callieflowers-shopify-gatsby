@@ -1,4 +1,3 @@
-import '../../stylesheets/main.scss'
 import * as React from "react"
 import { Link, graphql, StaticQuery  } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
@@ -19,8 +18,6 @@ class ProductList extends React.Component {
 
       return null;
     })
-
-    console.log('featuredProducts', featuredProducts)
 
     return (
       <div>
@@ -159,6 +156,7 @@ const productsSection = () => {
                 handle
                 products {
                   description
+                  descriptionHtml
                   shopifyId
                   priceRangeV2 {
                     maxVariantPrice {
@@ -200,6 +198,7 @@ const productsSection = () => {
                   }
                   title
                 }
+                descriptionHtml
               }
             }
           }

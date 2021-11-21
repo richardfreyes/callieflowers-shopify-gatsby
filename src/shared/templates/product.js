@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
-import { graphql  } from "gatsby"
+import { graphql, Link  } from "gatsby"
 import PreviewCompatibleImage from "../components/preview-compatible-image"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
@@ -11,9 +11,12 @@ import { formatPrice } from "../utils/format-price"
 // import { Redirect } from 'react-router'
 import Seo from "../../shared/components/seo"
 import { GatsbyImage, getSrc } from "gatsby-plugin-image"
-
+import SideNavigation from "../components/side-nav"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons"
 
 export default function ProductTemplate(props) {
+    console.log('props', props)
     const [StoreFrontId, setStoreFrontId] = React.useState([])
     const { product } = props.pageContext
     const { variants: [initialVariant], priceRangeV2, title, description, images, images: [firstImage] } = product
@@ -73,23 +76,35 @@ export default function ProductTemplate(props) {
     // const hasVariants = variants.length > 1
     const hasImages = images.length > 0
     const hasMultipleImages = true || images.length > 1
-    const addOnsLists = props.data.allShopifyProduct.edges;
+    const addOnsLists = [];
+    const otherProductLists = [];
     const productSlider = {
       lazyLoad: 'ondemand',
       slidesToShow: 3,
       slidesToScroll: 1,
-      infinite: true,
-      // nextArrow: `<FontAwesomeIcon className="fr-slick-next fas fa-chevron-right" icon={faChevronRight}/>`,
-      // prevArrow: `<FontAwesomeIcon className="fr-slick-prev fas fa-chevron-left" icon={faChevronRight}/>`,
+      infinite: false,
     };
     const addOnsSlider = {
       lazyLoad: 'ondemand',
       slidesToShow: 4,
       slidesToScroll: 1,
       infinite: false,
-      // nextArrow: `<FontAwesomeIcon className="fr-slick-next fas fa-chevron-right" icon={faChevronRight}/>`,
-      // prevArrow: `<FontAwesomeIcon className="fr-slick-prev fas fa-chevron-left" icon={faChevronRight}/>`,
+      nextArrow: <FontAwesomeIcon className="fr-slick-next" icon={faChevronRight}/>,
+      prevArrow: <FontAwesomeIcon className="fr-slick-prev" icon={faChevronLeft}/>,
     };
+
+    props.data.allShopifyProduct.edges.map(({node}) => {
+      if(node.productType.includes('addons')) { 
+        addOnsLists.push(node);
+      } else {
+        otherProductLists.push(node);
+      }
+
+      return null;
+    })
+
+    console.log('addOnsLists', addOnsLists)
+    console.log('otherProductLists', otherProductLists)
 
 
     return (
@@ -101,97 +116,135 @@ export default function ProductTemplate(props) {
           image={getSrc(firstImage.gatsbyImageData)}
         />
       ) : undefined}
-      <div className="product-page-detail">
-        <div className="section product-view-content">
-          <div className="container">
-            <button onClick={handleClick}>TEST</button>
-            <div className="row row-holder">
-              <div className="col-lg-5 col-md-5 col-holder">
-                <div className="product-view">
-                  {hasImages && (
-                    <PreviewCompatibleImage
-                      imageInfo={{
-                        image: product.images[0]?.originalSrc,
-                        alt: `${product.title}`,
-                      }}
-                    />
-                  )}
-                </div>
-                <div className="image-view-option">
-                  {hasMultipleImages && (
-                    <Slider {...productSlider}>
-                      {images && images.map((image, index) => (
-                        <div className="image-holder" key={image}>
-                          <GatsbyImage
-                            objectFit="contain"
-                            loading={index === 0 ? "eager" : "lazy"}
-                            alt={ image.altText ? image.altText : `Product Image of ${title} #${index + 1}` }
-                            image={image.gatsbyImageData}
-                          />
-                        </div>
-                      ))}
-                    </Slider>
-                  )}
-                </div>
-              </div>
-              <div className="col-lg-7 col-md-7 col-holder">
-                <div className="product-desc-holder">
-                  <p className="product-title">{product.title}</p>
-                  <p className="product-desc">{product.description}</p>
-                  <div className="product-add-minus-holder">
-                    {product.variants[0].compareAtPrice ? 
-                      <div className="f-price">
-                        <p>Original Price: <span className="old-price">₱{product.variants[0].compareAtPrice}</span></p>
-                        <p className="current-price">Now: {price}</p>
-                      </div>
-                      :
-                      <div className="f-price">
-                        <p className="current-price-not-sale">Price: {price}</p>
-                      </div>
-                    }
-                    {/* <div className="add-minus">
-                      <Link to="/"><span className="icon ei-minus-circle-fill"></span></Link>
-                      <span className="value">0</span>
-                      <Link to="/"><span className="icon ei-plus-circle-fill"></span></Link>
-                    </div> */}
+      <SideNavigation />
+      <div className="sections-wrapper" id="content">
+        <div className="product-page-detail">
+          <div className="section product-view-content">
+            <div className="container">
+              <button onClick={handleClick}>TEST</button>
+              <div className="row row-holder">
+                <div className="col-lg-5 col-md-5 col-holder">
+                  <div className="product-view">
+                    {hasImages && (
+                      <PreviewCompatibleImage
+                        imageInfo={{
+                          image: product.images[0]?.originalSrc,
+                          alt: `${product.title}`,
+                        }}
+                      />
+                    )}
                   </div>
-                  <p className="addons-title">Make it Extra Special with our add ons!</p>
-                  <div className="addons-carousel">
-                  <Slider {...addOnsSlider}>
-                    {addOnsLists.map((addOns) => (
-                      <div className="addons-item" key={addOns.node.id}>
-                          <label htmlFor={addOns.node.id}>
-                            <div className="img-holder">
-                              <PreviewCompatibleImage
-                                imageInfo={{
-                                  image: addOns.node.images[0].src,
-                                  alt: `${addOns.node.title}`
-                                }}
-                              />
-                            </div>
-                            <p className="addons-name">{addOns.node.title}</p>
-                            <p className="addons-price">P99.00</p>
-                            <input 
-                              type="checkbox" 
-                              id={addOns.node.id}
-                              name="addons"
-                              value={addOns.node.variants[0].storefrontId}
-                              onChange={(e) => { handleGetAddOnsValue(e) }}
+                  <div className="image-view-option">
+                    {hasMultipleImages && (
+                      <Slider {...productSlider}>
+                        {images && images.map((image, index) => (
+                          <div className="image-holder" key={image}>
+                            <GatsbyImage
+                              objectFit="contain"
+                              loading={index === 0 ? "eager" : "lazy"}
+                              alt={ image.altText ? image.altText : `Product Image of ${title} #${index + 1}` }
+                              image={image.gatsbyImageData}
                             />
-                          </label>
-                      </div>
-                      ))}
-                    </Slider>
+                          </div>
+                        ))}
+                      </Slider>
+                    )}
                   </div>
+                </div>
+                <div className="col-lg-7 col-md-7 col-holder">
+                  <div className="product-desc-holder">
+                    <p className="product-title">{product.title}</p>
+                    <p className="product-desc" dangerouslySetInnerHTML={{__html: product.descriptionHtml}}></p>
+                    <div className="product-add-minus-holder">
+                      {product.variants[0].compareAtPrice ? 
+                        <div className="f-price">
+                          <p>Original Price: <span className="old-price">₱{product.variants[0].compareAtPrice}</span></p>
+                          <p className="current-price">Now: {price}</p>
+                        </div>
+                        :
+                        <div className="f-price">
+                          <p className="current-price-not-sale">Price: {price}</p>
+                        </div>
+                      }
+                      {/* <div className="add-minus">
+                        <Link to="/"><span className="icon ei-minus-circle-fill"></span></Link>
+                        <span className="value">0</span>
+                        <Link to="/"><span className="icon ei-plus-circle-fill"></span></Link>
+                      </div> */}
+                    </div>
+                    <p className="addons-title">Make it Extra Special with our add ons!</p>
+                    <div className="addons-carousel">
+                      <Slider {...addOnsSlider}>
+                        {addOnsLists.map((addOns, index) => (
+                          <div className="addons-item" key={addOns.id}>
+                            <label htmlFor={addOns.id}>
+                              <div className="img-holder">
+                                <GatsbyImage
+                                  objectFit="contain"
+                                  loading={index === 0 ? "eager" : "lazy"}
+                                  alt={ addOns.featuredImage.altText ? addOns.featuredImage.altText : `Product Image of ${addOns.title} #${index + 1}` }
+                                  image={addOns.featuredImage.gatsbyImageData}
+                                />
+                              </div>
+                              <p className="addons-name">{addOns.title}</p>
+                              <p className="addons-price">P99.00</p>
+                              <input 
+                                type="checkbox" 
+                                id={addOns.id}
+                                name="addons"
+                                value={addOns.variants[0].storefrontId}
+                                onChange={(e) => { handleGetAddOnsValue(e) }}
+                              />
+                            </label>
+                        </div>
+                        ))}
+                      </Slider>
+                    </div>
 
-                  <AddToCart
-                    variantId={productVariant.storefrontId}
-                    quantity={1}
-                    available={available}
-                    addOns={StoreFrontId}
-                  />
+                    <AddToCart
+                      variantId={productVariant.storefrontId}
+                      quantity={1}
+                      available={available}
+                      addOns={StoreFrontId}
+                    />
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="section featured-products also-like">
+          <div className="container">
+            <h4 className="title">You may also like</h4>
+            <div className="row row-holder">
+              { otherProductLists.map((node, index) => index < 6 ? (
+                <div className="col-lg-2 col-sm-3 col-6 col-holder" key={node.shopifyId}>
+                  <Link to={`/products/${node.handle}`} className="wrapper">
+                    <div className="img-holder">
+                    <GatsbyImage
+                      objectFit="contain"
+                      loading={index === 0 ? "eager" : "lazy"}
+                      alt={ node.featuredImage.altText ? node.featuredImage.altText : `Product Image of ${node.title} #${index + 1}` }
+                      image={node.featuredImage.gatsbyImageData}
+                    />
+                    </div>
+                    <div className="text-holder">
+                      <p className="product-name">{node.title}</p>
+                      {node.variants[0].compareAtPrice ? 
+                        <span>
+                          <p className="origina-price"><span>Original Price: {formatPrice("PHP", node.variants[0].compareAtPrice)}</span></p> 
+                          <p className="price-now">Now: {formatPrice("PHP", node.variants[0].price)}</p>
+                        </span>
+                        : 
+                        <span>
+                          <p className="origina-price">Price: {formatPrice("PHP", node.variants[0].price)}</p>
+                        </span>
+                      }
+                    </div>
+                  </Link>
+                </div>
+              ) : null )}
             </div>
           </div>
         </div>
@@ -202,17 +255,23 @@ export default function ProductTemplate(props) {
 
 export const addOns = graphql`
   query addOnsQuery {
-    allShopifyProduct(filter: {productType: {eq: "addons"}}) {
+    allShopifyProduct {
       edges {
         node {
           id
           title
-          images {
-            src
-            gatsbyImageData
+          featuredImage {
+            gatsbyImageData(width: 178, layout: CONSTRAINED)
+            altText
           }
+          handle
+          storefrontId
+          shopifyId
+          productType
           variants {
             storefrontId
+            price
+            compareAtPrice
           }
         }
       }

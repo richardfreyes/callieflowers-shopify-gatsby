@@ -9,6 +9,10 @@
     padding-top: 72px;
     border-top: 1px solid rgba(248, 122, 123, 0.32);
 
+    &.also-like {
+      margin: 50px 0 50px;
+    }
+
     .title {
       margin-bottom: 21px;
       text-align: center;
