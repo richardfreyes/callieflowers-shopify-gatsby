@@ -16,98 +16,96 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons"
 
 export default function ProductTemplate(props) {
-    console.log('props', props)
-    const [StoreFrontId, setStoreFrontId] = React.useState([])
-    const { product } = props.pageContext
-    const { variants: [initialVariant], priceRangeV2, title, description, images, images: [firstImage] } = product
-    const { client } = React.useContext(StoreContext)
-    const [variant] = React.useState({ ...initialVariant })
-    // const [variant, setVariant] = React.useState({ ...initialVariant })
-    // const [quantity, setQuantity] = React.useState(1)
-    const productVariant = client.product.helpers.variantForOptions(product, variant) || variant
-    const [available, setAvailable] = React.useState( productVariant.availableForSale )
-    const checkAvailablity = React.useCallback(
-      (productId) => {
-        client.product.fetch(productId).then((fetchedProduct) => {
-          const result = fetchedProduct?.variants.filter( (variant) => variant.id === productVariant.storefrontId ) ?? []
-          if (result.length > 0) { setAvailable(result[0].available) }
-        })
-      },
-      [productVariant.storefrontId, client.product]
-    )
-  
-    function handleClick() {
-      // history.push("/home");
-      // <Redirect to="/cart" />
+  console.log('props', props)
+  const [StoreFrontId, setStoreFrontId] = React.useState([])
+  const { product } = props.pageContext
+  const { variants: [initialVariant], priceRangeV2, title, description, images, images: [firstImage] } = product
+  const { client } = React.useContext(StoreContext)
+  const [variant] = React.useState({ ...initialVariant })
+  // const [variant, setVariant] = React.useState({ ...initialVariant })
+  // const [quantity, setQuantity] = React.useState(1)
+  const productVariant = client.product.helpers.variantForOptions(product, variant) || variant
+  const [available, setAvailable] = React.useState( productVariant.availableForSale )
+  const checkAvailablity = React.useCallback(
+    (productId) => {
+      client.product.fetch(productId).then((fetchedProduct) => {
+        const result = fetchedProduct?.variants.filter( (variant) => variant.id === productVariant.storefrontId ) ?? []
+        if (result.length > 0) { setAvailable(result[0].available) }
+      })
+    },
+    [productVariant.storefrontId, client.product]
+  )
+
+  // function handleClick() {
+  //   // history.push("/home");
+  //   // <Redirect to="/cart" />
+  // }
+
+  function handleGetAddOnsValue(event) {
+    // add to list
+    if (event.target.checked) {
+      setStoreFrontId([
+        ...StoreFrontId,
+        { variantId: event.target.value, quantity: 1 }
+      ])
+    } else {
+      // remove from list
+      setStoreFrontId(
+        StoreFrontId.filter((storeFront) => storeFront.variantId !== event.target.value)
+      )
+    }
+  }
+
+  // const handleChange = (e) => {
+  //   this.setState({
+  //     [e.target.name]: e.target.value,
+  //   });
+  // }
+
+  // const handleOptionChange = (index, event) => {
+  //   const value = event.target.value
+  //   if (value === "") { return }
+  //   const currentOptions = [...variant.selectedOptions]
+  //   currentOptions[index] = { ...currentOptions[index], value }
+  //   const selectedVariant = variants.find((variant) => { return isEqual(currentOptions, variant.selectedOptions) })
+  //   setVariant({ ...selectedVariant })
+  // }
+
+  React.useEffect(() => { checkAvailablity(product.storefrontId) }, [productVariant.storefrontId, checkAvailablity, product.storefrontId])
+  const price = formatPrice( priceRangeV2.minVariantPrice.currencyCode, variant.price )
+  // const hasVariants = variants.length > 1
+  const hasImages = images.length > 0
+  const hasMultipleImages = true || images.length > 1
+  const addOnsLists = [];
+  const otherProductLists = [];
+  const productSlider = {
+    lazyLoad: 'ondemand',
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    infinite: false,
+  };
+  const addOnsSlider = {
+    lazyLoad: 'ondemand',
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    infinite: false,
+    nextArrow: <FontAwesomeIcon className="fr-slick-next" icon={faChevronRight}/>,
+    prevArrow: <FontAwesomeIcon className="fr-slick-prev" icon={faChevronLeft}/>,
+  };
+
+  props.data.allShopifyProduct.edges.map(({node}) => {
+    if(node.productType.includes('addons')) { 
+      addOnsLists.push(node);
+    } else {
+      otherProductLists.push(node);
     }
 
-    function handleGetAddOnsValue(event) {
-      // add to list
-      if (event.target.checked) {
-        setStoreFrontId([
-          ...StoreFrontId,
-          { variantId: event.target.value, quantity: 1 }
-        ])
-      } else {
-        // remove from list
-        setStoreFrontId(
-          StoreFrontId.filter((storeFront) => storeFront.variantId !== event.target.value)
-        )
-      }
-    }
-
-    // const handleChange = (e) => {
-    //   this.setState({
-    //     [e.target.name]: e.target.value,
-    //   });
-    // }
-
-    // const handleOptionChange = (index, event) => {
-    //   const value = event.target.value
-    //   if (value === "") { return }
-    //   const currentOptions = [...variant.selectedOptions]
-    //   currentOptions[index] = { ...currentOptions[index], value }
-    //   const selectedVariant = variants.find((variant) => { return isEqual(currentOptions, variant.selectedOptions) })
-    //   setVariant({ ...selectedVariant })
-    // }
-
-    React.useEffect(() => { checkAvailablity(product.storefrontId) }, [productVariant.storefrontId, checkAvailablity, product.storefrontId])
-    const price = formatPrice( priceRangeV2.minVariantPrice.currencyCode, variant.price )
-    // const hasVariants = variants.length > 1
-    const hasImages = images.length > 0
-    const hasMultipleImages = true || images.length > 1
-    const addOnsLists = [];
-    const otherProductLists = [];
-    const productSlider = {
-      lazyLoad: 'ondemand',
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      infinite: false,
-    };
-    const addOnsSlider = {
-      lazyLoad: 'ondemand',
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      infinite: false,
-      nextArrow: <FontAwesomeIcon className="fr-slick-next" icon={faChevronRight}/>,
-      prevArrow: <FontAwesomeIcon className="fr-slick-prev" icon={faChevronLeft}/>,
-    };
-
-    props.data.allShopifyProduct.edges.map(({node}) => {
-      if(node.productType.includes('addons')) { 
-        addOnsLists.push(node);
-      } else {
-        otherProductLists.push(node);
-      }
-
-      return null;
-    })
-
-    console.log('addOnsLists', addOnsLists)
-    console.log('otherProductLists', otherProductLists)
+    return null;
+  })
 
 
-    return (
+
+  return (
     <Layout>
       {firstImage ? (
         <Seo
@@ -115,13 +113,13 @@ export default function ProductTemplate(props) {
           description={description}
           image={getSrc(firstImage.gatsbyImageData)}
         />
-      ) : undefined}
+      ) : undefined }
       <SideNavigation />
       <div className="sections-wrapper" id="content">
         <div className="product-page-detail">
           <div className="section product-view-content">
             <div className="container">
-              <button onClick={handleClick}>TEST</button>
+              <button type="button">TEST</button>
               <div className="row row-holder">
                 <div className="col-lg-5 col-md-5 col-holder">
                   <div className="product-view">
@@ -250,7 +248,7 @@ export default function ProductTemplate(props) {
         </div>
       </div>
     </Layout>
-    )
+  )
 }
 
 export const addOns = graphql`

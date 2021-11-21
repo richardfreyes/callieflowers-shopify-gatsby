@@ -6,6 +6,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPhone, faShippingFast, faShoppingBasket, faUserAlt } from "@fortawesome/free-solid-svg-icons"
 import { StoreContext } from '../context/store-context'
+import * as burgerMenuService from '../services/general-menus'
 
 export function Header() {
   // constructor(props) {
@@ -13,14 +14,9 @@ export function Header() {
   //   // this.state = { toggle: true };
   //   // this.sideBar = React.createRef();
   //   // this.burgerSideNav = this.burgerSideNav.bind(this);
-
   // }
-
   // burgerSideNav(e) {
   //   // this.setState(prevState => ({ toggle: !prevState.toggle }));
-
-
-
   //   // if(this.state.toggle) {
   //   //   document.getElementById('sidebar').classList.toggle('active');
   //   //   document.getElementById('sidebarClear').classList.toggle('active');
@@ -29,27 +25,28 @@ export function Header() {
   //   //   $('#sidebarCollapse').on('click', function () {
   //   //       $('#sidebar').toggleClass('active');
   //   //       $('#sidebarClear').toggleClass('active');
-  
-  
   //   //       $('#sidebarCollapse').attr('aria-expanded',$(this).attr('aria-expanded')==='true'?'false':'true' );
   //   //   });
-  
   //   //   var pathName = window.location.pathname;
-  
   //   //   if(pathName === '/') {
   //   //     $('#sidebarCollapse').attr("aria-expanded", true);
   //   //     $('#sidebar').removeClass('active');
   //   //     $('#sidebarClear').removeClass('active');
   //   //   }
-  
   //   // }
   // }
 
-  // static contextType = StoreContext
 
   const { checkout, loading, didJustAddToCart } = React.useContext(StoreContext)
   const items = checkout ? checkout.lineItems : []
   const quantity = items.reduce((total, item) => { return total + item.quantity }, 0)
+  
+  const [burgerState, setBurgerState] = React.useState(true);
+
+  function burgerSideNav() {
+    setBurgerState(prevState => !prevState);
+    burgerMenuService.burgerState.next(burgerState);
+  }
 
   // render() {
     return (
@@ -88,17 +85,20 @@ export function Header() {
             <div className="container-fluid">
               <div className="row row-holder">
                 <div className="col-6 col-lg-6 col-holder logo">
-                {/* <button onClick={ this.burgerSideNav } className="navbar-toggler navbar-toggler-right" id="sidebarCollapse" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation"> */}
-                  <button className="navbar-toggler navbar-toggler-right" id="sidebarCollapse" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+                  <button 
+                    onClick={() => {burgerSideNav()}}
+                    className="navbar-toggler navbar-toggler-right" 
+                    id="sidebarCollapse" 
+                    type="button" 
+                    data-toggle="collapse" 
+                    data-target="#navbarSupportedContent" 
+                    aria-controls="navbarSupportedContent" 
+                    aria-expanded={burgerState}
+                    aria-label="Toggle navigation">
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
                   </button>
-                    {/* <Navbar.Toggle aria-controls="sidebarCollapse">
-                      <span className="icon-bar"></span>
-                      <span className="icon-bar"></span>
-                      <span className="icon-bar"></span>
-                    </Navbar.Toggle> */}
                   <Link className="navbar-brand" to="/">
                     <StaticImage src="../../images/logo.svg" alt="Logo" />
                   </Link>

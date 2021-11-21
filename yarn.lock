@@ -11208,6 +11208,13 @@
   dependencies:
     "tslib" "^1.9.0"
 
+"rxjs@^7.4.0":
+  "integrity" "sha512-7SQDi7xeTMCJpqViXh8gL/lebcwlp3d831F05+9B44A4B0WfsEwUQHR64gsH1kvJ+Ep/J9K2+n1hVl1CsGN23w=="
+  "resolved" "https://registry.npmjs.org/rxjs/-/rxjs-7.4.0.tgz"
+  "version" "7.4.0"
+  dependencies:
+    "tslib" "~2.1.0"
+
 "sade@^1.7.3":
   "integrity" "sha512-y5yauMD93rX840MwUJr7C1ysLFBgMspsdTo4UVrDg3fXDvtwOyIqykhVAAm6fk/3au77773itJStObgK+LKaiA=="
   "resolved" "https://registry.npmjs.org/sade/-/sade-1.7.4.tgz"
