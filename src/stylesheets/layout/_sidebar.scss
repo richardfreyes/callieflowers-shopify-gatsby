@@ -88,15 +88,16 @@
     max-width: 90px;
     text-align: center;
 
-    ul {
+    ul, .ul {
       &.menu {
         &.dropdown,
         &.sitemap {
           display: none;
         }
 
-        li {
-          &.fb-nav-item {
+        li, .li {
+          &.fb-nav-item,
+          &.accordion-item {
             a {
               padding: 15px 0;
               transition: none;
@@ -170,13 +171,24 @@
     }
   }
 
-  ul {
+  ul, .ul {
     &.menu {
       margin: 0;
 
-      li {
-        &.fb-nav-item {
-          a {
+      li, .li {
+        &.fb-nav-item, &.accordion-item {
+          h2 {
+            font-size: inherit;
+
+            button {
+              width: 100%;
+              text-align: left;
+              border: none;
+              background: transparent;
+            }
+          }
+
+          a, button {
             position: relative;
             display: block;
             padding: 14px 30px;
@@ -370,8 +382,8 @@
   	@include transition(.3s);
   }
 
-  ul{
-    li{
+  ul, .ul{
+    li, .li{
     	font-size: 16px;
     	>ul{
     		margin-left: 10px;
