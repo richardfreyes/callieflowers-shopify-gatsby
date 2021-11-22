@@ -5,6 +5,9 @@ import { LineItem } from "../shared/components/line-item"
 import { formatPrice } from "../shared/utils/format-price"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import SideNavigation from "../shared/components/side-nav"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faShoppingBasket } from "@fortawesome/free-solid-svg-icons"
 
 export default function CartPage() {
   const { checkout, loading } = React.useContext(StoreContext)
@@ -112,107 +115,110 @@ export default function CartPage() {
 
   return (
     <Layout>
-      {emptyCart ? (
-        <div className="cart-empty-page">
-          <div className="section shopping-cart-empty">
-            <div className="container">
-              <h1>Shopping cart</h1>
-              <div className="content">
-                <div className="icon-cart">
-                  <span className="ei-shopping-basket"></span>
-                </div>
-                <p className="text">No placed orders yet</p>
-                <div className="btn-holder">
-                  <a className="btn-brand-gradient" href="#">Search a flower now!</a>
+      <SideNavigation />
+      <div className="sections-wrapper" id="content">
+        {emptyCart ? (
+          <div className="cart-empty-page">
+            <div className="section shopping-cart-empty">
+              <div className="container">
+                <h1>Shopping cart</h1>
+                <div className="content">
+                  <div className="icon-cart">
+                    <FontAwesomeIcon icon={faShoppingBasket} />
+                  </div>
+                  <p className="text">No placed orders yet</p>
+                  <div className="btn-holder">
+                    <a className="btn-brand-gradient" href="#">Search a flower now!</a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      ) : (
-        <div className="cart-page">
-          <div className="section shopping-cart">
-            <div className="container">
-              <h1>Shopping cart</h1>
-              <form>
-                <div className="row row-holder">
-                  <div className="col-lg-6 col-holder">
-                    {checkout.lineItems.map((item) => (
-                      <LineItem item={item} key={item.id} />
-                    ))}
-                  </div>
-                  <div className="col-lg-6 col-holder">
-                    <p className="delivery-title">Select a delivery date and time:</p>
-                    <div className="btn-holder">
-                      {
-                        dateTime[0].date.map((date, i) => (
-                          <div className={`bubble ${activeDateIndex === i ? 'active' : null}`} key={date.day} onClick={() => {handleDateClick(date, i, 'day')}}>
-                            <p className="day">{date.day}</p>
-                            <p className="month">{date.month}</p>
-                          </div>
-                        ))
-                      }
-                      <div className={`bubble ${activeDateIndex === 2 ? 'active' : null}`} onClick={() => {handleDateClick(null, 2, 'custom')}}>
-                        <p className="custom">Custom Date</p>
+        ) : (
+          <div className="cart-page">
+            <div className="section shopping-cart">
+              <div className="container">
+                <h1>Shopping cart</h1>
+                <form>
+                  <div className="row row-holder">
+                    <div className="col-lg-6 col-holder">
+                      {checkout.lineItems.map((item) => (
+                        <LineItem item={item} key={item.id} />
+                      ))}
+                    </div>
+                    <div className="col-lg-6 col-holder">
+                      <p className="delivery-title">Select a delivery date and time:</p>
+                      <div className="btn-holder">
+                        {
+                          dateTime[0].date.map((date, i) => (
+                            <div className={`bubble ${activeDateIndex === i ? 'active' : null}`} key={date.day} onClick={() => {handleDateClick(date, i, 'day')}}>
+                              <p className="day">{date.day}</p>
+                              <p className="month">{date.month}</p>
+                            </div>
+                          ))
+                        }
+                        <div className={`bubble ${activeDateIndex === 2 ? 'active' : null}`} onClick={() => {handleDateClick(null, 2, 'custom')}}>
+                          <p className="custom">Custom Date</p>
+                        </div>
+                      </div>
+                        {
+                          activeDP ? (
+                            <div className="date-picker">
+                              <DatePicker 
+                                inline
+                                onChange={(value, e) => handleDateChange(value, e)}
+                                minDate={new Date()}
+                              />
+                            </div>
+                          ) : ( null )
+                        }
+                        <input readOnly="" id="order_date" name="attributes[Delivery Date]" type="hidden" value={dateValue} required />
+                      <div className="order__times-main">
+                        { dateIsActive ? (
+                          <ul className="order__times-wrap">
+                            { dateTime[1].time.map((time, i) => ( 
+                              <li 
+                                className={activeTimeIndex === i ? 'active' : null} 
+                                data-value="8AM-1PM" 
+                                key={time.val}
+                                onClick={() => {handleTimeClick(time, i)}}>
+                                  <span>{time.val}</span>
+                              </li> 
+                            )) }
+                          </ul>
+                        ) : ( null )}
+                        <input type="hidden" id="order_time" name="attributes[Delivery Slot]" value="" required="" />
+                      </div>
+                      <div className="sender-holder">
+                        <p>Sender Name:</p>
+                        <input type="text" />
+                      </div>
+                      <div className="personal-message">
+                        <p>Choose your personal card message:</p>
+                        <textarea placeholder="Write your message here..." value={cardDesc} onChange={event => changeCardHandler(event)}></textarea>
+                        <div className="automated-messages">
+                          {messageList.map(data => (
+                            <span key={data.title} onClick={() => { clickCardHandler(data.desc) }}>{data.title}</span>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="total-price">
+                        {formatPrice(
+                          checkout.totalPriceV2.currencyCode,
+                          checkout.totalPriceV2.amount
+                        )}
+                      </div>
+                      <div className="place-order">
+                        <button  className="btn-brand-gradient" onClick={handleCheckout} disabled={loading}>Place Order</button>
                       </div>
                     </div>
-                      {
-                        activeDP ? (
-                          <div className="date-picker">
-                            <DatePicker 
-                              inline
-                              onChange={(value, e) => handleDateChange(value, e)}
-                              minDate={new Date()}
-                            />
-                          </div>
-                        ) : ( null )
-                      }
-                      <input readOnly="" id="order_date" name="attributes[Delivery Date]" type="hidden" value={dateValue} required />
-                    <div className="order__times-main">
-                      { dateIsActive ? (
-                        <ul className="order__times-wrap">
-                          { dateTime[1].time.map((time, i) => ( 
-                            <li 
-                              className={activeTimeIndex === i ? 'active' : null} 
-                              data-value="8AM-1PM" 
-                              key={time.val}
-                              onClick={() => {handleTimeClick(time, i)}}>
-                                <span>{time.val}</span>
-                            </li> 
-                          )) }
-                        </ul>
-                      ) : ( null )}
-                      <input type="hidden" id="order_time" name="attributes[Delivery Slot]" value="" required="" />
-                    </div>
-                    <div className="sender-holder">
-                      <p>Sender Name:</p>
-                      <input type="text" />
-                    </div>
-                    <div className="personal-message">
-                      <p>Choose your personal card message:</p>
-                      <textarea placeholder="Write your message here..." value={cardDesc} onChange={event => changeCardHandler(event)}></textarea>
-                      <div className="automated-messages">
-                        {messageList.map(data => (
-                          <span key={data.title} onClick={() => { clickCardHandler(data.desc) }}>{data.title}</span>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="total-price">
-                      {formatPrice(
-                        checkout.totalPriceV2.currencyCode,
-                        checkout.totalPriceV2.amount
-                      )}
-                    </div>
-                    <div className="place-order">
-                      <button  className="btn-brand-gradient" onClick={handleCheckout} disabled={loading}>Place Order</button>
-                    </div>
                   </div>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </Layout>
   )
 }

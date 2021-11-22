@@ -15,7 +15,8 @@
 
       .container {
         h1 {
-          display: inline-block;
+          display: block;
+          text-align: center;
           margin-top: 72px;
           color: $color-hotpink;
           font: normal 800 32px/40px "Pacifico";

@@ -7,9 +7,10 @@
 // You can delete this file if you're not using it
 import * as React from "react"
 import { StoreProvider } from "./src/shared/context/store-context"
+import './src/stylesheets/main.scss'
 import "@fontsource/pacifico"
 import "@fontsource/roboto";
-import './src/stylesheets/main.scss'
+import "@fontsource/open-sans";
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 export const wrapRootElement = ({ element }) => (
