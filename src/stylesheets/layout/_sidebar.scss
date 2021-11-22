@@ -101,6 +101,10 @@
               padding: 15px 0;
               transition: none;
 
+              svg {
+
+              }
+
               span {
                 display: block;
                 margin: auto;
@@ -379,7 +383,7 @@
 		    display: block;
 		    color: #000;
 		    border-bottom: 1px solid rgba(255,255,255,.1);
-		    span{
+		    span, svg {
 		    	margin-right: 15px;
 		    }
 		    &:hover{

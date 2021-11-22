@@ -1,8 +1,8 @@
 import React from "react"
 import Layout from "../components/layout"
-import { Link } from "gatsby"
 import PreviewCompatibleImage from '../components/preview-compatible-image'
 import SideNavigation from "../components/side-nav"
+import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 export default function CollectionTemplate(props) {
@@ -15,9 +15,7 @@ export default function CollectionTemplate(props) {
           <div className="container">
             <div className="desc-wrapper">
               <h1 className="page-title">{data.title}</h1>
-              <p className="page-desc">
-                {data.description}
-              </p>
+              <p className="page-desc">{data.description}</p>
             </div>
             <div className="services-wrapper">
             <div class="row row-holder">
@@ -80,12 +78,7 @@ export default function CollectionTemplate(props) {
                   <div className="col-lg-2 col-sm-3 col-6 col-holder" key={node.shopifyId}>
                     <Link to={`/products/${node.handle}`} className="wrapper">
                       <div className="img-holder">
-                      <PreviewCompatibleImage
-                        imageInfo={{
-                          image: node.images[0].originalSrc,
-                          alt: `${node.title}`,
-                        }}
-                      />
+                        <PreviewCompatibleImage imageInfo={{ image: node.images[0].originalSrc, alt: `${node.title}` }} />
                       </div>
                       <div className="text-holder">
                         <p className="product-name">{node.title}</p>

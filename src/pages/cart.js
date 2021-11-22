@@ -169,21 +169,19 @@ export default function CartPage() {
                       }
                       <input readOnly="" id="order_date" name="attributes[Delivery Date]" type="hidden" value={dateValue} required />
                     <div className="order__times-main">
-                      {
-                        dateIsActive ? (
-                          <ul className="order__times-wrap">
-                            { dateTime[1].time.map((time, i) => ( 
-                              <li 
-                                className={activeTimeIndex === i ? 'active' : null} 
-                                data-value="8AM-1PM" 
-                                key={time.val}
-                                onClick={() => {handleTimeClick(time, i)}}>
-                                  <span>{time.val}</span>
-                              </li> 
-                            )) }
-                          </ul>
-                        ) : ( null )
-                      }
+                      { dateIsActive ? (
+                        <ul className="order__times-wrap">
+                          { dateTime[1].time.map((time, i) => ( 
+                            <li 
+                              className={activeTimeIndex === i ? 'active' : null} 
+                              data-value="8AM-1PM" 
+                              key={time.val}
+                              onClick={() => {handleTimeClick(time, i)}}>
+                                <span>{time.val}</span>
+                            </li> 
+                          )) }
+                        </ul>
+                      ) : ( null )}
                       <input type="hidden" id="order_time" name="attributes[Delivery Slot]" value="" required="" />
                     </div>
                     <div className="sender-holder">
@@ -194,28 +192,19 @@ export default function CartPage() {
                       <p>Choose your personal card message:</p>
                       <textarea placeholder="Write your message here..." value={cardDesc} onChange={event => changeCardHandler(event)}></textarea>
                       <div className="automated-messages">
-                        {
-                          messageList.map(data => (
-                            <span key={data.title} onClick={() => { clickCardHandler(data.desc) }}>{data.title}</span>
-                          ))
-                        }
+                        {messageList.map(data => (
+                          <span key={data.title} onClick={() => { clickCardHandler(data.desc) }}>{data.title}</span>
+                        ))}
                       </div>
                     </div>
                     <div className="total-price">
-                      {/* <p>Total: <span>P2,900.00</span></p> */}
                       {formatPrice(
                         checkout.totalPriceV2.currencyCode,
                         checkout.totalPriceV2.amount
                       )}
                     </div>
                     <div className="place-order">
-                      <button 
-                        className="btn-brand-gradient"
-                        onClick={handleCheckout}
-                        disabled={loading}
-                      >
-                        Place Order
-                      </button>
+                      <button  className="btn-brand-gradient" onClick={handleCheckout} disabled={loading}>Place Order</button>
                     </div>
                   </div>
                 </div>

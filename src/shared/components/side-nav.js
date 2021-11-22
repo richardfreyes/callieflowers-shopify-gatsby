@@ -14,7 +14,6 @@ export default class SideNavigation extends React.Component {
   componentDidMount() {
     burgerMenuService.burgerState.subscribe((res) => {
       this.setState({ sideNavState: res })
-      console.log('this.props asdasdsa', this.state.sideNavState)
     })
   }
 

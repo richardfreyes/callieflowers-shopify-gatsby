@@ -3,8 +3,8 @@ import Layout from "../components/layout"
 import { graphql, Link  } from "gatsby"
 import PreviewCompatibleImage from "../components/preview-compatible-image"
 import Slider from "react-slick"
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 import { StoreContext } from "../context/store-context"
 import { AddToCart } from "../components/add-to-cart"
 import { formatPrice } from "../utils/format-price"
@@ -16,12 +16,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons"
 
 export default function ProductTemplate(props) {
-  console.log('props', props)
-  const [StoreFrontId, setStoreFrontId] = React.useState([])
+  const [ StoreFrontId, setStoreFrontId] = React.useState([])
   const { product } = props.pageContext
   const { variants: [initialVariant], priceRangeV2, title, description, images, images: [firstImage] } = product
   const { client } = React.useContext(StoreContext)
-  const [variant] = React.useState({ ...initialVariant })
+  const [ variant ] = React.useState({ ...initialVariant })
   // const [variant, setVariant] = React.useState({ ...initialVariant })
   // const [quantity, setQuantity] = React.useState(1)
   const productVariant = client.product.helpers.variantForOptions(product, variant) || variant

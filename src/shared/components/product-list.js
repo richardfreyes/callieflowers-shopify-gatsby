@@ -4,7 +4,6 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { formatPrice } from "../utils/format-price"
 
 class ProductList extends React.Component {
-
   render() {
     const { data } = this.props;
     let featuredProducts = [];
@@ -15,7 +14,6 @@ class ProductList extends React.Component {
       if(node.handle.includes('featured')) { featuredProducts = node.products }
       if(node.handle.includes('budget-deals')) { budgetDealsProducts = node.products }
       if(node.handle.includes('all')) { allProducts = node.products }
-
       return null;
     })
 
