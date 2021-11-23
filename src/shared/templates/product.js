@@ -14,6 +14,11 @@ import { GatsbyImage, getSrc } from "gatsby-plugin-image"
 import SideNavigation from "../components/side-nav"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons"
+import { BrowserRouter as Router, Route } from "react-router-dom";
+// import { createHistory } from 'history'
+// import {browserHistory} from 'react-router';
+import Cart from "../../pages/cart"
+
 
 export default function ProductTemplate(props) {
   const [ StoreFrontId, setStoreFrontId] = React.useState([])
@@ -93,18 +98,14 @@ export default function ProductTemplate(props) {
   };
 
   props.data.allShopifyProduct.edges.map(({node}) => {
-    if(node.productType.includes('addons')) { 
-      addOnsLists.push(node);
-    } else {
-      otherProductLists.push(node);
-    }
-
+    if(node.productType.includes('addons')) { addOnsLists.push(node) } 
+    else { otherProductLists.push(node) }
     return null;
   })
 
-
-
   return (
+    <Router>
+      <Route path="/cart" component={Cart}/>
     <Layout>
       {firstImage ? (
         <Seo
@@ -118,7 +119,6 @@ export default function ProductTemplate(props) {
         <div className="product-page-detail">
           <div className="section product-view-content">
             <div className="container">
-              <button type="button">TEST</button>
               <div className="row row-holder">
                 <div className="col-lg-5 col-md-5 col-holder">
                   <div className="product-view">
@@ -247,6 +247,8 @@ export default function ProductTemplate(props) {
         </div>
       </div>
     </Layout>
+    </Router>
+
   )
 }
 

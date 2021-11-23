@@ -1,13 +1,14 @@
 import * as React from "react"
-import { StoreContext } from "../shared/context/store-context"
-import Layout from "../shared/components/layout"
-import { LineItem } from "../shared/components/line-item"
-import { formatPrice } from "../shared/utils/format-price"
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "react-datepicker";
 import SideNavigation from "../shared/components/side-nav"
+import Layout from "../shared/components/layout"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faShoppingBasket } from "@fortawesome/free-solid-svg-icons"
+import { Link } from "gatsby"
+import { StoreContext } from "../shared/context/store-context"
+import { LineItem } from "../shared/components/line-item"
+import { formatPrice } from "../shared/utils/format-price"
 
 export default function CartPage() {
   const { checkout, loading } = React.useContext(StoreContext)
@@ -128,7 +129,7 @@ export default function CartPage() {
                   </div>
                   <p className="text">No placed orders yet</p>
                   <div className="btn-holder">
-                    <a className="btn-brand-gradient" href="#">Search a flower now!</a>
+                    <Link className="btn-brand-gradient" to="/">Search a flower now!</Link>
                   </div>
                 </div>
               </div>
