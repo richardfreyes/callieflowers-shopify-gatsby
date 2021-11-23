@@ -22,9 +22,11 @@ class LinksNavigation extends React.Component {
       <div className="links">
         <div className="container-fluid">
           <Slider className="nav-tags" {...settings}>
-            {data.allShopifyCollection.edges.map(({node}) => (
-              <span className="tags" key={node.handle}><Link to={`/collections/${node.handle}`}>{node.title}</Link></span>
-            ))}
+            {data.allShopifyCollection.edges.map(({node}) => 
+              node.handle !== "addons" ?
+                <span className="tags" key={node.handle}><Link to={`/collections/${node.handle}`}>{node.title}</Link></span>
+              : null
+            )}
           </Slider>
         </div>
       </div>

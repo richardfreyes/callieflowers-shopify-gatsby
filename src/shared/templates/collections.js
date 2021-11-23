@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import PreviewCompatibleImage from '../components/preview-compatible-image'
 import SideNavigation from "../components/side-nav"
+import LinksNavigation from "../components/links"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
@@ -11,6 +12,7 @@ export default function CollectionTemplate(props) {
     <Layout>
       <SideNavigation/>
       <div className="sections-wrapper" id="content">
+        <LinksNavigation />
         <div className="section page-banner stars">
           <div className="container">
             <div className="desc-wrapper">

@@ -1,14 +1,13 @@
 import * as React from "react"
 import { StoreContext } from "../context/store-context"
-import { useHistory } from "react-router-dom";
+import { navigate } from 'gatsby'
 
 export function AddToCart({ variantId, quantity, available, addOns, ...props }) {
   const { addVariantToCart, loading, didJustAddToCart } = React.useContext(StoreContext)
-  let history = useHistory()
 
   if(loading || didJustAddToCart) {
     if(didJustAddToCart) {
-      history.push("/cart");
+      navigate("/cart")
     }
   }
   

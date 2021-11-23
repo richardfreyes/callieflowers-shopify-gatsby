@@ -61,49 +61,49 @@ export default class HeroBanner extends React.Component {
           <div className="categories">
             <ul className="scroll-category" id="scrollCategory">
               <li>
-                <Link to="/">
+                <Link to="/collections/all">
                   <StaticImage src="../../images/home/category/all-products.svg" alt="Category" />
                   <p>All Products</p>
                 </Link>
               </li>
               <li>
-                <Link to="/">
+                <Link to="/collections/sale">
                   <StaticImage src="../../images/home/category/sale.svg" alt="Category" />
                   <p>Sale</p>
                 </Link>
               </li>
               <li>
-                <Link to="/">
+                <Link to="/collections/premium-flowers">
                   <StaticImage src="../../images/home/category/premium-flowers.svg" alt="Category" />
                   <p>Premium Flowers</p>
                 </Link>
               </li>
               <li>
-                <Link to="/">
+                <Link to="/collections/budget-deals">
                   <StaticImage src="../../images/home/category/budget-deals.svg" alt="Category" />
                   <p>Budget Deals</p>
                 </Link>
               </li>
               <li>
-                <Link to="/">
+                <Link to="/collections/all">
                   <StaticImage src="../../images/home/category/birthday-bundle.svg" alt="Category" />
                   <p>Birthday Bundle</p>
                 </Link>
               </li>
               <li>
-                <Link to="/">
+                <Link to="/collections/anniversary">
                   <StaticImage src="../../images/home/category/anniversary.svg" alt="Category" />
                   <p>Anniversary</p>
                 </Link>
               </li>
               <li>
-                <Link to="/">
+                <Link to="/collections/all">
                   <StaticImage src="../../images/home/category/birthday-flowers.svg" alt="Category" />
                   <p>Birthday Flowers</p>
                 </Link>
               </li>
               <li>
-                <Link to="/">
+                <Link to="/collections/all">
                   <StaticImage src="../../images/home/category/cakes.svg" alt="Category" />
                   <p>Cakes</p>
                 </Link>

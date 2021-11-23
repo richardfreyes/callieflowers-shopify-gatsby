@@ -118,12 +118,14 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   collectionData.data.allShopifyCollection.edges.forEach(({ node }) => {
-    createPage({
-      path: `/collections/${node.handle}`,
-      component: path.resolve(`./src/shared/templates/collections.js`),
-      context: {
-        product: node
-      },
-    })
+    if(node.handle !== "addons") {
+      createPage({
+        path: `/collections/${node.handle}`,
+        component: path.resolve(`./src/shared/templates/collections.js`),
+        context: {
+          product: node
+        },
+      })
+    }
   })
 }

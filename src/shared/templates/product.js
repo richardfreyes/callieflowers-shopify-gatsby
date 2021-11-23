@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import { graphql, Link  } from "gatsby"
 import PreviewCompatibleImage from "../components/preview-compatible-image"
+import LinksNavigation from "../components/links"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -14,10 +15,10 @@ import { GatsbyImage, getSrc } from "gatsby-plugin-image"
 import SideNavigation from "../components/side-nav"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons"
-import { BrowserRouter as Router, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import { createHistory } from 'history'
 // import {browserHistory} from 'react-router';
-import Cart from "../../pages/cart"
+// import Cart from "../../pages/cart"
 
 
 export default function ProductTemplate(props) {
@@ -104,8 +105,6 @@ export default function ProductTemplate(props) {
   })
 
   return (
-    <Router>
-      <Route path="/cart" component={Cart}/>
     <Layout>
       {firstImage ? (
         <Seo
@@ -116,6 +115,7 @@ export default function ProductTemplate(props) {
       ) : undefined }
       <SideNavigation />
       <div className="sections-wrapper" id="content">
+        <LinksNavigation />
         <div className="product-page-detail">
           <div className="section product-view-content">
             <div className="container">
@@ -247,8 +247,6 @@ export default function ProductTemplate(props) {
         </div>
       </div>
     </Layout>
-    </Router>
-
   )
 }
 

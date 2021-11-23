@@ -110,12 +110,12 @@ export function Header() {
                     </Link>
                   </div>
     
-                  <div className="options-holder">
+                  {/* <div className="options-holder">
                     <Link to="/">
                       <FontAwesomeIcon className="icon user" icon={faUserAlt}/>
                       <span className="desc">Login</span>
                     </Link>
-                  </div>
+                  </div> */}
     
                   <div className="options-holder">
                     <Link to="/cart">

@@ -9,6 +9,7 @@ import { Link } from "gatsby"
 import { StoreContext } from "../shared/context/store-context"
 import { LineItem } from "../shared/components/line-item"
 import { formatPrice } from "../shared/utils/format-price"
+import LinksNavigation from "../shared/components/links"
 
 export default function CartPage() {
   const { checkout, loading } = React.useContext(StoreContext)
@@ -118,6 +119,7 @@ export default function CartPage() {
     <Layout>
       <SideNavigation />
       <div className="sections-wrapper" id="content">
+        <LinksNavigation />
         {emptyCart ? (
           <div className="cart-empty-page">
             <div className="section shopping-cart-empty">
