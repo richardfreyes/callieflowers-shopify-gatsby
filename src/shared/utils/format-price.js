@@ -4,12 +4,18 @@
  * @param {number} value The amount to format
  * @returns
  */
- export const formatPrice = (currency, value) =>
- Intl.NumberFormat("fil-PH", {
-   style: "currency",
-   currency: "PHP",
-   minimumFractionDigits: 0,
- }).format(value)
+ export const formatPrice = (currency, value) => {
+   if(value) {
+    return  Intl.NumberFormat("fil-PH", {
+      style: "currency",
+      currency: "PHP",
+      minimumFractionDigits: 0,
+    }).format(value)
+   } else {
+    return null
+   }
+ }
+
 
 export const getCurrencySymbol = (currency, locale = undefined) => {
   if (!currency) { return }

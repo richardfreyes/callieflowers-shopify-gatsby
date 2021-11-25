@@ -49,6 +49,11 @@ export default function CartPage() {
   ]
   let dateVal2;
 
+  fetch("cart.js", {
+    method: 'post',
+    body: '{"attributes": {"Delivery Date": "27/26/26"}}',
+  })
+
   function changeCardHandler(event) {
     setMessageCard(event.target.value)
   }
@@ -206,10 +211,11 @@ export default function CartPage() {
                         </div>
                       </div>
                       <div className="total-price">
-                        {formatPrice(
-                          checkout.totalPriceV2.currencyCode,
-                          checkout.totalPriceV2.amount
-                        )}
+                      <p>Total: 
+                        <span>
+                          {formatPrice( checkout.totalPriceV2.currencyCode, checkout.totalPriceV2.amount )}
+                        </span>
+                      </p>
                       </div>
                       <div className="place-order">
                         <button  className="btn-brand-gradient" onClick={handleCheckout} disabled={loading}>Place Order</button>
