@@ -12,6 +12,11 @@
   @include boxshadow(0px 4px 16px 0px rgba(0,0,66,0.16));
 
   .slick-slider {
+    button {
+      &.slick-arrow {
+        color: transparent;
+      }
+    }
     .slick-arrow {
       position: absolute;
       top: 50%;

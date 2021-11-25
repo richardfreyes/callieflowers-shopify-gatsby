@@ -11,8 +11,8 @@ class LinksNavigation extends React.Component {
       dots: false,
       infinite: true,
       speed: 300,
-      nextArrow: <span className="icon slick-arrow fr-slick-next"></span>,
-      prevArrow: <span className="icon slick-arrow fr-slick-prev"></span>,
+      // nextArrow: <button type="button" data-role="none" class="slick-arrow slick-prev"></button>,
+      // prevArrow: <button type="button" data-role="none" class="slick-arrow slick-next"></button>,
       slidesToShow: 5,
       centerMode: true,
       variableWidth: true
