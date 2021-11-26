@@ -20,51 +20,51 @@ export default function CollectionTemplate(props) {
               <p className="page-desc">{data.description}</p>
             </div>
             <div className="services-wrapper">
-            <div class="row row-holder">
-              <div class="col-3 col-holder">
-                <div class="holder">
-                  <div class="icon-holder">
+            <div className="row row-holder">
+              <div className="col-3 col-holder">
+                <div className="holder">
+                  <div className="icon-holder">
                     <StaticImage src="../../images/services/time.svg" alt="Order Time" />
                   </div>
-                  <div class="text-holder">
-                    <p class="text-heading">Same Day Delivery</p>
-                    <p class="desc">Orders before 2PM</p>
+                  <div className="text-holder">
+                    <p className="text-heading">Same Day Delivery</p>
+                    <p className="desc">Orders before 2PM</p>
                   </div>
                 </div>
               </div>
 
-              <div class="col-3 col-holder">
-                <div class="holder">
-                  <div class="icon-holder">
+              <div className="col-3 col-holder">
+                <div className="holder">
+                  <div className="icon-holder">
                     <StaticImage src="../../images/services/delivery.svg" alt="Free Delivery" />
                   </div>
-                  <div class="text-holder">
-                    <p class="text-heading">Free Flower Delivery</p>
-                    <p class="desc">Across Metro Manila</p>
+                  <div className="text-holder">
+                    <p className="text-heading">Free Flower Delivery</p>
+                    <p className="desc">Across Metro Manila</p>
                   </div>
                 </div>
               </div>
 
-              <div class="col-3 col-holder">
-                <div class="holder">
-                  <div class="icon-holder">
+              <div className="col-3 col-holder">
+                <div className="holder">
+                  <div className="icon-holder">
                     <StaticImage src="../../images/services/calendar.svg" alt="Date" />
                   </div>
-                  <div class="text-holder">
-                    <p class="text-heading">Choose Date</p>
-                    <p class="desc">Always on time</p>
+                  <div className="text-holder">
+                    <p className="text-heading">Choose Date</p>
+                    <p className="desc">Always on time</p>
                   </div>
                 </div>
               </div>
 
-              <div class="col-3 col-holder">
-                <div class="holder">
-                  <div class="icon-holder">
+              <div className="col-3 col-holder">
+                <div className="holder">
+                  <div className="icon-holder">
                     <StaticImage src="../../images/services/fresh.svg" alt="Fresh Flowers" />
                   </div>
-                  <div class="text-holder">
-                    <p class="text-heading">Always Fresh</p>
-                    <p class="desc">Last 7 Days</p>
+                  <div className="text-holder">
+                    <p className="text-heading">Always Fresh</p>
+                    <p className="desc">Last 7 Days</p>
                   </div>
                 </div>
               </div>

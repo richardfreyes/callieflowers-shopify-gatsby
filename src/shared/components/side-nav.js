@@ -6,6 +6,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHome, faHeart, faGift, faPercentage, faChevronDown } from "@fortawesome/free-solid-svg-icons"
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons"
+
 export default class SideNavigation extends React.Component {
   constructor(props) {
     super(props)
@@ -23,28 +24,30 @@ export default class SideNavigation extends React.Component {
   }
 
   render() {
+    let pathName = window.location.pathname;
+
     return (
       <div>
         <div className={`fb-sidebar sidebar-clear ${this.state.sideNavState ? 'active' : null}`} id="sidebarClear"></div>
         <nav className={`fb-sidebar sidebar-fixed ${this.state.sideNavState ? 'active' : null}`} id="sidebar">
           <ul className="list-unstyled menu">
             <li className="fb-nav-item">
-              <Link className={`${window.location.pathname === '/' ? 'active' : ''}`} to="/">
+              <Link className={`${pathName === '/' ? 'active' : ''}`} to={"/"}>
                 <FontAwesomeIcon className="icon" icon={faHome}/><span className="label">Home</span>
               </Link>
             </li>
             <li className="fb-nav-item">
-              <Link className={`${window.location.pathname === '/collections/anniversary' ? 'active' : ''}`} to="/collections/anniversary">
+              <Link className={`${pathName === '/collections/anniversary' ? 'active' : ''}`} to="/collections/anniversary">
                 <FontAwesomeIcon className="icon" icon={faHeart}/><span className="label">Anniversary</span>
               </Link>
             </li>
             <li className="fb-nav-item">
-              <Link className={`${window.location.pathname === '/collections/budget-deals' ? 'active' : ''}`} to="/collections/budget-deals">
+              <Link className={`${pathName === '/collections/budget-deals' ? 'active' : ''}`} to="/collections/budget-deals">
                 <FontAwesomeIcon className="icon" icon={faGift}/><span className="label">Budget Deals</span>
               </Link>
             </li>
             <li className="fb-nav-item">
-              <Link className={`${window.location.pathname === '/collections/sale' ? 'active' : ''}`} to="/collections/sale">
+              <Link className={`${pathName === '/collections/sale' ? 'active' : ''}`} to="/collections/sale">
                 <FontAwesomeIcon className="icon" icon={faPercentage}/><span className="label">Sale Products</span>
               </Link>
             </li>
