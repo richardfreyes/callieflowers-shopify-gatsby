@@ -25,8 +25,6 @@ export default class SideNavigation extends React.Component {
   }
 
   render() {
-    let pathName = window.location.pathname;
-
     return (
       <div>
         <div className={`fb-sidebar sidebar-clear ${this.state.sideNavState ? 'active' : null}`} id="sidebarClear"></div>

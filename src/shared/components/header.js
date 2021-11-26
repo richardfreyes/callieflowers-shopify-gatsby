@@ -28,7 +28,6 @@ export function Header() {
   //   //       $('#sidebarClear').toggleClass('active');
   //   //       $('#sidebarCollapse').attr('aria-expanded',$(this).attr('aria-expanded')==='true'?'false':'true' );
   //   //   });
-  //   //   var pathName = window.location.pathname;
   //   //   if(pathName === '/') {
   //   //     $('#sidebarCollapse').attr("aria-expanded", true);
   //   //     $('#sidebar').removeClass('active');
