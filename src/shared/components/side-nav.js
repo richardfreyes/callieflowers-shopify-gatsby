@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHome, faHeart, faGift, faPercentage, faChevronDown } from "@fortawesome/free-solid-svg-icons"
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons"
 
+
 export default class SideNavigation extends React.Component {
   constructor(props) {
     super(props)
@@ -32,22 +33,22 @@ export default class SideNavigation extends React.Component {
         <nav className={`fb-sidebar sidebar-fixed ${this.state.sideNavState ? 'active' : null}`} id="sidebar">
           <ul className="list-unstyled menu">
             <li className="fb-nav-item">
-              <Link className={`${pathName === '/' ? 'active' : ''}`} to={"/"}>
+              <Link activeClassName="active"  to="/">
                 <FontAwesomeIcon className="icon" icon={faHome}/><span className="label">Home</span>
               </Link>
             </li>
             <li className="fb-nav-item">
-              <Link className={`${pathName === '/collections/anniversary' ? 'active' : ''}`} to="/collections/anniversary">
+              <Link to="/collections/anniversary" activeClassName="active">
                 <FontAwesomeIcon className="icon" icon={faHeart}/><span className="label">Anniversary</span>
               </Link>
             </li>
             <li className="fb-nav-item">
-              <Link className={`${pathName === '/collections/budget-deals' ? 'active' : ''}`} to="/collections/budget-deals">
+              <Link to="/collections/budget-deals" activeClassName="active">
                 <FontAwesomeIcon className="icon" icon={faGift}/><span className="label">Budget Deals</span>
               </Link>
             </li>
             <li className="fb-nav-item">
-              <Link className={`${pathName === '/collections/sale' ? 'active' : ''}`} to="/collections/sale">
+              <Link to="/collections/sale" activeClassName="active">
                 <FontAwesomeIcon className="icon" icon={faPercentage}/><span className="label">Sale Products</span>
               </Link>
             </li>
