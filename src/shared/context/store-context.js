@@ -3,11 +3,10 @@ import fetch from "isomorphic-fetch"
 import Client from "shopify-buy"
 
 const client = Client.buildClient({
-  domain: "callieflowers.myshopify.com",
-  storefrontAccessToken: "3f72983ba093ef4db54d36d15b39a33c",
+  domain: process.env.SHOP_URL,
+  storefrontAccessToken: process.env.STOREFRONT_ACCESS_KEY,
 }, fetch )
 
-console.log('client asdasd', client)
 
 const defaultValues = {
   cart: [],

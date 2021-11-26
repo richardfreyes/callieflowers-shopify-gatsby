@@ -1,4 +1,6 @@
-require("dotenv").config();
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
   siteMetadata: {
@@ -38,7 +40,6 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-
     // Added plugins
     {
       resolve: "gatsby-source-shopify",
@@ -46,8 +47,19 @@ module.exports = {
         password: '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',
         storeUrl: 'callieflowers.myshopify.com',
         shopifyConnections: ["collections"],
+        apiKey: process.env.API_KEY,
       },
     },
     "gatsby-plugin-image",
   ],
+}
+
+if (process.env.STAGING) {
+  require("dotenv").config({
+    path: `.env.${process.env.NODE_ENV}.staging`,
+  })
+} else {
+  require("dotenv").config({
+    path: `.env.${process.env.NODE_ENV}`,
+  })
 }
