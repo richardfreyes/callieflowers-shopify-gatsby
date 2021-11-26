@@ -47,7 +47,6 @@ module.exports = {
         password: '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',
         storeUrl: 'callieflowers.myshopify.com',
         shopifyConnections: ["collections"],
-        apiKey: process.env.API_KEY,
       },
     },
     "gatsby-plugin-image",
