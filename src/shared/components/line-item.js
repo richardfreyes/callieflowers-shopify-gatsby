@@ -11,16 +11,15 @@ import { faMinusCircle, faPlusCircle, faTrashAlt } from "@fortawesome/free-solid
 
 
 export function LineItem({ item }) {
-  const { removeLineItem, checkout, updateLineItem, loading } = React.useContext(StoreContext)
+  // const { removeLineItem, checkout, updateLineItem, loading } = React.useContext(StoreContext)
+  const { removeLineItem, checkout, updateLineItem } = React.useContext(StoreContext)
   const [quantity, setQuantity] = React.useState(item.quantity)
   const variantImage = { ...item.variant.image, originalSrc: item.variant.image.src, }
   const price = formatPrice( item.variant.priceV2.currencyCode, Number(item.variant.priceV2.amount) )
   const comparePrice = formatPrice( item?.variant?.compareAtPriceV2?.currencyCode, Number(item?.variant?.compareAtPriceV2?.amount) )
-  const subtotal = formatPrice( item.variant.priceV2.currencyCode, Number(item.variant.priceV2.amount) * quantity )
+  // const subtotal = formatPrice( item.variant.priceV2.currencyCode, Number(item.variant.priceV2.amount) * quantity )
   const handleRemove = () => { removeLineItem(checkout.id, item.id) }
   const uli = debounce( (value) => updateLineItem(checkout.id, item.id, value), 300 )
-
-  console.log('item cart', item)
 
   // eslint-disable-next-line
   const debouncedUli = React.useCallback((value) => uli(value), [])
@@ -75,11 +74,11 @@ export function LineItem({ item }) {
         }
         <div className="count">
           <div className="add-minus">
-            <span className="count" onClick={doDecrement}>
+            <span className="count" role="button" tabIndex={0} onClick={doDecrement} onKeyDown={doDecrement}>
               <FontAwesomeIcon className="fr-icon minus" icon={faMinusCircle}/>
             </span>
             <input className="value" onChange={(e) => { }} value={quantity} />
-            <span className="count" onClick={doIncrement}>
+            <span className="count" role="button" tabIndex={0} onClick={doIncrement} onKeyDown={doIncrement}>
               <FontAwesomeIcon className="fr-icon add" icon={faPlusCircle}/>
             </span>
           </div>

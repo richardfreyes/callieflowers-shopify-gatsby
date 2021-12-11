@@ -750,3 +750,203 @@ form {
 .border-0 {
   border: 0;
 }
+
+main {
+  &.main-sidenav {
+    @include flexbox;
+
+    .sections-wrapper {
+      width: 100%;
+    }
+  }
+}
+
+
+// COPY
+.section.delivery-date-wrap {
+  border-left: 1px solid #d53974;
+  padding-left: 40px;
+  margin-bottom: 40px;
+  background: url(//cdn.shopify.com/s/files/1/2601/3352/t/87/assets/loder.gif?v=9632665757188758938) no-repeat;
+  background-position: center;
+  background-size: 42%;
+  text-transform: capitalize;
+}
+
+.section.delivery-date-wrap .delivery-date-inner-wrap {
+  opacity: 0;
+  background: #fff;
+}
+
+.date-time-main .order__dates {
+  margin: 0 -10px;
+}
+
+.date-time-main .order__dates .order__dates-col {
+  width: calc(33.33% - 15px);
+  margin: 0 5px;
+  display: inline-block;
+}
+
+.date-time-main .order__dates .order__dates-col.full-row {
+  width: calc(100% - 18px);
+  margin-top: 10px;
+}
+
+.date-time-main .order__dates.full_width .order__dates-col {
+  width: 100%;
+}
+
+.date-time-main .order__dates .order__dates-col .order__dates-item {
+  border: 1px solid #d53974;
+  border-radius: 5px;
+  text-align: center;
+  height: 45px;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.date-time-main .order__dates .order__dates-col.active .order__dates-item {
+  background: #3caa4a;
+  color: #fff;
+}
+
+.date-time-main .order__dates .order__dates-col .order__dates-item.not-available {
+  background: #fcfcfc;
+  color: #d7d7d7;
+  cursor: none;
+  pointer-events: none;
+}
+
+.order__dates-item span {
+  display: grid;
+}
+
+.order__dates-item .order__dates-item-date {
+  font-size: 12px;
+}
+
+.order__dates-item .order__dates-item-day {
+  font-size: 14px;
+}
+
+.calendar-box .order__dates-item-date {
+  display: none;
+}
+
+.order__dates-col .order__date-item-time-title {
+  text-align: center;
+  font-size: 11px;
+  background: #3caa4a;
+  margin-top: 10px;
+  color: #fff;
+  font-weight: 400;
+  display: none;
+}
+
+.order__dates-col.active .order__date-item-time-title {
+  display: block;
+}
+
+.order__calendar {
+  display: none;
+  margin: 10px 0;
+}
+
+.order__calendar .ui-datepicker.ui-widget {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.order__calendar .ui-datepicker-calendar td * {
+  text-align: center;
+}
+
+.order__calendar .ui-widget-content .ui-state-active {
+  border: 1px solid #3caa4a;
+  background: #3caa4a;
+}
+
+.order__times-main {
+ //  display: none;
+}
+
+.order__times-main ul.order__times-wrap {
+  @include flexbox;
+  padding-left: 0;
+}
+
+.order__times-main ul.order__times-wrap li,
+.order__times-main ul.order__times-wrap .li {
+  width: 49%;
+  font-size: 12px;
+  font-weight: 400;
+  list-style: none;
+  display: inline-block;
+  margin-bottom: 0;
+  cursor: pointer;
+  // border: 1px solid rgba(0, 0, 67, 0.16);
+  border-radius: 3px;
+  &:first-child {
+     margin-right: 2%;
+  }
+}
+
+.order__times-main ul.order__times-wrap div.li {
+  width: 100%;
+}
+
+.order__times-main ul.order__times-wrap li span,
+.order__times-main ul.order__times-wrap .li span {
+  background: #f2f2f2;
+  text-align: center;
+  display: block;
+  padding: 5px 0px;
+  border-radius: 5px;
+}
+
+.order__times-main ul.order__times-wrap li.active span,
+.order__times-main ul.order__times-wrap .li.active span {
+  background:  $color-hotpink;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.order__times-main ul.order__times-wrap li.not-available,
+.order__times-main ul.order__times-wrap .li.not-available
+.order__times-main ul.order__times-wrap li.not-available span,
+.order__times-main ul.order__times-wrap .li.not-available span {
+  background: #fcfcfc;
+  color: #d7d7d7;
+  cursor: none;
+  pointer-events: none;
+}
+
+p.cart-error {
+  color: red;
+  font-size: 14px;
+}
+
+.select-time-arrow-wrap {
+  margin-top: 8px;
+  margin-bottom: 13px;
+  text-align: center;
+  display: none;
+}
+
+.select-time-arrow-wrap span {
+  padding: 5px 10px;
+  color: #fff;
+  border: 1px solid #d53974;
+  border-radius: 5px;
+  background: #3caa4a;
+}
+
+@media only screen and (max-width: 798px) {
+  .section.delivery-date-wrap {
+     border-left: none;
+     border-top: 1px solid #d53974;
+     padding-left: 0;
+     padding-top: 20px;
+  }
+}

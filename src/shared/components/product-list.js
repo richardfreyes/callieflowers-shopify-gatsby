@@ -10,6 +10,7 @@ class ProductList extends React.Component {
     let budgetDealsProducts = [];
     let allProducts = [];
 
+    if(!data) return null
     data.allShopifyCollection.edges.map(({node}) => {
       if(node.handle.includes('featured')) { featuredProducts = node.products }
       if(node.handle.includes('budget-deals')) { budgetDealsProducts = node.products }

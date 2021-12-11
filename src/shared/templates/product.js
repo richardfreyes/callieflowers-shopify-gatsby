@@ -215,7 +215,7 @@ export default function ProductTemplate(props) {
           <div className="container">
             <h4 className="title">You may also like</h4>
             <div className="row row-holder">
-              { otherProductLists.map((node, index) => index < 6 ? (
+              { otherProductLists && otherProductLists.map((node, index) => index < 6 ? (
                 <div className="col-lg-2 col-sm-3 col-6 col-holder" key={node.shopifyId}>
                   <Link to={`/products/${node.handle}`} className="wrapper">
                     <div className="img-holder">

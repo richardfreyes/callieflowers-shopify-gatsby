@@ -47,11 +47,11 @@ export default function CartPage() {
       desc: "Accept my deepest and heartfelt condolences."
     }
   ]
-  let dateVal2;
+  // let dateVal2;
 
-  fetch("cart.js", {
+  fetch("/cart", {
     method: 'post',
-    body: '{"attributes": {"Delivery Date": "27/26/26"}}',
+    body: {attributes: {DeliveryDate: "27/26/26"}},
   })
 
   function changeCardHandler(event) {
@@ -95,11 +95,11 @@ export default function CartPage() {
   }
 
   function handleDateChange(value, e) {
-    let selectedDate = {
-      month: MONTH_GLOBAL[value.getMonth()] +" "+ value.getDate(), 
-      day: DAYS_GLOBAL[value.getDay()],
-      year: value.getFullYear()
-    }
+    // let selectedDate = {
+    //   month: MONTH_GLOBAL[value.getMonth()] +" "+ value.getDate(), 
+    //   day: DAYS_GLOBAL[value.getDay()],
+    //   year: value.getFullYear()
+    // }
     dateChanged(value)
   }
 
@@ -116,7 +116,7 @@ export default function CartPage() {
     else { newSelDate += "/"+ selDateArr[1] }
     newSelDate += "/" + selDateArr[2]
     setDateValue(newSelDate)
-    dateVal2 = newSelDate;
+    // dateVal2 = newSelDate;
     // $("input#order_date").val(newSelDate);
   }
 
@@ -150,7 +150,7 @@ export default function CartPage() {
                 <form>
                   <div className="row row-holder">
                     <div className="col-lg-6 col-holder">
-                      {checkout.lineItems.map((item) => (
+                      {checkout && checkout.lineItems.map((item) => (
                         <LineItem item={item} key={item.id} />
                       ))}
                     </div>
@@ -159,13 +159,13 @@ export default function CartPage() {
                       <div className="btn-holder">
                         {
                           dateTime[0].date.map((date, i) => (
-                            <div className={`bubble ${activeDateIndex === i ? 'active' : null}`} key={date.day} onClick={() => {handleDateClick(date, i, 'day')}}>
+                            <div className={`bubble ${activeDateIndex === i ? 'active' : null}`} key={date.day} role="button" tabIndex={0} onClick={() => {handleDateClick(date, i, 'day')}} onKeyDown={() => {handleDateClick(date, i, 'day')}}>
                               <p className="day">{date.day}</p>
                               <p className="month">{date.month}</p>
                             </div>
                           ))
                         }
-                        <div className={`bubble ${activeDateIndex === 2 ? 'active' : null}`} onClick={() => {handleDateClick(null, 2, 'custom')}}>
+                        <div className={`bubble ${activeDateIndex === 2 ? 'active' : null}`} role="button" tabIndex={0} onClick={() => {handleDateClick(null, 2, 'custom')}} onKeyDown={() => {handleDateClick(null, 2, 'custom')}}>
                           <p className="custom">Custom Date</p>
                         </div>
                       </div>
@@ -185,12 +185,17 @@ export default function CartPage() {
                         { dateIsActive ? (
                           <ul className="order__times-wrap">
                             { dateTime[1].time.map((time, i) => ( 
-                              <li 
-                                className={activeTimeIndex === i ? 'active' : null} 
-                                data-value="8AM-1PM" 
-                                key={time.val}
-                                onClick={() => {handleTimeClick(time, i)}}>
+                              <li>
+                                <div
+                                  className={`li ${activeTimeIndex === i ? 'active' : null}`}
+                                  data-value="8AM-1PM" 
+                                  key={time.val}
+                                  role="button"
+                                  tabIndex={0}
+                                  onClick={() => {handleTimeClick(time, i)}}
+                                  onKeyDown={() => {handleTimeClick(time, i)}}>
                                   <span>{time.val}</span>
+                                </div>
                               </li> 
                             )) }
                           </ul>
@@ -205,8 +210,8 @@ export default function CartPage() {
                         <p>Choose your personal card message:</p>
                         <textarea placeholder="Write your message here..." value={cardDesc} onChange={event => changeCardHandler(event)}></textarea>
                         <div className="automated-messages">
-                          {messageList.map(data => (
-                            <span key={data.title} onClick={() => { clickCardHandler(data.desc) }}>{data.title}</span>
+                          {messageList && messageList.map(data => (
+                            <span role="button" tabIndex={0} key={data.title} onClick={() => { clickCardHandler(data.desc) }} onKeyDown={() => { clickCardHandler(data.desc) }}>{data.title}</span>
                           ))}
                         </div>
                       </div>

@@ -4,7 +4,7 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPhone, faShippingFast, faShoppingBasket, faUserAlt } from "@fortawesome/free-solid-svg-icons"
+import { faPhone, faShippingFast, faShoppingBasket } from "@fortawesome/free-solid-svg-icons"
 import { StoreContext } from '../context/store-context'
 import * as burgerMenuService from '../services/general-menus'
 // import { Toast } from './toast'
@@ -37,7 +37,8 @@ export function Header() {
   // }
 
 
-  const { checkout, loading, didJustAddToCart } = React.useContext(StoreContext)
+  const { checkout } = React.useContext(StoreContext)
+  // const { checkout, loading, didJustAddToCart } = React.useContext(StoreContext)
   const items = checkout ? checkout.lineItems : []
   const quantity = items.reduce((total, item) => { return total + item.quantity }, 0)
   

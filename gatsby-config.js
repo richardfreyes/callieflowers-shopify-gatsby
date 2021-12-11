@@ -44,21 +44,20 @@ module.exports = {
     {
       resolve: "gatsby-source-shopify",
       options: {
-        password: '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',
-        storeUrl: 'callieflowers.myshopify.com',
+        password: process.env.PASSWORD,
+        storeUrl: process.env.SHOP_URL,
         shopifyConnections: ["collections"],
       },
     },
-    "gatsby-plugin-image",
   ],
 }
 
 if (process.env.STAGING) {
   require("dotenv").config({
-    path: `.env.${process.env.NODE_ENV}.staging`,
+    path: `.env.${process.env.NODE_ENV}.development`,
   })
 } else {
   require("dotenv").config({
-    path: `.env.${process.env.NODE_ENV}`,
+    path: `.env.${process.env.NODE_ENV}.production`,
   })
 }

@@ -75,7 +75,7 @@ export default function CollectionTemplate(props) {
         <div className="section featured-products">
           <div className="container">
             <div className="row row-holder">
-              {data.products.map((node) => {
+              {data && data.products.map((node) => {
                 return (
                   <div className="col-lg-2 col-sm-3 col-6 col-holder" key={node.shopifyId}>
                     <Link to={`/products/${node.handle}`} className="wrapper">
