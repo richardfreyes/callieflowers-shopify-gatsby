@@ -3,6 +3,9 @@ import fetch from "isomorphic-fetch"
 import Client from "shopify-buy"
 
 console.log('process.env', process.env)
+console.log('process.env.SHOPIFY_API_KEY', process.env.SHOPIFY_API_KEY)
+
+
 
 const shopUrl = process.env.SHOP_URL;
 const storeFrontToken = process.env.STOREFRONT_ACCESS_KEY;
