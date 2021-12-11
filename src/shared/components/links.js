@@ -1,4 +1,3 @@
-import '../../stylesheets/main.scss'
 import * as React from "react"
 import { Link, graphql, StaticQuery } from "gatsby"
 import Slider from "react-slick"
@@ -24,7 +23,7 @@ class LinksNavigation extends React.Component {
         <div className="container-fluid">
           <Slider className="nav-tags" {...settings}>
             {data.allShopifyCollection.edges.map(({node}) => (
-              <span className="tags"><Link to={`/collections/${node.handle}`}>{node.title}</Link></span>
+              <span className="tags" key={node.handle}><Link to={`/collections/${node.handle}`}>{node.title}</Link></span>
             ))}
           </Slider>
         </div>
