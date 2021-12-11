@@ -3,7 +3,7 @@ import fetch from "isomorphic-fetch"
 import Client from "shopify-buy"
 
 console.log('process.env', process.env)
-console.log('process.env.SHOPIFY_API_KEY', process.env.SHOPIFY_API_KEY)
+console.log('process.env.GATSBY_SHOPIFY_STORE_URL', process.env.GATSBY_SHOPIFY_STORE_URL)
 
 
 
