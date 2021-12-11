@@ -52,7 +52,6 @@ module.exports = {
   ],
 }
 
-console.log('process.env.STAGING', process.env.STAGING)
 
 if (process.env.STAGING) {
   require("dotenv").config({
@@ -63,19 +62,3 @@ if (process.env.STAGING) {
     path: `.env.${process.env.NODE_ENV}.production`,
   })
 }
-
-const contentfulConfig = {
-  shopUrl: process.env.SHOP_URL,
-  storeFrontToken: process.env.STOREFRONT_ACCESS_KEY,
-  apiKey: process.env.API_KEY,
-  password: process.env.PASSWORD,
-  sharedSecret: process.env.SHARED_SECRET
-};
-
-console.log('contentfulConfig', contentfulConfig)
-
-if (process.env.CONTENTFUL_HOST) {
-  contentfulConfig.host = process.env.CONTENTFUL_HOST;
-}
-
-console.log('process.env.CONTENTFUL_HOST', process.env.CONTENTFUL_HOST)

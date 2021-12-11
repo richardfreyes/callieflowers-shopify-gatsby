@@ -2,12 +2,6 @@ import * as React from "react"
 import fetch from "isomorphic-fetch"
 import Client from "shopify-buy"
 
-console.log('process.env.GATSBY_SHOPIFY_API_KEY', process.env.GATSBY_SHOPIFY_API_KEY)
-console.log('process.env.GATSBY_SHOPIFY_PASSWORD', process.env.GATSBY_SHOPIFY_PASSWORD)
-console.log('process.env.GATSBY_SHOPIFY_SHARED_SECRET', process.env.GATSBY_SHOPIFY_SHARED_SECRET)
-console.log('process.env.GATSBY_SHOPIFY_STOREFRONT_ACCESS_KEY', process.env.GATSBY_SHOPIFY_STOREFRONT_ACCESS_KEY)
-console.log('process.env.GATSBY_SHOPIFY_STORE_URL', process.env.GATSBY_SHOPIFY_STORE_URL)
-
 const shopUrl = process.env.GATSBY_SHOPIFY_STORE_URL;
 const storeFrontToken = process.env.GATSBY_SHOPIFY_STOREFRONT_ACCESS_KEY;
 
