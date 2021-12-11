@@ -2,8 +2,11 @@ import * as React from "react"
 import fetch from "isomorphic-fetch"
 import Client from "shopify-buy"
 
+console.log('process.env.SHOP_URL', process.env.SHOP_URL)
+console.log('process.env.STOREFRONT_ACCESS_KEY', process.env.STOREFRONT_ACCESS_KEY)
+
 const shopUrl = process.env.SHOP_URL;
-const storeFrontToken = process.env.STOREFRONT_ACCESS_KEY
+const storeFrontToken = process.env.STOREFRONT_ACCESS_KEY;
 
 const client = Client.buildClient({
   domain: shopUrl,
@@ -98,7 +101,7 @@ export const StoreProvider = ({ children }) => {
     Array.prototype.push.apply(lineItemsToUpdate, addOns); 
 
     return client.checkout.addLineItems(checkoutID, lineItemsToUpdate).then((res) => {
-      console.log('checkoutID', checkoutID)
+      // console.log('checkoutID', checkoutID)
       client.checkout.updateAttributes(checkoutID, input)
       setCheckout(res)
       setLoading(false)
@@ -122,7 +125,7 @@ export const StoreProvider = ({ children }) => {
 
     const lineItemsToUpdate = [{ id: lineItemID, quantity: parseInt(quantity, 10) } ]
 
-    console.log('lineItemsToUpdate', lineItemsToUpdate)
+    // console.log('lineItemsToUpdate', lineItemsToUpdate)
 
     return client.checkout.updateLineItems(checkoutID, lineItemsToUpdate).then((res) => {
       setCheckout(res)
