@@ -2,8 +2,7 @@ import * as React from "react"
 import fetch from "isomorphic-fetch"
 import Client from "shopify-buy"
 
-console.log('process.env.SHOP_URL', process.env.SHOP_URL)
-console.log('process.env.STOREFRONT_ACCESS_KEY', process.env.STOREFRONT_ACCESS_KEY)
+console.log('process.env', process.env)
 
 const shopUrl = process.env.SHOP_URL;
 const storeFrontToken = process.env.STOREFRONT_ACCESS_KEY;
