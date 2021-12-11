@@ -44,8 +44,8 @@ module.exports = {
     {
       resolve: "gatsby-source-shopify",
       options: {
-        password: process.env.PASSWORD,
-        storeUrl: process.env.SHOP_URL,
+        password: process.env.GATSBY_SHOPIFY_PASSWORD,
+        storeUrl: process.env.GATSBY_SHOPIFY_STORE_URL,
         shopifyConnections: ["collections"],
       },
     },
