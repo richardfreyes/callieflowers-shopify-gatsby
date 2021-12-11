@@ -49,10 +49,10 @@ export default function CartPage() {
   ]
   // let dateVal2;
 
-  fetch("/cart", {
-    method: 'post',
-    body: {attributes: {DeliveryDate: "27/26/26"}},
-  })
+  // fetch("/cart", {
+  //   method: 'post',
+  //   body: {attributes: {DeliveryDate: "27/26/26"}},
+  // })
 
   function changeCardHandler(event) {
     setMessageCard(event.target.value)
