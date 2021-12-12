@@ -20,7 +20,11 @@ export default function CartPage() {
   const [ dateIsActive, isDateActive ] = React.useState(false)
   const [ activeDP, isDPActive ] = React.useState(false)
   const emptyCart = checkout.lineItems.length === 0
-  const handleCheckout = () => { window.open(checkout.webUrl, "_self") }
+  const handleCheckout = () => {  
+    let checkoutUrl = checkout.webUrl.replace("callieflowers.myshopify.com", "localhost");
+    console.log('checkout', checkout)
+    window.open(checkoutUrl, "_self")
+  }
   const messageList = [
     {
       title: "Happy Birthday",
