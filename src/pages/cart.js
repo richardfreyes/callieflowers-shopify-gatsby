@@ -21,7 +21,7 @@ export default function CartPage() {
   const [ activeDP, isDPActive ] = React.useState(false)
   const emptyCart = checkout.lineItems.length === 0
   const handleCheckout = () => {  
-    let checkoutUrl = checkout.webUrl.replace("callieflowers.myshopify.com", "callieflowers.gatsbyjs.io");
+    let checkoutUrl = checkout.webUrl.replace("callieflowers.myshopify.com", "callieflowers.com");
     console.log('checkout', checkout)
     window.open(checkoutUrl, "_self")
   }
