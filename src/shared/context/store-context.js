@@ -90,9 +90,13 @@ export const StoreProvider = ({ children }) => {
       quantity: parseInt(quantity, 10)
     }]
 
+
     const input = { 
-      customAttributes: [{ key: "Delivery Instructions", value: "Test Delivery Instruction" }], 
-      note: "NoteTest",
+      customAttributes: [{ 
+        key: "Delivery Instructions", 
+        value: `["asd", "qwe"]` 
+      }], 
+      note: "Note"
     }
 
     Array.prototype.push.apply(lineItemsToUpdate, addOns); 
