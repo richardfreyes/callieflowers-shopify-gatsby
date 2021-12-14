@@ -7,7 +7,7 @@ import fetch from "node-fetch"
 const SHOP = "callieflowers.myshopify.com";
 const API_KEY = "e867fefb13c99154a232fd4e094c0277";
 const API_SECRET_KEY = "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";
-const HOST = "callieflowers.myshopify.com/api/order-tagger";
+const HOST = "callieflowers.gtsb.io/api/order-tagger";
 
 Shopify.Context.initialize({
   API_KEY,

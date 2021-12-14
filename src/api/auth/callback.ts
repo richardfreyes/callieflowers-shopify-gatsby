@@ -1,6 +1,5 @@
 import { GatsbyFunctionRequest, GatsbyFunctionResponse } from "gatsby"
 import Shopify, { ApiVersion, AuthQuery, DataType } from '@shopify/shopify-api';
-import fetch from "node-fetch"
 import ACTIVE_SHOPIFY_SHOPS from '../order-tagger/index'
 
 const SHOP = "callieflowers.myshopify.com";
