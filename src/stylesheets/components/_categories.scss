@@ -39,13 +39,14 @@
         flex-direction: column;
         justify-content: center;
 
-        img {
+        svg {
           max-width: inherit;
           width: 48px;
           height: 48px;
           margin-right: auto;
           margin-left: auto;
           padding: 8px;
+          overflow: visible
         }
 
         p {

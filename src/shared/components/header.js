@@ -2,11 +2,11 @@ import '../../stylesheets/main.scss'
 import '../utils/fontawesome.js'
 import * as React from "react"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPhone, faShippingFast, faShoppingBasket } from "@fortawesome/free-solid-svg-icons"
 import { StoreContext } from '../context/store-context'
 import * as burgerMenuService from '../services/general-menus'
+import Logo from '../../images/logo.svg';
 // import { Toast } from './toast'
 
 export function Header() {
@@ -102,7 +102,8 @@ export function Header() {
                       <span className="icon-bar"></span>
                     </button>
                     <Link className="navbar-brand" to="/">
-                      <StaticImage src="../../images/logo.svg" alt="Logo" />
+                      {/* <StaticImage src={logo} alt="Logo" /> */}
+                      <Logo />
                     </Link>
                   </div>
                   <div className="col-6 col-lg-6 col-holder options">

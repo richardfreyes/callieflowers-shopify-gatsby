@@ -4,7 +4,10 @@ import PreviewCompatibleImage from '../components/preview-compatible-image'
 import SideNavigation from "../components/side-nav"
 import LinksNavigation from "../components/links"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import IconTime from '../../images/services/time.svg'
+import IconDelivery from '../../images/services/delivery.svg'
+import IconCalendar from '../../images/services/calendar.svg'
+import IconFresh from '../../images/services/fresh.svg'
 
 export default function CollectionTemplate(props) {
   const data = props.pageContext.product
@@ -24,7 +27,7 @@ export default function CollectionTemplate(props) {
               <div className="col-3 col-holder">
                 <div className="holder">
                   <div className="icon-holder">
-                    <StaticImage src="../../images/services/time.svg" alt="Order Time" />
+                    <IconTime />
                   </div>
                   <div className="text-holder">
                     <p className="text-heading">Same Day Delivery</p>
@@ -36,7 +39,7 @@ export default function CollectionTemplate(props) {
               <div className="col-3 col-holder">
                 <div className="holder">
                   <div className="icon-holder">
-                    <StaticImage src="../../images/services/delivery.svg" alt="Free Delivery" />
+                    <IconDelivery />
                   </div>
                   <div className="text-holder">
                     <p className="text-heading">Free Flower Delivery</p>
@@ -48,7 +51,7 @@ export default function CollectionTemplate(props) {
               <div className="col-3 col-holder">
                 <div className="holder">
                   <div className="icon-holder">
-                    <StaticImage src="../../images/services/calendar.svg" alt="Date" />
+                    <IconCalendar />
                   </div>
                   <div className="text-holder">
                     <p className="text-heading">Choose Date</p>
@@ -60,7 +63,7 @@ export default function CollectionTemplate(props) {
               <div className="col-3 col-holder">
                 <div className="holder">
                   <div className="icon-holder">
-                    <StaticImage src="../../images/services/fresh.svg" alt="Fresh Flowers" />
+                    <IconFresh />
                   </div>
                   <div className="text-holder">
                     <p className="text-heading">Always Fresh</p>

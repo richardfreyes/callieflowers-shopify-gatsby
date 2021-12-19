@@ -2,10 +2,12 @@ import * as React from "react"
 import * as burgerMenuService from '../services/general-menus'
 import Accordion from 'react-bootstrap/Accordion'
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHome, faHeart, faGift, faPercentage, faChevronDown } from "@fortawesome/free-solid-svg-icons"
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons"
+import DeliveryIcon from '../../images/services/delivery.svg';
+import CalenderIcon from '../../images/services/calendar.svg';
+import FlowerIcon from '../../images/services/fresh.svg';
 
 
 export default class SideNavigation extends React.Component {
@@ -116,7 +118,7 @@ export default class SideNavigation extends React.Component {
             <li className="fb-services">
               <div className="wrapper">
                 <div className="icon-holder">
-                  <StaticImage src="../../images/services/delivery.svg" alt="Category" />
+                  <DeliveryIcon />
                 </div>
                 <div className="text-holder">
                   <p className="text-heading">Free Flower Delivery</p>
@@ -127,7 +129,7 @@ export default class SideNavigation extends React.Component {
             <li className="fb-services">
             <div className="wrapper">
               <div className="icon-holder">
-                <StaticImage src="../../images/services/calendar.svg" alt="Category" />
+                <CalenderIcon />
               </div>
               <div className="text-holder">
                 <p className="text-heading">Choose Date</p>
@@ -138,7 +140,7 @@ export default class SideNavigation extends React.Component {
             <li className="fb-services">
             <div className="wrapper">
               <div className="icon-holder">
-                <StaticImage src="../../images/services/fresh.svg" alt="Category" />
+                <FlowerIcon />
               </div>
               <div className="text-holder">
                 <p className="text-heading">Always Fresh</p>
