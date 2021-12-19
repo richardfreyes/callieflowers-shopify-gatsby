@@ -17,6 +17,11 @@
         .icon-holder {
           margin-right: 19px;
 
+          svg {
+            width: 25px;
+            height: 25px;
+          }
+
           span {
             font-size: 32px;
             color: $color-hotpink;
