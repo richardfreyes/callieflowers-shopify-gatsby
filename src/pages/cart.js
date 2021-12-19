@@ -8,6 +8,7 @@ import { Link } from "gatsby"
 import { StoreContext } from "../shared/context/store-context"
 import { LineItem } from "../shared/components/line-item"
 import { formatPrice } from "../shared/utils/format-price"
+import Seo from "../shared/components/seo";
 
 export default function CartPage() {
   const { addDateAndTime, checkout, loading } = React.useContext(StoreContext)
@@ -125,6 +126,7 @@ export default function CartPage() {
 
   return (
     <Layout>
+      <Seo title="Cart" />
       {emptyCart ? (
         <div className="cart-empty-page">
           <div className="section shopping-cart-empty">

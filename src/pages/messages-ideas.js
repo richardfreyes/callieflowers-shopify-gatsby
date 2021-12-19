@@ -4,7 +4,7 @@ import Seo from "../shared/components/seo"
 
 const SecondPage = () => (
   <Layout>
-    <Seo title="Page two" />
+    <Seo title="Messages Ideas" />
     <div className="message-ideas-page">
     <div className="section page-content page">
     <div className="container">

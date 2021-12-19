@@ -9,7 +9,7 @@ export default class IndexPage extends React.Component {
 
     return (
       <Layout>
-        <Seo title="Home" />
+        <Seo title="Same Day Flower Delivery | Best Rated Online Flower Shop" />
         <HeroBanner />
         <ProductList />
       </Layout>
