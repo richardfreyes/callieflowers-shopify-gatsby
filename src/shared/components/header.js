@@ -1,4 +1,3 @@
-import '../../stylesheets/main.scss'
 import '../utils/fontawesome.js'
 import * as React from "react"
 import { Link } from "gatsby"
