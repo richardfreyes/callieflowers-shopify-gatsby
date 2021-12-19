@@ -24,7 +24,7 @@ class HeroBanner extends React.Component {
       dots: false,
       arrows: false,
       infinite: true,
-      speed: 5000,
+      speed: 500,
       fade: true,
       adaptiveHeight: true,
       autoplay: true,

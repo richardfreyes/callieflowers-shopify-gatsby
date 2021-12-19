@@ -2,7 +2,6 @@ import React from "react"
 import Layout from "../components/layout"
 import { graphql, Link  } from "gatsby"
 import PreviewCompatibleImage from "../components/preview-compatible-image"
-import LinksNavigation from "../components/links"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -12,7 +11,6 @@ import { formatPrice } from "../utils/format-price"
 // import { Redirect } from 'react-router'
 import Seo from "../../shared/components/seo"
 import { GatsbyImage, getSrc } from "gatsby-plugin-image"
-import SideNavigation from "../components/side-nav"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons"
 // import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -113,9 +111,7 @@ export default function ProductTemplate(props) {
           image={getSrc(firstImage.gatsbyImageData)}
         />
       ) : undefined }
-      <SideNavigation />
-      <div className="sections-wrapper" id="content">
-        <LinksNavigation />
+      <div>
         <div className="product-page-detail">
           <div className="section product-view-content">
             <div className="container">
@@ -210,7 +206,6 @@ export default function ProductTemplate(props) {
             </div>
           </div>
         </div>
-        
         <div className="section featured-products also-like">
           <div className="container">
             <h4 className="title">You may also like</h4>

@@ -23,8 +23,9 @@
             background-color: #fff;
             border: 0;
 
-            a {
-              &.btn {
+            a, button {
+              &.btn, &.accordion-button {
+                width: 100%;
                 position: relative;
                 display: block;
                 padding: 10px;
@@ -37,9 +38,10 @@
                 border: 1px solid #bfbfbf6b;
                 transition: none;
 
-                .fr-icon {
+                .fr-icon, svg {
                   position: absolute;
                   top: 50%;
+                  font-size: 15px !important;
                   right: 8px;
                   color: #0000428f;
                   font-size: 24px;

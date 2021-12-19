@@ -105,14 +105,14 @@ export default class SideNavigation extends React.Component {
             </Accordion.Item> */}
           </Accordion>
           <ul className="list-unstyled menu sitemap">
-            <li className="fb-nav-item"><Link to="/pages/about-us"><span className="label">About Us</span></Link></li>
-            <li className="fb-nav-item"><Link to="/pages/card-messages-ideas"><span className="label">Card Messages Ideas</span></Link></li>
-            <li className="fb-nav-item"><Link to="/pages/care-instructions"><span className="label">Care Instructions</span></Link></li>
-            <li className="fb-nav-item"><Link to="/pages/contact-us"><span className="label">Contact Us</span></Link></li>
-            <li className="fb-nav-item"><Link to="/pages/faqs"><span className="label">FAQs</span></Link></li>
-            <li className="fb-nav-item"><Link to="/pages/discover-the-meaning-of-flowers"><span className="label">Discover the Meaning of Flowers</span></Link></li>
-            <li className="fb-nav-item"><Link to="/pages/terms-and-conditions"><span className="label">Terms and Conditions</span></Link></li>
-            <li className="fb-nav-item"><Link to="/pages/privacy-policy"><span className="label">Privacy Policy</span></Link></li>
+            <li className="fb-nav-item"><Link to="/about-us"><span className="label">About Us</span></Link></li>
+            <li className="fb-nav-item"><Link to="/messages-ideas"><span className="label">Card Messages Ideas</span></Link></li>
+            <li className="fb-nav-item"><Link to="/care-instructions"><span className="label">Care Instructions</span></Link></li>
+            <li className="fb-nav-item"><Link to="/contact-us"><span className="label">Contact Us</span></Link></li>
+            <li className="fb-nav-item"><Link to="/faqs"><span className="label">FAQs</span></Link></li>
+            <li className="fb-nav-item"><Link to="/flower-meanings"><span className="label">Discover the Meaning of Flowers</span></Link></li>
+            <li className="fb-nav-item"><Link to="/terms-and-conditions"><span className="label">Terms and Conditions</span></Link></li>
+            <li className="fb-nav-item"><Link to="/privacy-policy"><span className="label">Privacy Policy</span></Link></li>
           </ul>
           <ul className="list-unstyled ul services">
             <li className="fb-services">
