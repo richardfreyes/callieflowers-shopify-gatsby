@@ -868,6 +868,7 @@ main {
 }
 
 .order__times-main {
+  margin-top: 10px;
  //  display: none;
 }
 
@@ -949,4 +950,9 @@ p.cart-error {
      padding-left: 0;
      padding-top: 20px;
   }
+}
+
+
+.required {
+  border: 1px solid red !important;
 }

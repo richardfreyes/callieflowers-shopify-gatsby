@@ -17,16 +17,13 @@ const defaultValues = {
   loading: false,
   onOpen: () => {},
   onClose: () => {},
+  addDateAndTime: () => {},
   addVariantToCart: () => {},
   removeLineItem: () => {},
   updateLineItem: () => {},
   client,
   checkout: {
-    lineItems: [],
-    attributes: [{
-      DeliveryDate: "26/11/2021",
-      DeliverySlot: "8AM-1PM",
-    }]
+    lineItems: []
   },
 }
 
@@ -80,6 +77,32 @@ export const StoreProvider = ({ children }) => {
     initializeCheckout()
   }, [])
 
+  const addDateAndTime = (date, time, note, senderName) => {
+    const checkoutID = checkout.id
+
+    const input = { 
+      customAttributes: [
+        { 
+          key: "Delivery Date", 
+          value: `${date}`,
+        },
+        {
+          key: "Delivery Time", 
+          value: `${time}`,
+        },
+        {
+          key: "Sender Name", 
+          value: `${senderName}`,
+        }
+      ],
+      note: note
+    }
+
+    if(date || time || note || senderName) {
+      client.checkout.updateAttributes(checkoutID, input)
+    }
+  }
+
   const addVariantToCart = (variantId, addOns, quantity) => {
     setLoading(true)
 
@@ -90,20 +113,9 @@ export const StoreProvider = ({ children }) => {
       quantity: parseInt(quantity, 10)
     }]
 
-
-    const input = { 
-      customAttributes: [{ 
-        key: "Delivery Instructions", 
-        value: `["asd", "qwe"]` 
-      }], 
-      note: "Note"
-    }
-
     Array.prototype.push.apply(lineItemsToUpdate, addOns); 
 
     return client.checkout.addLineItems(checkoutID, lineItemsToUpdate).then((res) => {
-      // console.log('checkoutID', checkoutID)
-      client.checkout.updateAttributes(checkoutID, input)
       setCheckout(res)
       setLoading(false)
       setDidJustAddToCart(true)
@@ -126,8 +138,6 @@ export const StoreProvider = ({ children }) => {
 
     const lineItemsToUpdate = [{ id: lineItemID, quantity: parseInt(quantity, 10) } ]
 
-    // console.log('lineItemsToUpdate', lineItemsToUpdate)
-
     return client.checkout.updateLineItems(checkoutID, lineItemsToUpdate).then((res) => {
       setCheckout(res)
       setLoading(false)
@@ -138,14 +148,13 @@ export const StoreProvider = ({ children }) => {
     <StoreContext.Provider
       value={{
         ...defaultValues,
+        addDateAndTime,
         addVariantToCart,
         removeLineItem,
         updateLineItem,
         checkout,
         loading,
         didJustAddToCart,
-        attributes: {"Delivery Date": "18/11/2021", "Delivery Slot": "8AM-1PM", "Sender Name": "asd"},
-        note: "asdasdas"
       }}
     >
       {children}

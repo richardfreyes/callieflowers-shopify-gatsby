@@ -12,18 +12,25 @@ import { formatPrice } from "../shared/utils/format-price"
 import LinksNavigation from "../shared/components/links"
 
 export default function CartPage() {
-  const { checkout, loading } = React.useContext(StoreContext)
-  const [ cardDesc, setMessageCard ] = React.useState('')
+  const { addDateAndTime, checkout, loading } = React.useContext(StoreContext)
   const [ activeDateIndex, setactiveDateIndex ] = React.useState(null)
   const [ activeTimeIndex, setactiveTimeIndex ] = React.useState(null)
-  const [ dateValue, setDateValue ] = React.useState("")
+  const [ senderName, setSenderName ] = React.useState('')
+  const [ cardDesc, setMessageCard ] = React.useState('')
+  const [ deliveryDate, setDateValue ] = React.useState('')
+  const [ deliveryTime, setTimeValue ] = React.useState('')
   const [ dateIsActive, isDateActive ] = React.useState(false)
+  const [ hasData, setHasData ] = React.useState(true)
   const [ activeDP, isDPActive ] = React.useState(false)
   const emptyCart = checkout.lineItems.length === 0
-  const handleCheckout = () => {  
-    let checkoutUrl = checkout.webUrl.replace("callieflowers.myshopify.com", "callieflowers.com");
-    console.log('checkout', checkout)
-    window.open(checkoutUrl, "_self")
+  const handleCheckout = () => {
+    if(deliveryDate && deliveryTime && senderName && cardDesc) {
+      setHasData(true)
+      let checkoutUrl = checkout.webUrl.replace("callieflowers.myshopify.com", "callieflowers.com");
+      window.open(checkoutUrl, "_self")
+    } else {
+      setHasData(false)
+    }
   }
   const messageList = [
     {
@@ -51,11 +58,13 @@ export default function CartPage() {
       desc: "Accept my deepest and heartfelt condolences."
     }
   ]
-  // let dateVal2;
-
 
   function changeCardHandler(event) {
     setMessageCard(event.target.value)
+  }
+
+  function changeSenderHandler(event) {
+    setSenderName(event.target.value)
   }
 
   function clickCardHandler(data) {
@@ -92,14 +101,10 @@ export default function CartPage() {
 
   function handleTimeClick(data, i) {
     setactiveTimeIndex(i);
+    setTimeValue(data.val)
   }
 
   function handleDateChange(value, e) {
-    // let selectedDate = {
-    //   month: MONTH_GLOBAL[value.getMonth()] +" "+ value.getDate(), 
-    //   day: DAYS_GLOBAL[value.getDay()],
-    //   year: value.getFullYear()
-    // }
     dateChanged(value)
   }
 
@@ -116,9 +121,9 @@ export default function CartPage() {
     else { newSelDate += "/"+ selDateArr[1] }
     newSelDate += "/" + selDateArr[2]
     setDateValue(newSelDate)
-    // dateVal2 = newSelDate;
-    // $("input#order_date").val(newSelDate);
   }
+
+  addDateAndTime(deliveryDate, deliveryTime, cardDesc, senderName)
 
   return (
     <Layout>
@@ -154,17 +159,17 @@ export default function CartPage() {
                     ))}
                   </div>
                   <div className="col-lg-6 col-holder">
-                    <p className="delivery-title">Select a delivery date and time:</p>
+                    <p className="delivery-title">Select a delivery date and time*:</p>
                     <div className="btn-holder">
                       {
                         dateTime[0].date.map((date, i) => (
-                          <div className={`bubble ${activeDateIndex === i ? 'active' : null}`} key={date.day} role="button" tabIndex={0} onClick={() => {handleDateClick(date, i, 'day')}} onKeyDown={() => {handleDateClick(date, i, 'day')}}>
+                          <div className={`bubble ${activeDateIndex === i ? 'active' : null} ${!deliveryDate && !hasData ? 'required' : ''}`} key={date.month} role="button" tabIndex={0} onClick={() => {handleDateClick(date, i, 'day')}} onKeyDown={() => {handleDateClick(date, i, 'day')}}>
                             <p className="day">{date.day}</p>
                             <p className="month">{date.month}</p>
                           </div>
                         ))
                       }
-                      <div className={`bubble ${activeDateIndex === 2 ? 'active' : null}`} role="button" tabIndex={0} onClick={() => {handleDateClick(null, 2, 'custom')}} onKeyDown={() => {handleDateClick(null, 2, 'custom')}}>
+                      <div className={`bubble ${activeDateIndex === 2 ? 'active' : null} ${!deliveryDate && !hasData ? 'required' : ''}`} key='custom' role="button" tabIndex={0} onClick={() => {handleDateClick(null, 2, 'custom')}} onKeyDown={() => {handleDateClick(null, 2, 'custom')}}>
                         <p className="custom">Custom Date</p>
                       </div>
                     </div>
@@ -179,16 +184,14 @@ export default function CartPage() {
                           </div>
                         ) : ( null )
                       }
-                      <input readOnly="" id="order_date" name="attributes[Delivery Date]" type="hidden" value={dateValue} required />
                     <div className="order__times-main">
                       { dateIsActive ? (
                         <ul className="order__times-wrap">
                           { dateTime[1].time.map((time, i) => ( 
-                            <li>
+                            <li key={time.val}>
                               <div
-                                className={`li ${activeTimeIndex === i ? 'active' : null}`}
+                                className={`li ${activeTimeIndex === i ? 'active' : null} ${!hasData && !deliveryTime ? 'required' : ''}`}
                                 data-value="8AM-1PM" 
-                                key={time.val}
                                 role="button"
                                 tabIndex={0}
                                 onClick={() => {handleTimeClick(time, i)}}
@@ -199,15 +202,14 @@ export default function CartPage() {
                           )) }
                         </ul>
                       ) : ( null )}
-                      <input type="hidden" id="order_time" name="attributes[Delivery Slot]" value="" required="" />
                     </div>
                     <div className="sender-holder">
-                      <p>Sender Name:</p>
-                      <input type="text" />
+                      <p>Sender Name*:</p>
+                      <input className={!senderName && !hasData ? 'required' : ''} type="text" value={senderName} onChange={event => changeSenderHandler(event)}/>
                     </div>
                     <div className="personal-message">
-                      <p>Choose your personal card message:</p>
-                      <textarea placeholder="Write your message here..." value={cardDesc} onChange={event => changeCardHandler(event)}></textarea>
+                      <p>Choose your personal card message*:</p>
+                      <textarea className={!cardDesc & !hasData ? 'required' : ''} placeholder="Write your message here..." value={cardDesc} onChange={event => changeCardHandler(event)}></textarea>
                       <div className="automated-messages">
                         {messageList && messageList.map(data => (
                           <span role="button" tabIndex={0} key={data.title} onClick={() => { clickCardHandler(data.desc) }} onKeyDown={() => { clickCardHandler(data.desc) }}>{data.title}</span>
@@ -222,7 +224,8 @@ export default function CartPage() {
                     </p>
                     </div>
                     <div className="place-order">
-                      <button  className="btn-brand-gradient" onClick={handleCheckout} disabled={loading}>Place Order</button>
+                      <button className="btn-brand-gradient" onClick={handleCheckout} disabled={loading}>Place Order</button>
+                      { !hasData ? <span>Please fill out the required fields.</span> : null }
                     </div>
                   </div>
                 </div>
