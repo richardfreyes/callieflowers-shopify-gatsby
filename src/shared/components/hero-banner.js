@@ -1,7 +1,9 @@
 import '../../stylesheets/main.scss'
 import * as React from "react"
-import { Link } from "gatsby"
+import { Link, graphql, StaticQuery  } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
+import { formatPrice } from "../utils/format-price"
 import Slider from "react-slick"
 import IconAllProducts from '../../images/home/category/all-products.svg'
 import IconSale from '../../images/home/category/sale.svg'
@@ -12,8 +14,11 @@ import IconAnniversary from '../../images/home/category/anniversary.svg'
 import IconBirthdayFlowers from '../../images/home/category/birthday-flowers.svg'
 import IconCakes from '../../images/home/category/cakes.svg'
 
-export default class HeroBanner extends React.Component {
+class HeroBanner extends React.Component {
   render() {
+    const { data } = this.props;
+    console.log('this.props banner', this.props)
+    console.log('data', data.allShopifyProduct)
     const bannerSlider = {
       lazyLoad: 'ondemand',
       dots: false,
@@ -52,17 +57,33 @@ export default class HeroBanner extends React.Component {
               </Slider>
             </div>
             <div className="flash-sale col-holder col-xl-2 col-lg-3 d-none d-lg-block">
-              <Link to="/" className="link-wrap">
-                <div className="img-holder">
-                  <StaticImage src="../../images/home/product-flash.png" alt="Category" />
-                </div>
-                <div className="desc">
-                  <p className="badge best-seller">Best Seller</p>
-                  <p className="product-name">Beautiful You</p>
-                  <p className="original-price">P2,000<span className="decimal">.00</span></p>
-                  <p className="old-price"><span className="price">P2,000<span className="decimal">.00</span></span> -50%</p>
-                </div>
-              </Link>
+              {
+                data.allShopifyProduct.edges.map(({node}) => (
+                  <Link to={`/products/${node.handle}`} className="link-wrap">
+                    <div className="img-holder">
+                      <GatsbyImage
+                        objectFit="contain"
+                        alt={ node.featuredImage.altText ? node.featuredImage.altText : `Product Image of ${node.title}` }
+                        image={node.featuredImage.gatsbyImageData}
+                      />
+                    </div>
+                    <div className="desc">
+                      <p className="badge best-seller">Recommended</p>
+                      <p className="product-name">{node.title}</p>
+                      {node.variants[0].compareAtPrice ? 
+                        <span>
+                          <p className="old-price">{formatPrice("PHP", node.variants[0].price)}</p>
+                          <p className="original-price hero-price">{formatPrice("PHP", node.variants[0].compareAtPrice)}</p> 
+                        </span>
+                        : 
+                        <span>
+                          <p className="original-price">{formatPrice("PHP", node.variants[0].price)}</p>
+                        </span>
+                      }
+                    </div>
+                  </Link>
+                ))
+              }
             </div>
           </div>
 
@@ -131,3 +152,57 @@ export default class HeroBanner extends React.Component {
   }
 }
 
+
+const heroBanner = () => {
+  return (
+    <StaticQuery
+      query={graphql`
+        {
+          allShopifyProduct(filter: {title: {eq: "Callie"}}) {
+            edges {
+              node {
+                title
+                handle
+                id
+                featuredImage {
+                  originalSrc
+                }
+                priceRangeV2 {
+                  maxVariantPrice {
+                    amount
+                    currencyCode
+                  }
+                  minVariantPrice {
+                    amount
+                    currencyCode
+                  }
+                }
+                variants {
+                  availableForSale
+                  storefrontId
+                  title
+                  price
+                  selectedOptions {
+                    name
+                    value
+                  }
+                  compareAtPrice
+                }
+                featuredImage {
+                  originalSrc
+                  id
+                  height
+                  altText
+                  gatsbyImageData(layout: CONSTRAINED, width: 150)
+                }
+              }
+            }
+          }
+        }      
+      `}
+      render={(data, count) => <HeroBanner data={data} count={count} />}
+    />
+  )
+}
+
+export default heroBanner;

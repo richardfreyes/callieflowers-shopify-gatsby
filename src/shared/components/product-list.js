@@ -193,7 +193,7 @@ const productsSection = () => {
                     id
                     height
                     altText
-                    gatsbyImageData(layout: CONSTRAINED, width: 175)
+                    gatsbyImageData(layout: CONSTRAINED, width: 160)
                   }
                   title
                 }
