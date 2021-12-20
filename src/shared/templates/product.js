@@ -8,15 +8,10 @@ import "slick-carousel/slick/slick-theme.css"
 import { StoreContext } from "../context/store-context"
 import { AddToCart } from "../components/add-to-cart"
 import { formatPrice } from "../utils/format-price"
-// import { Redirect } from 'react-router'
 import Seo from "../../shared/components/seo"
 import { GatsbyImage, getSrc } from "gatsby-plugin-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons"
-// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import { createHistory } from 'history'
-// import {browserHistory} from 'react-router';
-// import Cart from "../../pages/cart"
 
 
 export default function ProductTemplate(props) {
@@ -25,8 +20,6 @@ export default function ProductTemplate(props) {
   const { variants: [initialVariant], priceRangeV2, title, description, images, images: [firstImage] } = product
   const { client } = React.useContext(StoreContext)
   const [ variant ] = React.useState({ ...initialVariant })
-  // const [variant, setVariant] = React.useState({ ...initialVariant })
-  // const [quantity, setQuantity] = React.useState(1)
   const productVariant = client.product.helpers.variantForOptions(product, variant) || variant
   const [available, setAvailable] = React.useState( productVariant.availableForSale )
   const checkAvailablity = React.useCallback(
@@ -39,62 +32,57 @@ export default function ProductTemplate(props) {
     [productVariant.storefrontId, client.product]
   )
 
-  // function handleClick() {
-  //   // history.push("/home");
-  //   // <Redirect to="/cart" />
-  // }
-
   function handleGetAddOnsValue(event) {
-    // add to list
     if (event.target.checked) {
       setStoreFrontId([
         ...StoreFrontId,
         { variantId: event.target.value, quantity: 1 }
       ])
     } else {
-      // remove from list
       setStoreFrontId(
         StoreFrontId.filter((storeFront) => storeFront.variantId !== event.target.value)
       )
     }
   }
 
-  // const handleChange = (e) => {
-  //   this.setState({
-  //     [e.target.name]: e.target.value,
-  //   });
-  // }
-
-  // const handleOptionChange = (index, event) => {
-  //   const value = event.target.value
-  //   if (value === "") { return }
-  //   const currentOptions = [...variant.selectedOptions]
-  //   currentOptions[index] = { ...currentOptions[index], value }
-  //   const selectedVariant = variants.find((variant) => { return isEqual(currentOptions, variant.selectedOptions) })
-  //   setVariant({ ...selectedVariant })
-  // }
-
   React.useEffect(() => { checkAvailablity(product.storefrontId) }, [productVariant.storefrontId, checkAvailablity, product.storefrontId])
   const price = formatPrice( priceRangeV2.minVariantPrice.currencyCode, variant.price )
-  // const hasVariants = variants.length > 1
+
   const hasImages = images.length > 0
   const hasMultipleImages = true || images.length > 1
   const addOnsLists = [];
   const otherProductLists = [];
-  const productSlider = {
-    lazyLoad: 'ondemand',
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    infinite: false,
-  };
+  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+    <button {...props}
+      className={ "slick-prev slick-arrow" + (currentSlide === 0 ? " slick-disabled" : "")}
+      aria-hidden="true"
+      aria-disabled={currentSlide === 0 ? true : false}
+      type="button"
+    >
+      <FontAwesomeIcon className="slick-prev slick-arrow fr-slick-prev" aria-hidden="true" icon={faChevronLeft}/>
+    </button>
+  );
+  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+    <button {...props}
+      className={ "slick-next slick-arrow" + (currentSlide === slideCount - 1 ? " slick-disabled" : "") }
+      aria-hidden="true"
+      aria-disabled={currentSlide === slideCount - 1 ? true : false}
+      type="button"
+    >
+      <FontAwesomeIcon className="slick-next slick-arrow fr-slick-next" aria-hidden="true" icon={faChevronRight}/>
+    </button>
+  );
   const addOnsSlider = {
     lazyLoad: 'ondemand',
     slidesToShow: 4,
     slidesToScroll: 1,
     infinite: false,
-    nextArrow: <FontAwesomeIcon className="fr-slick-next" icon={faChevronRight}/>,
-    prevArrow: <FontAwesomeIcon className="fr-slick-prev" icon={faChevronLeft}/>,
+    nextArrow: <SlickArrowRight />,
+    prevArrow: <SlickArrowLeft />
   };
+
+  // nextArrow: <FontAwesomeIcon className="slick-next slick-arrow fr-slick-next" aria-hidden="true" icon={faChevronRight}/>,
+  // prevArrow: <FontAwesomeIcon className="slick-prev slick-arrow fr-slick-prev" aria-hidden="true" icon={faChevronLeft}/>,
 
   props.data.allShopifyProduct.edges.map(({node}) => {
     if(node.productType.includes('addons')) { addOnsLists.push(node) } 
@@ -129,18 +117,18 @@ export default function ProductTemplate(props) {
                   </div>
                   <div className="image-view-option">
                     {hasMultipleImages && (
-                      <Slider {...productSlider}>
+                      <div className="wrapper">
                         {images && images.map((image, index) => (
-                          <div className="image-holder" key={image}>
-                            <GatsbyImage
-                              objectFit="contain"
-                              loading={index === 0 ? "eager" : "lazy"}
-                              alt={ image.altText ? image.altText : `Product Image of ${title} #${index + 1}` }
-                              image={image.gatsbyImageData}
-                            />
-                          </div>
+                          index < 3 ? <div className="image-holder" key={index}>
+                          <GatsbyImage
+                            objectFit="contain"
+                            loading={index === 0 ? "eager" : "lazy"}
+                            alt={ image.altText ? image.altText : `Product Image of ${title} #${index + 1}` }
+                            image={image.gatsbyImageData}
+                          />
+                        </div> : null
                         ))}
-                      </Slider>
+                      </div>
                     )}
                   </div>
                 </div>
@@ -159,11 +147,6 @@ export default function ProductTemplate(props) {
                           <p className="current-price-not-sale">Price: {price}</p>
                         </div>
                       }
-                      {/* <div className="add-minus">
-                        <Link to="/"><span className="icon ei-minus-circle-fill"></span></Link>
-                        <span className="value">0</span>
-                        <Link to="/"><span className="icon ei-plus-circle-fill"></span></Link>
-                      </div> */}
                     </div>
                     <p className="addons-title">Make it Extra Special with our add ons!</p>
                     <div className="addons-carousel">
@@ -211,7 +194,7 @@ export default function ProductTemplate(props) {
             <h4 className="title">You may also like</h4>
             <div className="row row-holder">
               { otherProductLists && otherProductLists.map((node, index) => index < 6 ? (
-                <div className="col-lg-2 col-sm-3 col-6 col-holder" key={node.shopifyId}>
+                <div className="col-lg-2 col-sm-3 col-6 col-holder" key={node.title}>
                   <Link to={`/products/${node.handle}`} className="wrapper">
                     <div className="img-holder">
                     <GatsbyImage

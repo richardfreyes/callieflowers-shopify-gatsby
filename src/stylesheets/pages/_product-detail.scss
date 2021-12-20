@@ -28,6 +28,10 @@
               margin-top: 24px;
               // display: none;
 
+              .wrapper {
+                @include flexbox;
+              }
+
               &.slick-initialized { display: block; }
 
               .slick-arrow {
