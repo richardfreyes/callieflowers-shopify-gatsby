@@ -8,7 +8,6 @@ export default async function handler(req: GatsbyFunctionRequest, res: GatsbyFun
   try {
     const session = await Shopify.Auth.validateAuthCallback(req, res, req.query as unknown as AuthQuery );
     ACTIVE_SHOPIFY_SHOPS[SHOP] = session.scope;
-    console.log('session.accessToken', session.accessToken);
     const currentSession = await Shopify.Utils.loadCurrentSession(req, res);
     const WEBHOOKS_REGISTRY = {
       ORDERS_CREATE: {
@@ -18,8 +17,6 @@ export default async function handler(req: GatsbyFunctionRequest, res: GatsbyFun
         webhookHandler: async (topic: string, shop: string, body: any) => {
           // await onAppUninstalled(shop, body);
           let data = JSON.parse(body);
-          console.log('data', data)
-          console.log('data', data.note_attributes)
           const session = await Shopify.Utils.loadCurrentSession(req, res);
           const client = new Shopify.Clients.Rest(session.shop, session.accessToken);
           let tags = JSON.parse(data.note_attributes[0]?.value.replace(/'/g, '"'));

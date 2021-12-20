@@ -24,6 +24,5 @@ export const getCurrencySymbol = (currency, locale = undefined) => {
   const { value: symbol } = parts.find((part) => part.type === "currency")
   const formatted = formatter.format(100)
   const symbolAtEnd = formatted.endsWith(symbol)
-  // console.log('symbolAtEnd', symbolAtEnd)
   return { symbol, symbolAtEnd }
 }

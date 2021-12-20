@@ -16,8 +16,6 @@ import IconCakes from '../../images/home/category/cakes.svg'
 class HeroBanner extends React.Component {
   render() {
     const { data } = this.props;
-    console.log('this.props banner', this.props)
-    console.log('data', data.allShopifyProduct)
     const bannerSlider = {
       lazyLoad: 'ondemand',
       dots: false,

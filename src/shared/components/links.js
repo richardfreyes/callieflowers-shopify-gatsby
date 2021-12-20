@@ -1,33 +1,73 @@
 import * as React from "react"
 import { Link, graphql, StaticQuery } from "gatsby"
-import Slider from "react-slick"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons"
 
 class LinksNavigation extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      productListSteps: 1,
+      productAmountVisible: 10,
+      carouselWidth: 0
+    }
+  }
+
+  handleCarouselNext = () => {
+    this.carouselize();
+    if(this.state.productListSteps < this.state.productAmountVisible) {
+      this.setState({
+        productListSteps: this.state.productListSteps + 1
+      })
+    }
+  }
+
+  handleCarouselPrev = () => {
+    this.carouselize();
+    if(this.state.productListSteps > 0) {
+      this.setState(prevState => {
+        return { productListSteps: prevState.productListSteps - 1 }
+      });
+    }
+  }
+
+  carouselize() {
+    let productListWidth = 0;
+    let productList = document.querySelector('.js-product-list');
+    let products = document.querySelectorAll('.tags');
+
+    [].forEach.call(products, function(product) {
+      productListWidth += product.clientWidth;
+      productList.style.width = productListWidth+"px";
+    });
+
+    this.setState({
+      carouselWidth: productListWidth / products.length
+    })
+  }
+
+
   render() {
     const { data } = this.props;
-    const settings = {
-      className: "slider variable-width nav-tags",
-      lazyLoad: 'ondemand',
-      dots: false,
-      infinite: true,
-      speed: 300,
-      // nextArrow: <button type="button" data-role="none" class="slick-arrow slick-prev"></button>,
-      // prevArrow: <button type="button" data-role="none" class="slick-arrow slick-next"></button>,
-      slidesToShow: 5,
-      centerMode: true,
-      variableWidth: true
-    };
 
     return (
       <div className="links">
         <div className="container-fluid">
-          <Slider className="nav-tags" {...settings}>
-            {data && data.allShopifyCollection.edges.map(({node}) => 
-              node.handle !== "addons" ?
-                <span className="tags" key={node.handle}><Link to={`/collections/${node.handle}`}>{node.title}</Link></span>
-              : null
-            )}
-          </Slider>
+          <div className="nav-tags js-product-carousel">
+            <button type="button" data-role="none" className="prev js-carousel-prev" onClick={ this.handleCarouselPrev }>
+              <FontAwesomeIcon className="fr-icon" icon={faChevronLeft}/>
+            </button>
+            <button type="button" data-role="none" className="next js-carousel-next" onClick={ this.handleCarouselNext }>
+              <FontAwesomeIcon className="fr-icon" icon={faChevronRight}/>
+            </button>
+            <div className="slides js-product-list" style={{transform: `translateX(-${this.state.carouselWidth*this.state.productListSteps}px)`}}>
+              {data && data.allShopifyCollection.edges.map(({node}) => 
+                node.handle !== "addons" ?
+                  <span className="tags" key={node.handle}><Link to={`/collections/${node.handle}`}>{node.title}</Link></span>
+                : null
+              )}
+            </div>
+          </div>
         </div>
       </div>
     )

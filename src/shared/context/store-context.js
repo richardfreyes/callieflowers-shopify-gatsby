@@ -51,8 +51,6 @@ export const StoreProvider = ({ children }) => {
 
   // client.graphQLClient.send(productsQuery).then(({model, data}) => {
   //   // Do something with the products
-  //   console.log('model', model);
-  //   console.log('data', data);
   // });
       
 

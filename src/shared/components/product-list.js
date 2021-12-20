@@ -31,7 +31,7 @@ class ProductList extends React.Component {
                     <div className="img-holder">
                     <GatsbyImage
                       objectFit="contain"
-                      loading="eager"
+                      loading={index === 0 ? "eager" : "lazy"}
                       alt={ node.featuredImage.altText ? node.featuredImage.altText : `Product Image of ${node.title} #${index + 1}` }
                       image={node.featuredImage.gatsbyImageData}
                     />
@@ -70,7 +70,7 @@ class ProductList extends React.Component {
                     <div className="img-holder">
                     <GatsbyImage
                       objectFit="contain"
-                      loading="eager"
+                      loading={index === 0 ? "eager" : "lazy"}
                       alt={ node.featuredImage.altText ? node.featuredImage.altText : `Product Image of ${node.title} #${index + 1}` }
                       image={node.featuredImage.gatsbyImageData}
                     />
@@ -109,7 +109,7 @@ class ProductList extends React.Component {
                     <div className="img-holder">
                     <GatsbyImage
                       objectFit="contain"
-                      loading="eager"
+                      loading={index === 0 ? "eager" : "lazy"}
                       alt={ node.featuredImage.altText ? node.featuredImage.altText : `Product Image of ${node.title} #${index + 1}` }
                       image={node.featuredImage.gatsbyImageData}
                     />
