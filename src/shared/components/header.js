@@ -6,38 +6,9 @@ import { faPhone, faShippingFast, faShoppingBasket } from "@fortawesome/free-sol
 import { StoreContext } from '../context/store-context'
 import * as burgerMenuService from '../services/general-menus'
 import Logo from '../../images/logo.svg';
-// import { Toast } from './toast'
 
 export function Header() {
-  // constructor(props) {
-  //   super(props);
-  //   // this.state = { toggle: true };
-  //   // this.sideBar = React.createRef();
-  //   // this.burgerSideNav = this.burgerSideNav.bind(this);
-  // }
-  // burgerSideNav(e) {
-  //   // this.setState(prevState => ({ toggle: !prevState.toggle }));
-  //   // if(this.state.toggle) {
-  //   //   document.getElementById('sidebar').classList.toggle('active');
-  //   //   document.getElementById('sidebarClear').classList.toggle('active');
-  //   // }
-  //   // var _sideBar = function() {
-  //   //   $('#sidebarCollapse').on('click', function () {
-  //   //       $('#sidebar').toggleClass('active');
-  //   //       $('#sidebarClear').toggleClass('active');
-  //   //       $('#sidebarCollapse').attr('aria-expanded',$(this).attr('aria-expanded')==='true'?'false':'true' );
-  //   //   });
-  //   //   if(pathName === '/') {
-  //   //     $('#sidebarCollapse').attr("aria-expanded", true);
-  //   //     $('#sidebar').removeClass('active');
-  //   //     $('#sidebarClear').removeClass('active');
-  //   //   }
-  //   // }
-  // }
-
-
   const { checkout } = React.useContext(StoreContext)
-  // const { checkout, loading, didJustAddToCart } = React.useContext(StoreContext)
   const items = checkout ? checkout.lineItems : []
   const quantity = items.reduce((total, item) => { return total + item.quantity }, 0)
   let state;
@@ -58,7 +29,6 @@ export function Header() {
     })
   });
 
-  // render() {
     return (
       <div className="holder">
         <header className="fb-header">
@@ -91,7 +61,6 @@ export function Header() {
               </div>
             </div>
           </div>
-            {/* <SideNavigation sideBar={this.sideBar} /> */}
             <div className="main-nav">
               <div className="container-fluid">
                 <div className="row row-holder">
@@ -111,7 +80,6 @@ export function Header() {
                       <span className="icon-bar"></span>
                     </button>
                     <Link className="navbar-brand" to="/">
-                      {/* <StaticImage src={logo} alt="Logo" /> */}
                       <Logo />
                     </Link>
                   </div>
@@ -120,20 +88,11 @@ export function Header() {
                       <Link to="/">
                         <span className="icon search ei-search"></span>
                       </Link>
-                    </div>
-      
-                    {/* <div className="options-holder">
-                      <Link to="/">
-                        <FontAwesomeIcon className="icon user" icon={faUserAlt}/>
-                        <span className="desc">Login</span>
-                      </Link>
-                    </div> */}
-      
+                    </div>      
                     <div className="options-holder">
                       <Link to="/cart">
                         <span className="icon basket ei-shopping-basket">
                           <FontAwesomeIcon icon={faShoppingBasket}/>
-                          {/* <span className="count">0</span> */}
                           {quantity > 0 && <span className="count">{quantity}</span>}
                         </span>
                       </Link>
@@ -142,35 +101,7 @@ export function Header() {
                 </div>
               </div>
           </div>
-        </header> 
-        {/* <Toast show={loading || didJustAddToCart}>
-            {!didJustAddToCart ? ( "Updating…" ) : (
-              <>
-                Added to cart{" "}
-                <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                  <path d="M5.019 10.492l-2.322-3.17A.796.796 0 013.91 6.304L6.628 9.14a1.056 1.056 0 11-1.61 1.351z" fill="#fff" />
-                  <path d="M5.209 10.693a1.11 1.11 0 01-.105-1.6l5.394-5.88a.757.757 0 011.159.973l-4.855 6.332a1.11 1.11 0 01-1.593.175z" fill="#fff" />
-                  <path d="M5.331 7.806c.272.326.471.543.815.163.345-.38-.108.96-.108.96l-1.123-.363.416-.76z" fill="#fff" />
-                </svg>
-              </>
-            )}
-          </Toast> */}
+        </header>
       </div>
     )
-  // }
 }
-
-
-// const Header = ({ siteTitle }) => (
-
-// )
-
-// Header.propTypes = {
-//   siteTitle: PropTypes.string,
-// }
-
-// Header.defaultProps = {
-//   siteTitle: ``,
-// }
-
-// export default Header
