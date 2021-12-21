@@ -169,52 +169,8 @@
     }
   }
 
-  @include respond-to(lg-down) {
-    .slider {
-    }
-
-    .btn-slick {
-
-      &.fr-slick-prev {
-      }
-
-      &.fr-slick-next {
-      }
-    }
-
-    p {
-
-      &.customer-name {
-      }
-
-      &.desc {
-      }
-    }
-  }
-
   @include respond-to(md-down) {
     margin-bottom: 10px;
-
-    .slider {
-    }
-
-    .btn-slick {
-
-      &.fr-slick-prev {
-      }
-
-      &.fr-slick-next {
-      }
-    }
-
-    p {
-
-      &.customer-name {
-      }
-
-      &.desc {
-      }
-    }
   }
 
   @include respond-to(sm-down) {
@@ -222,29 +178,8 @@
     margin-right: -10px;
     margin-left: -10px;
 
-    .slider {
-    }
-
-    .btn-slick {
-
-      &.fr-slick-prev {
-      }
-
-      &.fr-slick-next {
-      }
-    }
-
     a {
       font-size: 12px;
-    }
-
-    p {
-
-      &.customer-name {
-      }
-
-      &.desc {
-      }
     }
   }
 }
@@ -271,9 +206,6 @@
     .marquee-inner {
       span {
         height: 123px;
-
-        img {
-        }
       }
     }
   }
@@ -283,9 +215,6 @@
       span {
         height: 81px;
         width: 86px;
-
-        img {
-        }
       }
     }
   }
@@ -549,7 +478,6 @@ input[type=number] {
     }
 
     .anchor {
-
       &.logout {
         order: 2;
       }
@@ -560,15 +488,6 @@ input[type=number] {
 
         .fr-icon {
           margin-left: 0;
-        }
-      }
-
-      .text {
-      }
-
-      .fr-icon {
-
-        &.ei-arrow-left {
         }
       }
     }
@@ -584,58 +503,6 @@ input[type=number] {
 
   @include respond-to(xs) {
     padding: 20px 0;
-  }
-}
-
-// error message
-form {
-  .error-wrapper,
-  .form-message--error {
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: #fff8f8;
-    border: 1px solid #ffd3d385;
-
-    h2,
-    .form-message__title {
-      font: 800 normal 16px/16px "Open Sans";
-    }
-
-    ul {
-      padding: 0;
-      margin: 0;
-
-      li {
-        color: red;
-        font-size: 14px;
-        list-style: none;
-      }
-    }
-
-    @include respond-to(sm-down) {
-      .error-wrapper,
-      .form-message--error {
-        padding: 10px;
-
-        h2,
-        .form-message__title {
-          font-size: 14px;
-        }
-
-        ul {
-
-          li {
-            font-size: 13px;
-          }
-        }
-      }
-    }
-  }
-
-  .form-message--success {
-    color: #1f873d;
-    font-size: 14px;
-    border: 0;
   }
 }
 
@@ -707,46 +574,6 @@ form {
   }
 }
 
-// pagination
-.pagination {
-  padding-top: 30px;
-  padding-bottom: 30px;
-
-  ul {
-    margin: 0 auto;
-    padding: 0;
-
-    li {
-      &.pagination__text {
-        margin: auto;
-      }
-
-      a, button {
-        .icon {
-          height: 10px;
-        }
-      }
-    }
-  }
-}
-
-.artist-img {
-  position: absolute;
-  bottom: 75px;
-  right: 10px;
-  z-index: 2;
-  @include boxshadow(0px 4px 16px 0px rgba(0,0,66,0.16));
-
-  img {
-    &.img {
-      height: 53px !important;
-      width: 53px !important;
-      border: 1px solid #FFA726;
-      border-radius: 2px;
-    }
-  }
-}
-
 .border-0 {
   border: 0;
 }
@@ -763,113 +590,8 @@ main {
 
 
 // COPY
-.section.delivery-date-wrap {
-  border-left: 1px solid #d53974;
-  padding-left: 40px;
-  margin-bottom: 40px;
-  background: url(//cdn.shopify.com/s/files/1/2601/3352/t/87/assets/loder.gif?v=9632665757188758938) no-repeat;
-  background-position: center;
-  background-size: 42%;
-  text-transform: capitalize;
-}
-
-.section.delivery-date-wrap .delivery-date-inner-wrap {
-  opacity: 0;
-  background: #fff;
-}
-
-.date-time-main .order__dates {
-  margin: 0 -10px;
-}
-
-.date-time-main .order__dates .order__dates-col {
-  width: calc(33.33% - 15px);
-  margin: 0 5px;
-  display: inline-block;
-}
-
-.date-time-main .order__dates .order__dates-col.full-row {
-  width: calc(100% - 18px);
-  margin-top: 10px;
-}
-
-.date-time-main .order__dates.full_width .order__dates-col {
-  width: 100%;
-}
-
-.date-time-main .order__dates .order__dates-col .order__dates-item {
-  border: 1px solid #d53974;
-  border-radius: 5px;
-  text-align: center;
-  height: 45px;
-  cursor: pointer;
-  font-weight: 400;
-}
-
-.date-time-main .order__dates .order__dates-col.active .order__dates-item {
-  background: #3caa4a;
-  color: #fff;
-}
-
-.date-time-main .order__dates .order__dates-col .order__dates-item.not-available {
-  background: #fcfcfc;
-  color: #d7d7d7;
-  cursor: none;
-  pointer-events: none;
-}
-
-.order__dates-item span {
-  display: grid;
-}
-
-.order__dates-item .order__dates-item-date {
-  font-size: 12px;
-}
-
-.order__dates-item .order__dates-item-day {
-  font-size: 14px;
-}
-
-.calendar-box .order__dates-item-date {
-  display: none;
-}
-
-.order__dates-col .order__date-item-time-title {
-  text-align: center;
-  font-size: 11px;
-  background: #3caa4a;
-  margin-top: 10px;
-  color: #fff;
-  font-weight: 400;
-  display: none;
-}
-
-.order__dates-col.active .order__date-item-time-title {
-  display: block;
-}
-
-.order__calendar {
-  display: none;
-  margin: 10px 0;
-}
-
-.order__calendar .ui-datepicker.ui-widget {
-  width: 100%;
-  border-radius: 5px;
-}
-
-.order__calendar .ui-datepicker-calendar td * {
-  text-align: center;
-}
-
-.order__calendar .ui-widget-content .ui-state-active {
-  border: 1px solid #3caa4a;
-  background: #3caa4a;
-}
-
 .order__times-main {
   margin-top: 10px;
- //  display: none;
 }
 
 .order__times-main ul.order__times-wrap {
@@ -886,7 +608,6 @@ main {
   display: inline-block;
   margin-bottom: 0;
   cursor: pointer;
-  // border: 1px solid rgba(0, 0, 67, 0.16);
   border-radius: 3px;
   &:first-child {
      margin-right: 2%;
@@ -927,31 +648,6 @@ p.cart-error {
   color: red;
   font-size: 14px;
 }
-
-.select-time-arrow-wrap {
-  margin-top: 8px;
-  margin-bottom: 13px;
-  text-align: center;
-  display: none;
-}
-
-.select-time-arrow-wrap span {
-  padding: 5px 10px;
-  color: #fff;
-  border: 1px solid #d53974;
-  border-radius: 5px;
-  background: #3caa4a;
-}
-
-@media only screen and (max-width: 798px) {
-  .section.delivery-date-wrap {
-     border-left: none;
-     border-top: 1px solid #d53974;
-     padding-left: 0;
-     padding-top: 20px;
-  }
-}
-
 
 .required {
   border: 1px solid red !important;
