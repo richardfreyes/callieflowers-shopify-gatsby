@@ -9,28 +9,28 @@ import DeliveryIcon from '../../images/services/delivery.svg';
 import CalenderIcon from '../../images/services/calendar.svg';
 import FlowerIcon from '../../images/services/fresh.svg';
 
+export function SideNavigation() {
+  const [sideNavState, setSideNavState] = React.useState(true);
 
-export default class SideNavigation extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { sideNavState: true }
+  function handleSideNav() {
+    let state = false;
+    if(sideNavState) { state = false } 
+    else { state = true; }
+    setSideNavState(state);
+    burgerMenuService.burgerState.next(state);
   }
 
-  burgerStateService() {
+  React.useEffect(() => {
     burgerMenuService.burgerState.subscribe((res) => {
-      this.setState({ sideNavState: res })
+      setSideNavState(res)
     })
-  }
+  });
 
-  componentDidMount() {
-    this.burgerStateService()
-  }
-
-  render() {
+  // render() {
     return (
       <div>
-        <div className={`fb-sidebar sidebar-clear ${this.state.sideNavState ? 'active' : null}`} id="sidebarClear"></div>
-        <nav className={`fb-sidebar sidebar-fixed ${this.state.sideNavState ? 'active' : null}`} id="sidebar">
+        <div className={`fb-sidebar sidebar-clear ${ !sideNavState ? 'active' : null}`} id="sidebarClear" onClick={() => handleSideNav() } onKeyDown={() => handleSideNav() } role="button" aria-label="button" tabIndex={0}></div>
+        <nav className={`fb-sidebar sidebar-fixed ${ !sideNavState ? 'active' : null}`} id="sidebar">
           <ul className="list-unstyled menu">
             <li className="fb-nav-item">
               <Link activeClassName="active"  to="/">
@@ -158,5 +158,5 @@ export default class SideNavigation extends React.Component {
         </nav>
       </div>
     )
-  }
+  // }
 }

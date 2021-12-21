@@ -10,8 +10,8 @@ import { AddToCart } from "../components/add-to-cart"
 import { formatPrice } from "../utils/format-price"
 import Seo from "../../shared/components/seo"
 import { GatsbyImage, getSrc } from "gatsby-plugin-image"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons"
+import ChevronLeftSolid from '../../images/icons/chevron-left-solid.svg'
+import ChevronRightSolid from '../../images/icons/chevron-right-solid.svg'
 
 
 export default function ProductTemplate(props) {
@@ -59,7 +59,7 @@ export default function ProductTemplate(props) {
       aria-disabled={currentSlide === 0 ? true : false}
       type="button"
     >
-      <FontAwesomeIcon className="slick-prev slick-arrow fr-slick-prev" aria-hidden="true" icon={faChevronLeft}/>
+      <ChevronLeftSolid />
     </button>
   );
   const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
@@ -69,7 +69,7 @@ export default function ProductTemplate(props) {
       aria-disabled={currentSlide === slideCount - 1 ? true : false}
       type="button"
     >
-      <FontAwesomeIcon className="slick-next slick-arrow fr-slick-next" aria-hidden="true" icon={faChevronRight}/>
+      <ChevronRightSolid />
     </button>
   );
   const addOnsSlider = {
@@ -78,7 +78,21 @@ export default function ProductTemplate(props) {
     slidesToScroll: 1,
     infinite: false,
     nextArrow: <SlickArrowRight />,
-    prevArrow: <SlickArrowLeft />
+    prevArrow: <SlickArrowLeft />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+        }
+      },
+    ]
   };
 
   // nextArrow: <FontAwesomeIcon className="slick-next slick-arrow fr-slick-next" aria-hidden="true" icon={faChevronRight}/>,

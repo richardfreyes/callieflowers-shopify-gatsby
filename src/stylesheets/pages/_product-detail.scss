@@ -40,12 +40,12 @@
                 top: 50%;
                 transform: translate(0, -50%);
 
-                &.fr-slick-prev {
-                  left: 25px;
+                &.slick-prev {
+                  left: 0;
                 }
 
-                &.fr-slick-next {
-                  right: 25px;
+                &.slick-next {
+                  right: 0;
                 }
               }
 
@@ -180,24 +180,30 @@
                   transform: none;
                   // background: linear-gradient(90deg, rgba(255,255,255,0) 0%, #FFFFFF 100%);
 
-                  &:before {
-                    position: absolute;
-                    top: 50%;
-                    transform: translate(10px, -50%);
+                  &:before,
+                  &:after {
+                    content: "";
                   }
+
+                  // &:before {
+                  //   position: absolute;
+                  //   top: 50%;
+                  //   transform: translate(10px, -50%);
+                  // }
 
                   &.slick-prev {
                     left: 0;
                   }
 
                   &.slick-next {
-                    right: -1px;
+                    right: 0;
                   }
                 }
 
                 .addons-item {
                   // margin: 0 5px;
                   outline: none;
+                  text-align: center;
 
                   label {
                     position: relative;

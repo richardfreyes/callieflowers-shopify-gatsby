@@ -40,13 +40,23 @@ export function Header() {
   // const { checkout, loading, didJustAddToCart } = React.useContext(StoreContext)
   const items = checkout ? checkout.lineItems : []
   const quantity = items.reduce((total, item) => { return total + item.quantity }, 0)
-  
-  const [burgerState, setBurgerState] = React.useState(true);
+  let state;
+  burgerMenuService.burgerState.subscribe((res) => { state = res })
+  const [burgerState, setBurgerState] = React.useState(state);
 
   function burgerSideNav() {
-    setBurgerState(prevState => !prevState);
-    burgerMenuService.burgerState.next(burgerState);
+    let state = false;
+    if(burgerState) { state = false } 
+    else { state = true; }
+    setBurgerState(state);
+    burgerMenuService.burgerState.next(state);
   }
+
+  React.useEffect(() => {
+    burgerMenuService.burgerState.subscribe((res) => {
+      setBurgerState(res);
+    })
+  });
 
   // render() {
     return (

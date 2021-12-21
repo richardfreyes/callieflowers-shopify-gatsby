@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Header } from "./header"
 import LinksNavigation from '../components/links'
-import SideNavigation from '../components/side-nav'
+import { SideNavigation } from '../components/side-nav'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <main className="page-content page-home main-sidenav wrapper">
-        <SideNavigation/>
+        <SideNavigation />
         <div className="sections-wrapper" id="content">
           <LinksNavigation />
           {children}

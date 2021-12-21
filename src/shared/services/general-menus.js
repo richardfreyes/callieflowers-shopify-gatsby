@@ -1,6 +1,6 @@
 import { BehaviorSubject } from 'rxjs'
 
-const burgerState = new BehaviorSubject(null)
+const burgerState = new BehaviorSubject(true)
 
 const burgerService = {
   state: function(state) {
