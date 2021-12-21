@@ -26,7 +26,6 @@
               position: relative;
               display: block;
               margin-top: 24px;
-              // display: none;
 
               .wrapper {
                 @include flexbox;
@@ -49,29 +48,12 @@
                 }
               }
 
-              .slick-slide {
-
-              }
-
               .image-holder {
-
                 .gatsby-image-wrapper {
                   margin: 0 8px;
                   border-radius: 4px;
                   border: 2px solid rgba(237,69,151,0.32);
                 }
-
-                // @include on-event {
-                //   border: 2px solid $color-hotpink;
-                // }
-
-                // &:first-child {
-                //   margin-left: auto;
-                // }
-                //
-                // &:last-child {
-                //   margin-right: auto;
-                // }
 
                 img {
                   width: 100%;
@@ -157,16 +139,11 @@
 
               .addons-carousel {
                 position: relative;
-                // visibility: hidden;
 
                 &.slick-initialized { visibility: visible; }
 
                 .slick-list {
                   margin: 0 40px;
-
-                  .slick-slide {
-                    // margin: 0 5px;
-                  }
                 }
 
                 .slick-arrow {
@@ -178,18 +155,11 @@
                   background-color: rgba(237,69,151,0.16);
                   color: #ed459752;
                   transform: none;
-                  // background: linear-gradient(90deg, rgba(255,255,255,0) 0%, #FFFFFF 100%);
 
                   &:before,
                   &:after {
                     content: "";
                   }
-
-                  // &:before {
-                  //   position: absolute;
-                  //   top: 50%;
-                  //   transform: translate(10px, -50%);
-                  // }
 
                   &.slick-prev {
                     left: 0;
@@ -201,13 +171,11 @@
                 }
 
                 .addons-item {
-                  // margin: 0 5px;
                   outline: none;
                   text-align: center;
 
                   label {
                     position: relative;
-                    // margin: 0;
                     margin: 0 5px;
                     border: #ddd solid 1px;
                     cursor: pointer;
@@ -291,105 +259,23 @@
         .container {
           .row-holder {
             .col-holder {
-              .product-view {
-
-                img {
-
-                }
-              }
-
               .image-view-option {
                 margin-top: 15px;
 
                 .slick-arrow {
                   font-size: 30px;
                 }
-
-                .image-holder {
-
-                  &:first-child {
-                  }
-
-                  &:last-child {
-                  }
-
-                  img {
-                  }
-                }
               }
 
               .product-desc-holder {
-                .product-title {
-                }
-
-                .product-desc {
-                }
-
-                .product-add-minus-holder {
-
-                  .f-price {
-                    p {
-
-                      .old-price {
-                      }
-
-                      &.current-price {
-                      }
-                    }
-                  }
-
-                  .add-minus {
-
-                    a {
-
-                      @include on-event {
-                      }
-
-                      .icon {
-                      }
-                    }
-
-                    .value {
-                    }
-                  }
-                }
-
-                .addons-title {
-                }
-
                 .addons-carousel {
-
-                  .slick-arrow {
-
-                    &:before {
-                    }
-
-                      &.fr-slick-prev {
-                      }
-
-                      &.fr-slick-next {
-                      }
-                  }
-
                   .addons-item {
                     .img-holder {
                       width: 100%;
                       height: auto;
-
-                      img {
-                      }
-                    }
-
-                    .addons-name {
-                    }
-
-                    .addons-price {
                     }
                   }
                 }
-              }
-
-              .btn-add-cart {
               }
             }
           }
@@ -419,21 +305,6 @@
                 }
               }
 
-              .image-view-option {
-
-                .image-holder {
-
-                  &:first-child {
-                  }
-
-                  &:last-child {
-                  }
-
-                  img {
-                  }
-                }
-              }
-
               .product-desc-holder {
                 .product-title {
                   margin: 10px 0;
@@ -442,67 +313,6 @@
 
                 .product-desc {
                   font-size: 13px;
-                }
-
-                .product-add-minus-holder {
-
-                  .f-price {
-                    p {
-
-                      .old-price {
-                      }
-
-                      &.current-price {
-                      }
-                    }
-                  }
-
-                  .add-minus {
-
-                    a {
-
-                      @include on-event {
-                      }
-
-                      .icon {
-                      }
-                    }
-
-                    .value {
-                    }
-                  }
-                }
-
-                .addons-title {
-                }
-
-                .addons-carousel {
-
-                  .slick-arrow {
-
-                    &:before {
-                    }
-
-                      &.fr-slick-prev {
-                      }
-
-                      &.fr-slick-next {
-                      }
-                  }
-
-                  .addons-item {
-                    .img-holder {
-
-                      img {
-                      }
-                    }
-
-                    .addons-name {
-                    }
-
-                    .addons-price {
-                    }
-                  }
                 }
               }
 

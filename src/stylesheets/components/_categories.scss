@@ -29,7 +29,6 @@
       border-radius: 2px;
       background-color: #fff;
       list-style: none;
-      list-style: none;
 
       a {
         @include flexbox;
@@ -64,18 +63,6 @@
       @include flexbox;
       overflow-x: scroll;
       grid-gap: 5px;
-
-      li {
-
-        a {
-
-          img {
-          }
-
-          p {
-          }
-        }
-      }
     }
   }
 
@@ -100,10 +87,6 @@
             height: 35px;
             margin: 0 17px;
             padding: 0;
-          }
-
-          p {
-
           }
         }
       }

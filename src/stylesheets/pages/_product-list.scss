@@ -22,7 +22,6 @@ main {
 
   @include respond-to(md-down) {
     &.product-list {
-
       .section {
         &.featured-products {
           margin: 15px 0 30px;
@@ -37,10 +36,8 @@ main {
 
   @include respond-to(sm-down) {
     &.product-list {
-
       .section {
         &.featured-products {
-
           .btn-wrapper {
             margin-top: 15px;
           }

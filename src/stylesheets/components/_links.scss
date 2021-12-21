@@ -118,9 +118,6 @@
             a {
               padding: 5px 8px;
               font-size: 10px;
-
-              @include on-event {
-              }
             }
           }
         }
@@ -128,29 +125,9 @@
         .slick-arrow {
           padding: 7px;
 
-          @include on-event {
-          }
-
-          &.slick-disabled {
-          }
-
           &:after {
             width: 20px;
             padding: 16px;
-          }
-
-
-
-          &.fr-slick-next {
-
-            &:after {
-            }
-          }
-
-          &.fr-slick-next {
-
-            &:after {
-            }
           }
         }
       }

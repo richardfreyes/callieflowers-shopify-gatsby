@@ -33,8 +33,6 @@
                 white-space: inherit;
                 border-radius: 0;
                 background: none;
-                // background: linear-gradient(90deg, #fdc8000d 0%, #ff15ff17 100%);
-                // border: 0;
                 border: 1px solid #bfbfbf6b;
                 transition: none;
 
@@ -131,9 +129,6 @@
               a {
                 &.btn {
                   padding: 10px;
-
-                  h5 {
-                  }
                 }
               }
             }

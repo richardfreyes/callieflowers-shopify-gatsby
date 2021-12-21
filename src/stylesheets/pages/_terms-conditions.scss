@@ -35,18 +35,8 @@
     @include respond-to(md-down) {
       &.page-content {
         .container {
-          .page-title {
-          }
-
           ol {
             padding-left: 15px;
-
-            li {
-              h4 {
-                &.sub-title {
-                }
-              }
-            }
           }
         }
       }

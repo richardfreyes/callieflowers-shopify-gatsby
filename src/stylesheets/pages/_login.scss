@@ -173,10 +173,6 @@
       }
     }
 
-    &.payment-methods {
-      margin: 0;
-    }
-
     @include respond-to(sm-down) {
       &.form {
         .container {
@@ -271,9 +267,6 @@
           }
         }
       }
-
-      &.payment-methods {
-      }
     }
 
     @include respond-to(xs) {
@@ -327,9 +320,6 @@
             }
           }
         }
-      }
-
-      &.payment-methods {
       }
     }
   }

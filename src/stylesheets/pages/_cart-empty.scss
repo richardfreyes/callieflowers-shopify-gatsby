@@ -48,9 +48,6 @@
                 &:not([disabled]):hover {
                   color: #fff;
                 }
-
-                @include on-event {
-                }
               }
             }
           }
@@ -69,7 +66,6 @@
           }
 
           .content {
-
             .icon {
               font-size: 50px;
             }

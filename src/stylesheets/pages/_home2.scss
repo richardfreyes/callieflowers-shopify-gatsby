@@ -59,58 +59,28 @@
   @include respond-to(lg-down) {
     .section {
       &.intro {
-
         .container {
           .row-holder {
-
             .col-holder {
               .featured-slider {
                 height: 100%;
 
                 &.slick-initialized {
-
                   .slick-list,
                   .slick-track {
-                      height: 100%;
+                    height: 100%;
                   }
                 }
 
                 img {
                   object-fit: cover;
                 }
-
-                ul {
-                  &.slick-dots {
-                  }
-                }
               }
 
               .flash-sale {
-
                 .img-holder {
-
                   img {
                     height: 120px;
-                  }
-                }
-
-                .desc {
-
-                  p {
-                    .decimal {
-                    }
-
-                    &.product-name {
-                    }
-
-                    &.original-price {
-                    }
-
-                    &.old-price {
-
-                      .f-price {
-                      }
-                    }
                   }
                 }
               }
@@ -133,19 +103,9 @@
             .col-holder {
               .featured-slider {
                 &.slick-initialized {
-
                   .slick-list,
                   .slick-track {
-                      height: inherit;
-                  }
-                }
-
-                img {
-
-                }
-
-                ul {
-                  &.slick-dots {
+                    height: inherit;
                   }
                 }
               }
@@ -162,7 +122,6 @@
                 }
 
                 .desc {
-
                   p {
                     .decimal {
                     }
@@ -201,8 +160,6 @@
 
         .container {
           max-width: 100%;
-          // padding-right: 5px;
-          // padding-left: 5px;
 
           .row-holder {
             padding-bottom: 10px;
@@ -210,46 +167,6 @@
             .col-holder {
               padding-right: 5px;
               padding-left: 5px;
-
-              .featured-slider {
-
-                img {
-                }
-
-                ul {
-                  &.slick-dots {
-                  }
-                }
-              }
-
-              .flash-sale {
-
-                .img-holder {
-
-                  img {
-                  }
-                }
-
-                .desc {
-
-                  p {
-                    .decimal {
-                    }
-
-                    &.product-name {
-                    }
-
-                    &.original-price {
-                    }
-
-                    &.old-price {
-
-                      .f-price {
-                      }
-                    }
-                  }
-                }
-              }
             }
           }
         }

@@ -4,273 +4,221 @@
 // This file contains styles that are specific to the account page.
 // -----------------------------------------------------------------------------
 
-.account-page {
-  .section {
-    &.fr-address {
-      padding: 72px 0;
+// .account-page {
+//   .section {
+//     &.fr-address {
+//       padding: 72px 0;
 
-      .container {
-        .title-logout-wrapper {
-          @include flexbox;
-          margin-bottom: 24px;
+//       .container {
+//         .title-logout-wrapper {
+//           @include flexbox;
+//           margin-bottom: 24px;
 
-          .title {
-            margin: 0;
-            color: #000042;
-            font: 800 italic 32px/40px "Open Sans";
-          }
+//           .title {
+//             margin: 0;
+//             color: #000042;
+//             font: 800 italic 32px/40px "Open Sans";
+//           }
 
-          .logout {
-            margin: auto 0 auto auto;
-            color: #000042;
-            text-decoration: none;
-            font: bold 14px/20px "Roboto";
+//           .logout {
+//             margin: auto 0 auto auto;
+//             color: #000042;
+//             text-decoration: none;
+//             font: bold 14px/20px "Roboto";
 
-            .text {
-              line-height: 20px;
-            }
+//             .text {
+//               line-height: 20px;
+//             }
 
-            .fr-icon {
-              margin-left: 8px;
-              color: rgba(0,0,66,0.32);
-              font-size: 20px;
-              text-align: center;
-            }
-          }
-        }
+//             .fr-icon {
+//               margin-left: 8px;
+//               color: rgba(0,0,66,0.32);
+//               font-size: 20px;
+//               text-align: center;
+//             }
+//           }
+//         }
 
-        h2 {
-          margin-bottom: 8px;
-          color: #000042;
-          font: bold 14px/20px "Roboto";
-        }
+//         h2 {
+//           margin-bottom: 8px;
+//           color: #000042;
+//           font: bold 14px/20px "Roboto";
+//         }
 
-        .fr-icon {
-          position: relative;
-          top: 3px;
-        }
+//         .fr-icon {
+//           position: relative;
+//           top: 3px;
+//         }
 
-        .row-holder {
-          .col-holder {
+//         .row-holder {
+//           .col-holder {
+//             h2 {
+//               .fr-icon {
+//                 margin-left: 8px;
+//                 color: rgba(0,0,66,0.32);
+//                 font-size: 20px;
+//               }
+//             }
 
-            h2 {
-              .fr-icon {
-                margin-left: 8px;
-                color: rgba(0,0,66,0.32);
-                font-size: 20px;
-              }
-            }
+//             .content-wrapper {
+//               height: calc(100% - 33px);
+//               padding: 16px;
+//               border: 2px solid #EDF4FF;
+//               border-radius: 4px;
 
-            .content-wrapper {
-              height: calc(100% - 33px);
-              padding: 16px;
-              border: 2px solid #EDF4FF;
-              border-radius: 4px;
+//               p {
+//                 margin: 0;
+//                 color: #000042;
+//                 font: normal 14px/20px "Roboto";
 
-              p {
-                margin: 0;
-                color: #000042;
-                font: normal 14px/20px "Roboto";
+//                 &.name {
+//                   font-weight: bold;
+//                 }
 
-                &.name {
-                  font-weight: bold;
-                }
+//                 &.no-address {
+//                   color: rgba(0,0,66,0.32);
+//                 }
+//               }
+//             }
+//           }
+//         }
 
-                &.no-address {
-                  color: rgba(0,0,66,0.32);
-                }
-              }
-            }
-          }
-        }
+//         .order-history {
+//           margin-top: 32px;
 
-        .order-history {
-          margin-top: 32px;
+//           table {
+//             width: 100%;
+//             border: 2px solid #EDF4FF;
+//             border-radius: 4px;
 
-          h2 {
-          }
+//             th, td {
+//               padding: 8px 16px;
+//               color: #000042;
+//               font: bold 14px/14px "Roboto";
+//             }
 
-          table {
-            width: 100%;
-            border: 2px solid #EDF4FF;
-            border-radius: 4px;
+//             thead {
+//               height: 36px;
+//               border: 2px solid #EDF4FF;
+//               border-radius: 4px 4px 0 0;
+//               background-color: #EDF4FF;
+//             }
 
-            th, td {
-              padding: 8px 16px;
-              color: #000042;
-              font: bold 14px/14px "Roboto";
-            }
+//             tbody {
+//               tr {
+//                 th {
+//                   a {
+//                     color: #000042;
+//                   }
+//                 }
+//               }
+//             }
+//           }
 
-            thead {
-              height: 36px;
-              border: 2px solid #EDF4FF;
-              border-radius: 4px 4px 0 0;
-              background-color: #EDF4FF;
+//           .pagination {
+//             padding-top: 30px;
 
-              tr {
-                th {
-                }
-              }
-            }
+//             ul {
+//               margin: 0 auto;
+//               padding: 0;
 
-            tbody {
-              tr {
-                th {
+//               li {
+//                 &.pagination__text {
+//                   margin: auto;
+//                 }
 
-                  a {
-                    color: #000042;
-                  }
-                }
+//                 a, button {
+//                   .icon {
+//                     height: 10px;
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//         }
 
-                td {
-                }
-              }
-            }
-          }
+//         .no-recent-orders {
+//           width: 100%;
+//           padding: 48px 15px;
+//           border: 2px solid #EDF4FF;
+//           border-radius: 4px;
 
-          .pagination {
-            padding-top: 30px;
+//           .icon-wrapper {
+//             text-align: center;
+//             margin-bottom: 24px;
 
-            ul {
-              margin: 0 auto;
-              padding: 0;
+//             .fr-icon {
+//               color: rgba(0,0,66,0.32);
+//               font-size: 72px;
+//               line-height: 72px;
+//             }
+//           }
 
-              li {
-                &.pagination__text {
-                  margin: auto;
-                }
+//           p {
+//             text-align: center;
+//             color: rgba(0,0,66,0.32);
+//             font: 800 italic 24px/32px "Open Sans";
+//           }
+//         }
+//       }
+//     }
 
-                a, button {
-                  .icon {
-                    height: 10px;
-                  }
-                }
-              }
-            }
-          }
-        }
+//     @include respond-to(md-down) {
+//       &.fr-address {
+//         padding: 30px 0;
+//       }
+//     }
 
-        .no-recent-orders {
-          width: 100%;
-          padding: 48px 15px;
-          border: 2px solid #EDF4FF;
-          border-radius: 4px;
+//     @include respond-to(sm-down) {
+//       &.fr-address {
 
-          .icon-wrapper {
-            text-align: center;
-            margin-bottom: 24px;
+//         .container {
+//           .title-logout-wrapper {
+//             margin-bottom: 25px;
 
-            .fr-icon {
-              color: rgba(0,0,66,0.32);
-              font-size: 72px;
-              line-height: 72px;
-            }
-          }
+//             .title {
+//               margin: auto 0 auto 0;
+//               font-size: 19px;
+//               line-height: 19px;
+//             }
 
-          p {
-            text-align: center;
-            color: rgba(0,0,66,0.32);
-            font: 800 italic 24px/32px "Open Sans";
-          }
-        }
-      }
-    }
+//             .logout {
+//               .text {
+//                 line-height: 30px;
+//               }
 
-    @include respond-to(md-down) {
-      &.fr-address {
-        padding: 30px 0;
-      }
-    }
+//               .fr-icon {
+//                 margin-left: 0;
+//               }
+//             }
+//           }
 
-    @include respond-to(sm-down) {
-      &.fr-address {
+//           h2 {
+//             margin-bottom: 5px;
+//           }
 
-        .container {
-          .title-logout-wrapper {
-            margin-bottom: 25px;
+//           .row-holder {
+//             .col-holder {
+//               &:first-child {
+//                 margin-bottom: 25px;
+//               }
 
-            .title {
-              margin: auto 0 auto 0;
-              font-size: 19px;
-              line-height: 19px;
-            }
+//               .content-wrapper {
+//                 padding: 10px;
+//                 height: calc(100% - 30px);
 
-            .logout {
+//                 p {
+//                   font: normal 13px/16px "Roboto";
+//                 }
+//               }
+//             }
+//           }
 
-              .text {
-                line-height: 30px;
-              }
-
-              .fr-icon {
-                margin-left: 0;
-              }
-            }
-          }
-
-          h2 {
-            margin-bottom: 5px;
-          }
-
-          .row-holder {
-            .col-holder {
-              &:first-child {
-                margin-bottom: 25px;
-              }
-
-              h2 {
-                .fr-icon {
-                }
-              }
-
-              .content-wrapper {
-                padding: 10px;
-                height: calc(100% - 30px);
-
-                p {
-                  font: normal 13px/16px "Roboto";
-
-                  &.name {
-                  }
-                }
-              }
-            }
-          }
-
-          .order-history {
-            margin-top: 25px;
-
-            h2 {
-            }
-
-            table {
-
-              th, td {
-              }
-
-              thead {
-
-                tr {
-                  th {
-                  }
-                }
-              }
-
-              tbody {
-                tr {
-                  th {
-
-                    a {
-                    }
-                  }
-
-                  td {
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
+//           .order-history {
+//             margin-top: 25px;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

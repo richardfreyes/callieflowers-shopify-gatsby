@@ -32,18 +32,16 @@
           display: inline-block;
           height: 100%;
           text-decoration: none;
-          // border: 2px solid #EDF4FF;
           box-sizing: border-box;
           border: 1px solid rgba(237,69,151,0.32);
           border-radius: 4px;
           transition: all 0.1s ease-in;
           cursor: pointer;
-
           @include on-event {
-            @include boxshadow(0px 4px 16px 0px rgba(0,0,66,0.16));
-            transform: translate(0, -5px);
-            transition: all 0.2s ease-in;
-            text-decoration: none;
+          @include boxshadow(0px 4px 16px 0px rgba(0,0,66,0.16));
+          transform: translate(0, -5px);
+          transition: all 0.2s ease-in;
+          text-decoration: none;
 
             .text-holder {
               p {
@@ -81,12 +79,9 @@
             }
           }
 
-
-
           .img-holder {
             @include flexbox;
             height: 267px;
-            // background: linear-gradient(180deg, #fff 0%, #FFF7FB 100%);
 
             .gatsby-image-wrapper {
               margin: auto;
@@ -148,49 +143,11 @@
     &.featured-products {
       padding-top: 30px;
 
-      .title {
-      }
-
       .row-holder {
         .col-holder {
-
           .wrapper {
-
-            @include on-event {
-
-              .text-holder {
-                p {
-                  &.product-name {
-                  }
-                }
-              }
-            }
-
-            .best-seller {
-            }
-
             .img-holder {
               height: 200px;
-
-              img {
-              }
-            }
-
-            .text-holder {
-              p {
-
-                &.product-name {
-                }
-
-                &.origina-price {
-
-                  span {
-                  }
-                }
-
-                &.price-now {
-                }
-              }
             }
           }
         }
@@ -223,7 +180,6 @@
           padding-left: 5px;
 
           .wrapper {
-
             @include on-event {
               box-shadow: none;
               transform: translate(0, 0);
@@ -240,14 +196,6 @@
               }
             }
 
-            .best-seller {
-            }
-
-            .img-holder {
-              img {
-              }
-            }
-
             .text-holder {
               p {
                 &.product-name {
@@ -257,66 +205,11 @@
 
                 &.origina-price {
                   font-size: 13px;
-
-                  span {
-                  }
                 }
 
                 &.price-now {
                   font-size: 13px;
                   line-height: 13px;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  @include respond-to(xs) {
-    &.featured-products {
-
-      .container {
-      }
-
-      .title {
-      }
-
-      .row-holder {
-        .col-holder {
-
-          .wrapper {
-
-            @include on-event {
-              .text-holder {
-                p {
-                  &.product-name {
-                  }
-                }
-              }
-            }
-
-            .best-seller {
-            }
-
-            .img-holder {
-              img {
-              }
-            }
-
-            .text-holder {
-              p {
-                &.product-name {
-                }
-
-                &.origina-price {
-
-                  span {
-                  }
-                }
-
-                &.price-now {
                 }
               }
             }

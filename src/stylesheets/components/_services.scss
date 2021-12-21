@@ -56,23 +56,14 @@
     .row-holder {
       .col-holder {
         .holder {
-
           .icon-holder {
             margin-right: 5px;
-
-            span {
-            }
           }
 
           .text-holder {
-
             p {
-
               &.text-heading {
                 font: 800 13px/18px "Open Sans";
-              }
-
-              &.desc {
               }
             }
           }
@@ -107,7 +98,6 @@
             text-align: center;
 
             p {
-
               &.text-heading {
                 font-size: 12px;
               }
@@ -143,9 +133,7 @@
           }
 
           .text-holder {
-
             p {
-
               &.text-heading {
                 font-size: 10px;
                 line-height: 10px;
@@ -155,35 +143,6 @@
                 margin-top: 2px;
                 font-size: 9px;
                 line-height: 11px;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@include respond-to(xs) {
-  .services-wrapper {
-
-    .row-holder {
-      .col-holder {
-        .holder {
-          .icon-holder {
-
-            span {
-            }
-          }
-
-          .text-holder {
-
-            p {
-
-              &.text-heading {
-              }
-
-              &.desc {
               }
             }
           }

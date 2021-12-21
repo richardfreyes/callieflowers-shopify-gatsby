@@ -58,6 +58,7 @@
             background-color: #ED4597;
           }
         }
+
         .decimal {
           font-size: 10px;
         }
@@ -108,14 +109,8 @@
               padding: 10px;
               flex-wrap: nowrap;
 
-
               .img-holder {
                 margin: 0;
-
-                img {
-                  // height: 109px;
-                  // object-fit: cover;
-                }
               }
 
               .desc {
@@ -124,15 +119,6 @@
                 p {
                   &.product-name {
                     font-weight: bold;
-
-                  }
-
-                  &.origina-price {
-
-                  }
-
-                  &.old-price {
-
                   }
                 }
               }
@@ -160,29 +146,8 @@
 
           a {
             &.link-wrap {
-
-              .img-holder {
-
-                img {
-                }
-              }
-
               .desc {
                 margin: auto 5px;
-                
-                p {
-                  &.product-name {
-
-                  }
-
-                  &.origina-price {
-
-                  }
-
-                  &.old-price {
-
-                  }
-                }
               }
             }
           }

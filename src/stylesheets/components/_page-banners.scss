@@ -6,7 +6,6 @@
 
 .section {
   &.page-banner {
-    // padding: 47px 0 100px;
     padding: 47px 0 40px;
     background-color: $color-brand;
 
@@ -41,34 +40,9 @@
     }
   }
 
-  &.product-nav {
-    padding-bottom: 0;
-    background-color: #fff;
-  }
-
   @include respond-to(md-down) {
     &.page-banner {
       padding: 30px 0 60px;
-
-      .desc-wrapper {
-        .page-title {
-        }
-
-        .page-desc {
-        }
-      }
-
-      .services-wrapper {
-
-        .row-holder {
-          .col-holder {
-            .text-holder {
-              p {
-              }
-            }
-          }
-        }
-      }
     }
   }
 
@@ -89,36 +63,7 @@
 
       .services-wrapper {
         margin-top: 30px;
-
-        .row-holder {
-          .col-holder {
-            .text-holder {
-              p {
-              }
-            }
-          }
-        }
       }
-    }
-  }
-}
-
-.page-banner-image {
-  height: 300px;
-  overflow: hidden;
-
-  img {
-    width: auto;
-    height: 100%;
-  }
-
-  @include respond-to(md-down) {
-    display: none;
-    height: 200px;
-
-    img {
-      width: auto;
-      height: 100%;
     }
   }
 }
