@@ -11,6 +11,13 @@ class LinksNavigation extends React.Component {
       productAmountVisible: 10,
       carouselWidth: 0
     }
+    this.width = window.innerWidth;
+
+    if(this.width < 575) {
+      this.state.productAmountVisible = 17;
+    }
+
+    console.log('this.width', this.width)
   }
 
   handleCarouselNext = () => {
@@ -60,7 +67,7 @@ class LinksNavigation extends React.Component {
             <button type="button" data-role="none" className="next js-carousel-next" onClick={ this.handleCarouselNext }>
               <FontAwesomeIcon className="fr-icon" icon={faChevronRight}/>
             </button>
-            <div className="slides js-product-list" style={{transform: `translateX(-${this.state.carouselWidth*this.state.productListSteps}px)`}}>
+            <div className="slides js-product-list product-list" style={{transform: `translateX(-${this.state.carouselWidth*this.state.productListSteps}px)`}}>
               {data && data.allShopifyCollection.edges.map(({node}) => 
                 node.handle !== "addons" ?
                   <span className="tags" key={node.handle}><Link to={`/collections/${node.handle}`}>{node.title}</Link></span>

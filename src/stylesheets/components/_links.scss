@@ -11,77 +11,6 @@
   background: #feefef;
   @include boxshadow(0px 4px 16px 0px rgba(0,0,66,0.16));
 
-  .slick-slider {
-    button {
-      &.slick-arrow {
-        color: transparent;
-        font-size: 0;
-      }
-    }
-    .slick-arrow {
-      position: absolute;
-      top: 50%;
-      z-index: 1;
-      display: inline-block;
-      // padding: 12px;
-      background-color: #feefef;
-      transform: translate(0, -50%);
-      font-size: 12px;
-      color: #f87a7b;
-      width: 20px;
-
-      @include on-event {
-        // padding: 18px;
-        // transition: all 0.1s ease-in;
-      }
-
-      &.slick-disabled {
-        display: none !important;
-      }
-
-      &:before {
-        position: relative;
-        z-index: 4;
-        color: #f87a7b;
-      }
-
-      &:after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        width: 100px;
-        padding: 20px;
-        transform: translate(0, -50%);
-        pointer-events: none;
-      }
-
-      &.fr-slick-next,
-      &.slick-next {
-        right: -15px;
-
-        &:after {
-          right: 15px;
-          background: linear-gradient(to left, #feefef 20%, rgba(253,231,234,0%) 80%);
-        }
-      }
-
-      &.fr-slick-prev,
-      &.slick-prev {
-        left: -15px;
-
-        &:after {
-          left: 15px;
-          background: linear-gradient(to right, #feefef 20%, rgba(253,231,234,0%) 80%);
-        }
-      }
-    }
-    .slick-list {
-      .slick-track {
-        @include flexbox;
-      }
-    }
-  }
-
   div {
     &.nav-tags {
       position: relative;
@@ -141,13 +70,12 @@
       }
 
       .slides {
+        left: 40px;
         position: relative;
         top: 0;
         @include flexbox;
         transition: transform .3s;
       }
-
-      &.slick-initialized { display: block; }
 
       span {
         &.tags {
@@ -182,7 +110,7 @@
       &.nav-tags {
         margin: 0;
 
-        li {
+        span {
           &.tags {
             padding: 4px;
             line-height: 12px;
