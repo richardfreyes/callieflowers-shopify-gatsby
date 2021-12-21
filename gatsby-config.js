@@ -5,8 +5,9 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Callie Flowers`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Sending flowers to a loved ones, a colleague, or an old friend has been one of the greatest way to express feelings, fondness or affection for centuries. It inspires love that magically warms the heart and lifts one’s spirit on a bad day.`,
     author: `Richard Frey U. Reyes`,
+    designer: `Adrian Rayco`,
     siteUrl: `https://callieflowers.com/`,
   },
   plugins: [
