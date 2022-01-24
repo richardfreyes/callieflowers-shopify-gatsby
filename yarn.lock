@@ -6032,6 +6032,15 @@
     "lodash" "^4.17.21"
     "webpack-assets-manifest" "^5.0.6"
 
+"gatsby-plugin-google-analytics@^4.5.0":
+  "integrity" "sha512-UWyem88KRjvE4yYcUGNESPuacqprZEtaI2NS+CF+kEes/Taf+nSQF+OVJG3Z0FwKNDxJ/QcFZqowbcXvZJAn+Q=="
+  "resolved" "https://registry.npmjs.org/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-4.5.0.tgz"
+  "version" "4.5.0"
+  dependencies:
+    "@babel/runtime" "^7.15.4"
+    "minimatch" "3.0.4"
+    "web-vitals" "^1.1.2"
+
 "gatsby-plugin-image@^1.1.0", "gatsby-plugin-image@^2.0.0":
   "integrity" "sha512-1f8tBdz179KlDwcV0P6HYRm7r6SrdzRyRKPHk0KYovfuA55E1m8bpT6yviC4mtN27YzOqY0eax2MxDJ2kU1n2g=="
   "resolved" "https://registry.npmjs.org/gatsby-plugin-image/-/gatsby-plugin-image-2.0.0.tgz"
@@ -10524,7 +10533,7 @@
     "strip-ansi" "6.0.0"
     "text-table" "0.2.0"
 
-"react-dom@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0", "react-dom@^15.0.0 || ^16.0.0", "react-dom@^15.5.x || ^16.x || ^17.x", "react-dom@^16.9.0 || ^17", "react-dom@^16.9.0 || ^17.0.0", "react-dom@>=16.14.0", "react-dom@>=16.6.0", "react-dom@15.x || 16.x || 17.x":
+"react-dom@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0", "react-dom@^15.0.0 || ^16.0.0", "react-dom@^15.5.x || ^16.x || ^17.x", "react-dom@^16.9.0 || ^17", "react-dom@^16.9.0 || ^17.0.0", "react-dom@^17.0.1", "react-dom@>=16.14.0", "react-dom@>=16.6.0", "react-dom@15.x || 16.x || 17.x":
   "integrity" "sha512-6eV150oJZ9U2t9svnsspTMrWNyHc6chX0KzDeAOXftRa8bNeOKTTfCJ7KorIwenkHd2xqVTBTCZd79yk/lx/Ug=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.1.tgz"
   "version" "17.0.1"
@@ -12899,6 +12908,11 @@
 "weak-lru-cache@^1.0.0":
   "integrity" "sha512-Bi5ae8Bev3YulgtLTafpmHmvl3vGbanRkv+qqA2AX8c3qj/MUdvSuaHq7ukDYBcMDINIaRPTPEkXSNCqqWivuA=="
   "resolved" "https://registry.npmjs.org/weak-lru-cache/-/weak-lru-cache-1.1.2.tgz"
+  "version" "1.1.2"
+
+"web-vitals@^1.1.2":
+  "integrity" "sha512-PFMKIY+bRSXlMxVAQ+m2aw9c/ioUYfDgrYot0YUa+/xa0sakubWhSDyxAKwzymvXVdF4CZI71g06W+mqhzu6ig=="
+  "resolved" "https://registry.npmjs.org/web-vitals/-/web-vitals-1.1.2.tgz"
   "version" "1.1.2"
 
 "webidl-conversions@^3.0.0":
