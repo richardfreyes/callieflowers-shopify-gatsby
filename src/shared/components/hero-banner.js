@@ -21,7 +21,6 @@ class HeroBanner extends React.Component {
     document.getElementById("indicator").style.left = scrolled + "%";
   }
 
-
   render() {
     const { data } = this.props;
     const bannerSlider = {
