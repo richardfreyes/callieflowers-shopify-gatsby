@@ -20,6 +20,7 @@
     "gatsby": "^4.0.0",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-apollo-shopify": "^1.1.0",
+    "gatsby-plugin-crazyegg": "^0.0.3",
     "gatsby-plugin-fontawesome-css": "^1.1.0",
     "gatsby-plugin-gatsby-cloud": "^4.0.0",
     "gatsby-plugin-google-analytics": "^4.5.0",

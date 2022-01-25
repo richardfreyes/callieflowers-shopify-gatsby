@@ -68,5 +68,11 @@ module.exports = {
         shopifyConnections: ["collections"],
       },
     },
+    {
+      resolve: `gatsby-plugin-crazyegg`,
+      options: {
+        accountNumber: '01108162'
+      }
+    }
   ],
 }
