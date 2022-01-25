@@ -11,13 +11,6 @@ class LinksNavigation extends React.Component {
       productAmountVisible: 10,
       carouselWidth: 0
     }
-    // this.width = window.innerWidth;
-
-    // if(this.width < 575) {
-    //   this.state.productAmountVisible = 17;
-    // }
-
-    // console.log('this.width', this.width)
   }
 
   handleCarouselNext = () => {
@@ -52,7 +45,6 @@ class LinksNavigation extends React.Component {
       carouselWidth: productListWidth / products.length
     })
   }
-
 
   render() {
     const { data } = this.props;

@@ -35,6 +35,7 @@ class HeroBanner extends React.Component {
       autoplaySpeed: 5000,
       cssEase: 'linear',
     };
+    
     return (
       <div className="section intro">
         <div className="container">
