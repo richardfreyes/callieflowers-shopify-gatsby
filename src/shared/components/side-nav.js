@@ -10,7 +10,7 @@ import CalenderIcon from '../../images/services/calendar.svg';
 import FlowerIcon from '../../images/services/fresh.svg';
 
 export function SideNavigation() {
-  const [sideNavState, setSideNavState] = React.useState(true);
+  const [sideNavState, setSideNavState] = React.useState(false);
 
   function handleSideNav() {
     let state = false;
