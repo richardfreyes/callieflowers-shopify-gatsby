@@ -1,6 +1,12 @@
 import { BehaviorSubject } from 'rxjs'
+let defaultState = true;
+const isBrowser = typeof window !== 'undefined';
 
-const burgerState = new BehaviorSubject(true)
+if(isBrowser) {
+  if(window.innerWidth <= 575) { defaultState = false }
+}
+
+const burgerState = new BehaviorSubject(defaultState)
 
 const burgerService = {
   state: function(state) {
