@@ -104,6 +104,8 @@ export default function ProductTemplate(props) {
     return null;
   })
 
+  console.log('addOnsLists', addOnsLists)
+
   return (
     <Layout>
       {firstImage ? (
@@ -177,7 +179,7 @@ export default function ProductTemplate(props) {
                                 />
                               </div>
                               <p className="addons-name">{addOns.title}</p>
-                              <p className="addons-price">P99.00</p>
+                              <p className="addons-price">{addOns.variants[0].price}</p>
                               <input 
                                 type="checkbox" 
                                 id={addOns.id}
