@@ -43,10 +43,10 @@ export function Header() {
               </div>
               <div className="content-right">
                 <p className="top-desc">
-                  <Link to="tel:09770884111">
+                  <a href="tel:09770884111" rel='noopener norefferer'>
                     <FontAwesomeIcon icon={faPhone}/>
                     <span className="desc">+63 977 088 4111</span>
-                  </Link>
+                  </a>
     
                   {/* <Link to="/">
                     <FontAwesomeIcon icon={faShippingFast}/>
