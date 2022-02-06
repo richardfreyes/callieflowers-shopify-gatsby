@@ -27,9 +27,12 @@ header {
           margin: 0;
           color: #fff;
 
+          svg {
+            margin-right: 8px;
+          }
+
           .desc {
             position: relative;
-            top: -4px;
             font-size: 12px;
           }
 

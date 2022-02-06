@@ -43,14 +43,16 @@ class HeroBanner extends React.Component {
             <div className="col-holder col-xl-10 col-lg-9 col-md-12 col-12">
               {/* <!-- desktop --> */}
               <Slider className="featured-slider d-none d-md-block" {...bannerSlider}>
-                <StaticImage src="../../images/home/v2/birthday-flowers.png" layout="fullWidth" alt="Birthday Flowers" />
-                <StaticImage src="../../images/home/v2/budget-deals.png" layout="fullWidth" alt="Budget Deals"/>
+                <StaticImage src="../../images/home/v2/vday-banner-desk.png" layout="fullWidth" alt="Birthday Flowers" />
+                {/* <StaticImage src="../../images/home/v2/birthday-flowers.png" layout="fullWidth" alt="Birthday Flowers" /> */}
+                {/* <StaticImage src="../../images/home/v2/budget-deals.png" layout="fullWidth" alt="Budget Deals"/> */}
               </Slider>
 
               {/* <!-- mobile --> */}
               <Slider className="featured-slider d-xs-block d-md-none" {...bannerSlider}>
-                <StaticImage src="../../images/home/v2/birthday-flowers-mobile.png" layout="fullWidth" alt="Birthday Flowers"/>
-                <StaticImage src="../../images/home/v2/budget-deals-mobile.png" layout="fullWidth" alt="Budget Deals"/>
+                <StaticImage src="../../images/home/v2/vday-banner-mob.png" layout="fullWidth" alt="Birthday Flowers"/>
+                {/* <StaticImage src="../../images/home/v2/birthday-flowers-mobile.png" layout="fullWidth" alt="Birthday Flowers"/> */}
+                {/* <StaticImage src="../../images/home/v2/budget-deals-mobile.png" layout="fullWidth" alt="Budget Deals"/> */}
               </Slider>
             </div>
             <div className="flash-sale col-holder col-xl-2 col-lg-3 d-none d-lg-block">

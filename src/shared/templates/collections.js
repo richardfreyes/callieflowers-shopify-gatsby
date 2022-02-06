@@ -6,6 +6,7 @@ import IconTime from '../../images/services/time.svg'
 import IconDelivery from '../../images/services/delivery.svg'
 import IconCalendar from '../../images/services/calendar.svg'
 import IconFresh from '../../images/services/fresh.svg'
+import IconVday from '../../images/vday.svg'
 
 export default function CollectionTemplate(props) {
   const data = props.pageContext.product
@@ -77,6 +78,7 @@ export default function CollectionTemplate(props) {
               return (
                 <div className="col-lg-2 col-sm-3 col-6 col-holder" key={node.shopifyId}>
                   <Link to={`/products/${node.handle}`} className="wrapper">
+                    { node.tags.map(tag => { if(tag === 'vday') { return ( <IconVday key={tag} className='icon-vday' /> ) }})}
                     <div className="img-holder">
                       <PreviewCompatibleImage imageInfo={{ image: node.images[0].originalSrc, alt: `${node.title}` }} />
                     </div>
