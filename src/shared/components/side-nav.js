@@ -12,7 +12,7 @@ import FlowerIcon from '../../images/services/fresh.svg';
 export function SideNavigation() {
   let isCart = false;
   const isBrowser = typeof window !== 'undefined';
-  const [sideNavState, setSideNavState] = React.useState(false);
+  const [sideNavState, setSideNavState] = React.useState(true);
 
   if(isBrowser) {
     if(window.location.pathname === '/cart' || window.location.pathname === '/cart/') { isCart = true; } 
