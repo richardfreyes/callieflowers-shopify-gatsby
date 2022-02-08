@@ -10,7 +10,14 @@ import CalenderIcon from '../../images/services/calendar.svg';
 import FlowerIcon from '../../images/services/fresh.svg';
 
 export function SideNavigation() {
+  let isCart = false;
+  const isBrowser = typeof window !== 'undefined';
   const [sideNavState, setSideNavState] = React.useState(false);
+
+  if(isBrowser) {
+    if(window.location.pathname === '/cart' || window.location.pathname === '/cart/') { isCart = true; } 
+    else { isCart = false; }
+  }
 
   function handleSideNav() {
     let state = false;
@@ -28,8 +35,8 @@ export function SideNavigation() {
 
   return (
     <div>
-      <div className={`fb-sidebar sidebar-clear ${ !sideNavState ? 'active' : null}`} id="sidebarClear" onClick={() => handleSideNav() } onKeyDown={() => handleSideNav() } role="button" aria-label="button" tabIndex={0}></div>
-      <nav className={`fb-sidebar sidebar-fixed ${ !sideNavState ? 'active' : null}`} id="sidebar">
+      <div className={`fb-sidebar sidebar-clear ${ !sideNavState ? 'active' : null} ${isCart ? 'cart' : ''}`} id="sidebarClear" onClick={() => handleSideNav() } onKeyDown={() => handleSideNav() } role="button" aria-label="button" tabIndex={0}></div>
+      <nav className={`fb-sidebar sidebar-fixed ${ !sideNavState ? 'active' : null} ${isCart ? 'cart' : ''}`} id="sidebar">
         <ul className="list-unstyled menu">
           <li className="fb-nav-item">
             <Link activeClassName="active"  to="/">

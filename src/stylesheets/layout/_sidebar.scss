@@ -83,6 +83,12 @@
     }
   }
 
+  &.cart {
+    @include respond-to(sm-down) {
+      padding-bottom: 100px;
+    }
+  }
+
   &.active {
   	min-width: 80px;
     max-width: 80px;
