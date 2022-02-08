@@ -1,5 +1,5 @@
 import { BehaviorSubject } from 'rxjs'
-let defaultState = false;
+let defaultState = true;
 // const isBrowser = typeof window !== 'undefined';
 
 // if(isBrowser) {
