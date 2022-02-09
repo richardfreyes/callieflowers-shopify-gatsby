@@ -363,6 +363,7 @@ header {
     @include respond-to(sm-down) {
       .top-nav {
         height: inherit;
+        padding: 2px 0;
 
         .wrapper {
           .top-desc {
@@ -381,34 +382,41 @@ header {
       }
 
       .main-nav {
-        .navbar  {
-          .container-fluid {
-            max-width: 100%;
+        .container-fluid {
+          max-width: 100%;
+          margin: 0;
+          padding: 0;
 
-            .row-holder {
-              .col-holder {
-                &.search {
-                  padding: 0;
+          .row-holder {
+            .col-holder {
+              &.logo {
+                .navbar-toggler {
+                  margin-right: 15px;
+                  padding-left: 7px;
+                }
+              }
 
-                  .select-wrapper {
-                    .select {
-                      &.input {
-                        &:nth-of-type(1) {
-                          .custom-select {
-                            border-left: 0;
-                          }
-                        }
+              &.search {
+                padding: 0;
 
-                        &:nth-of-type(2) {
-                          .custom-select {
-                            border-right: 0;
-                          }
+                .select-wrapper {
+                  .select {
+                    &.input {
+                      &:nth-of-type(1) {
+                        .custom-select {
+                          border-left: 0;
                         }
                       }
 
-                      .custom-select {
-                        border-bottom: 0;
+                      &:nth-of-type(2) {
+                        .custom-select {
+                          border-right: 0;
+                        }
                       }
+                    }
+
+                    .custom-select {
+                      border-bottom: 0;
                     }
                   }
                 }

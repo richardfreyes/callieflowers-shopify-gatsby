@@ -2,7 +2,7 @@ import '../utils/fontawesome.js'
 import * as React from "react"
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPhone, faShoppingBasket } from "@fortawesome/free-solid-svg-icons"
+import { faPhone, faShippingFast, faShoppingBasket } from "@fortawesome/free-solid-svg-icons"
 import { StoreContext } from '../context/store-context'
 import * as burgerMenuService from '../services/general-menus'
 import Logo from '../../images/logo.svg';
@@ -36,9 +36,9 @@ export function Header() {
           <div className="container">
             <div className="wrapper">
               <div className="content-left">
-                <p className="top-desc d-none d-lg-block">
-                  <span className="icon ei-truck-2"></span>&nbsp;
-                  <span className="desc">Free delivery across all over Metro Manila. Same day delivery! Order now!</span>
+                <p className="top-desc">
+                  <FontAwesomeIcon icon={faShippingFast}/>
+                  <span className="desc">Free Delivery On All Orders!</span>
                 </p>
               </div>
               <div className="content-right">
