@@ -73,7 +73,6 @@ export default function ProductTemplate(props) {
     </button>
   );
   const addOnsSlider = {
-    lazyLoad: 'ondemand',
     slidesToShow: 4,
     slidesToScroll: 1,
     infinite: false,
@@ -82,15 +81,11 @@ export default function ProductTemplate(props) {
     responsive: [
       {
         breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        }
+        settings: { slidesToShow: 2 }
       },
       {
         breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-        }
+        settings: { slidesToShow: 1 }
       },
     ]
   };
@@ -150,8 +145,8 @@ export default function ProductTemplate(props) {
                 </div>
                 <div className="col-lg-7 col-md-7 col-holder">
                   <div className="product-desc-holder">
-                    <p className="product-title">{product.title}</p>
-                    <p className="product-desc" dangerouslySetInnerHTML={{__html: product.descriptionHtml}}></p>
+                    <p className="product-title">{product?.title}</p>
+                    <div dangerouslySetInnerHTML={{__html: product?.descriptionHtml}}></div>
                     <div className="product-add-minus-holder">
                       {product.variants[0].compareAtPrice ? 
                         <div className="f-price">
@@ -167,7 +162,7 @@ export default function ProductTemplate(props) {
                     <p className="addons-title">Make it Extra Special with our add ons!</p>
                     <div className="addons-carousel">
                       <Slider {...addOnsSlider}>
-                        {addOnsLists.map((addOns, index) => (
+                        {addOnsLists && addOnsLists.map((addOns, index) => (
                           <div className="addons-item" key={addOns.id}>
                             <label htmlFor={addOns.id}>
                               <div className="img-holder">
