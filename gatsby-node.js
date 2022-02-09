@@ -80,6 +80,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 }
               }
               variants {
+                compareAtPrice
                 availableForSale
                 storefrontId
                 title
