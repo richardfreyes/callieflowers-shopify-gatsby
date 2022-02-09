@@ -62,6 +62,7 @@ exports.createPages = async ({ graphql, actions }) => {
             shopifyId
             handle
             products {
+              title
               description
               images {
                 originalSrc
