@@ -86,8 +86,8 @@ export default function CollectionTemplate(props) {
                       <p className="product-name">{node.title}</p>
                       {node.variants[0].compareAtPrice ? 
                         <span>
-                          <p className="origina-price"><span>Original Price: ₱{node.variants[0].price}</span></p> 
-                          <p className="price-now">Now: ₱{node.priceRangeV2.minVariantPrice.amount}</p>
+                          <p className="origina-price"><span>Original Price: ₱{node.variants[0].compareAtPrice}</span></p> 
+                          <p className="price-now">Now: ₱{node.variants[0].price}</p>
                         </span>
                         : 
                         <span>
