@@ -49,7 +49,7 @@ export default function ProductTemplate(props) {
   const price = formatPrice( priceRangeV2.minVariantPrice.currencyCode, variant.price )
 
   const hasImages = images.length > 0
-  const hasMultipleImages = true || images.length > 1
+  const hasMultipleImages = images.length > 1
   const addOnsLists = [];
   const otherProductLists = [];
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
@@ -129,8 +129,8 @@ export default function ProductTemplate(props) {
                   <div className="image-view-option">
                     {hasMultipleImages && (
                       <div className="wrapper">
-                        {images && images.map((image, index) => (
-                          index < 3 ? <div className="image-holder" key={index}>
+                        {images && images.map((image, index) => (index < 3 ? 
+                        <div className="image-holder" key={index}>
                           <GatsbyImage
                             objectFit="contain"
                             loading={index === 0 ? "eager" : "lazy"}
