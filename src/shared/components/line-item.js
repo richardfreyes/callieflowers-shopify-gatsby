@@ -58,7 +58,7 @@ export function LineItem({ item }) {
           <GatsbyImage
             key={variantImage.src}
             image={image}
-            alt={variantImage.altText ?? item.variant.title}
+            alt={variantImage?.altText ?? item.variant.title}
           />
         )}
       </div>

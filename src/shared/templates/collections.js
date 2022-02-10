@@ -80,7 +80,7 @@ export default function CollectionTemplate(props) {
                   <Link to={`/products/${node.handle}`} className="wrapper">
                     { node.tags.map(tag => ( tag === 'vday' ? <IconVday key={tag} className='icon-vday' /> : '' ))}
                     <div className="img-holder">
-                      <PreviewCompatibleImage imageInfo={{ image: node.images[0].originalSrc, alt: `${node.title}` }} />
+                      <PreviewCompatibleImage imageInfo={{ image: node.images[0]?.originalSrc, alt: `${node.title}` }} />
                     </div>
                     <div className="text-holder">
                       <p className="product-name">{node.title}</p>

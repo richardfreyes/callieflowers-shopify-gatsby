@@ -134,7 +134,7 @@ export default function ProductTemplate(props) {
                           <GatsbyImage
                             objectFit="contain"
                             loading={index === 0 ? "eager" : "lazy"}
-                            alt={ image.altText ? image.altText : `Product Image of ${title} #${index + 1}` }
+                            alt={ image?.altText ? image?.altText : `Product Image of ${title} #${index + 1}` }
                             image={image.gatsbyImageData}
                           />
                         </div> : null
@@ -169,8 +169,8 @@ export default function ProductTemplate(props) {
                                 <GatsbyImage
                                   objectFit="contain"
                                   loading={index === 0 ? "eager" : "lazy"}
-                                  alt={ addOns.featuredImage.altText ? addOns.featuredImage.altText : `Product Image of ${addOns.title} #${index + 1}` }
-                                  image={addOns.featuredImage.gatsbyImageData}
+                                  alt={ addOns.featuredImage?.altText ? addOns.featuredImage?.altText : `Product Image of ${addOns.title} #${index + 1}` }
+                                  image={addOns.featuredImage?.gatsbyImageData}
                                 />
                               </div>
                               <p className="addons-name">{addOns.title}</p>
@@ -211,8 +211,8 @@ export default function ProductTemplate(props) {
                     <GatsbyImage
                       objectFit="contain"
                       loading={index === 0 ? "eager" : "lazy"}
-                      alt={ node.featuredImage.altText ? node.featuredImage.altText : `Product Image of ${node.title} #${index + 1}` }
-                      image={node.featuredImage.gatsbyImageData}
+                      alt={ node.featuredImage?.altText ? node.featuredImage?.altText : `Product Image of ${node.title} #${index + 1}` }
+                      image={node.featuredImage?.gatsbyImageData}
                     />
                     </div>
                     <div className="text-holder">

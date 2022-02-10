@@ -153,8 +153,8 @@ class ProductList extends React.Component {
                     <GatsbyImage
                       objectFit="contain"
                       loading={index === 0 ? "eager" : "lazy"}
-                      alt={ node.featuredImage.altText ? node.featuredImage.altText : `Product Image of ${node.title} #${index + 1}` }
-                      image={node.featuredImage.gatsbyImageData}
+                      alt={ node.featuredImage?.altText ? node.featuredImage?.altText : `Product Image of ${node.title} #${index + 1}` }
+                      image={node.featuredImage?.gatsbyImageData}
                     />
                     </div>
                     <div className="text-holder">

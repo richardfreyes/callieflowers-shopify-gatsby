@@ -67,7 +67,7 @@ class HeroBanner extends React.Component {
                     <div className="img-holder">
                       <GatsbyImage
                         objectFit="contain"
-                        alt={ node.featuredImage.altText ? node.featuredImage.altText : `Product Image of ${node.title}` }
+                        alt={ node.featuredImage?.altText ? node.featuredImage?.altText : `Product Image of ${node.title}` }
                         image={node.featuredImage.gatsbyImageData}
                       />
                     </div>
