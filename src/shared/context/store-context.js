@@ -2,8 +2,8 @@ import * as React from "react"
 import fetch from "isomorphic-fetch"
 import Client from "shopify-buy"
 
-const shopUrl = process.env.GATSBY_SHOPIFY_STORE_URL;
-const storeFrontToken = process.env.GATSBY_SHOPIFY_STOREFRONT_ACCESS_KEY;
+const shopUrl = process.env.DEV_GATSBY_SHOPIFY_STORE_URL;
+const storeFrontToken = process.env.DEV_GATSBY_SHOPIFY_STOREFRONT_ACCESS_KEY;
 
 const client = Client.buildClient({
   domain: shopUrl,
