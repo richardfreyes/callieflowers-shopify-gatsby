@@ -39,7 +39,7 @@ function Seo({ description, lang, meta, title }) {
         { property: `og:title`, content: title, },
         { property: `og:description`, content: metaDescription, },
         { property: `og:type`, content: `website`, },
-        { property: `og:image`, content: '../../images/opengraph.jpg', },
+        { property: `og:image`, content: 'https://www.callieflowers.com/images/opengraph.jpg', },
         { property: `og:image:width`, content: `400`, },
         { name: `twitter:card`, content: `summary`, },
         { name: `twitter:creator`, content: site.siteMetadata?.author || ``, },
