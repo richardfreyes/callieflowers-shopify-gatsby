@@ -63,16 +63,10 @@ module.exports = {
     {
       resolve: "gatsby-source-shopify",
       options: {
-        password: process.env.DEV_GATSBY_SHOPIFY_PASSWORD,
-        storeUrl: process.env.DEV_GATSBY_SHOPIFY_STORE_URL,
+        password: process.env.GATSBY_SHOPIFY_PASSWORD,
+        storeUrl: process.env.GATSBY_SHOPIFY_STORE_URL,
         shopifyConnections: ["collections"],
       },
-    },
-    {
-      resolve: `gatsby-plugin-crazyegg`,
-      options: {
-        accountNumber: '01108162'
-      }
     }
   ],
 }
