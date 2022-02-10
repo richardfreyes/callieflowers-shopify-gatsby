@@ -11,7 +11,6 @@ module.exports = {
     siteUrl: `https://callieflowers.com/`,
   },
   plugins: [
-    `gatsby-plugin-open-graph-images`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
