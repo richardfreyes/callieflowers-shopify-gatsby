@@ -39,7 +39,7 @@ function Seo({ description, lang, meta, title }) {
         { property: `og:title`, content: title, },
         { property: `og:description`, content: metaDescription, },
         { property: `og:type`, content: `website`, },
-        { property: `og:image`, content: process.env.GATSBY_SHOPIFY_STORE_URL + "../../images/opengraph.jpg", },
+        { property: `og:image`, content: "../../images/opengraph.jpg", },
         { property: `og:image:width`, content: `400`, },
         { property: `og:image:width`, content: `50`, },
         { name: `twitter:card`, content: `summary`, },
