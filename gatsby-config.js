@@ -6,11 +6,12 @@ module.exports = {
   siteMetadata: {
     title: `Callie Flowers`,
     description: `Sending flowers to a loved ones, a colleague, or an old friend has been one of the greatest way to express feelings, fondness or affection for centuries. It inspires love that magically warms the heart and lifts one’s spirit on a bad day.`,
-    author: `Richard Frey U. Reyes`,
+    founder: `Richard Frey U. Reyes`,
     designer: `Adrian Rayco`,
     siteUrl: `https://callieflowers.com/`,
   },
   plugins: [
+    `gatsby-plugin-open-graph-images`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
