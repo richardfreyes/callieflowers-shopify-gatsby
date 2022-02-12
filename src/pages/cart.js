@@ -25,10 +25,8 @@ export default function CartPage() {
   const handleCheckout = () => {
     if(deliveryDate && deliveryTime && senderName && cardDesc) {
       setHasData(true)
-      setTimeout(() => {
-        let checkoutUrl = checkout.webUrl.replace("callieflowers.myshopify.com", "secure.callieflowers.com");
-        window.open(checkoutUrl, "_self");
-      }, 500);
+      let checkoutUrl = checkout.webUrl.replace("callieflowers.myshopify.com", "secure.callieflowers.com");
+      window.open(checkoutUrl, "_self")
     } else {
       setHasData(false)
     }
