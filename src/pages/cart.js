@@ -34,11 +34,11 @@ export default function CartPage() {
         } 
 
         if(window.location.hostname === 'devcallieflowers.gatsbyjs.io') {
-          checkoutUrl = checkout.webUrl.replace("dev-callieflowers.myshopify.com");
+          window.open(checkout.webUrl)
         } 
 
         if(window.location.hostname === 'localhost') {
-          checkoutUrl = checkout.webUrl.replace("dev-callieflowers.myshopify.com");
+          checkoutUrl = checkout.webUrl.replace('localhost', "dev-callieflowers.myshopify.com");
         }
       }
       window.open(checkoutUrl, "_self")
