@@ -25,7 +25,22 @@ export default function CartPage() {
   const handleCheckout = () => {
     if(deliveryDate && deliveryTime && senderName && cardDesc) {
       setHasData(true)
-      let checkoutUrl = checkout.webUrl.replace("callieflowers.myshopify.com", "secure.callieflowers.com");
+      const isBrowser = typeof window !== `undefined`;
+      let checkoutUrl;
+      if(isBrowser) {
+        
+        if(window.location.hostname === 'www.callieflowers.com') {
+          checkoutUrl = checkout.webUrl.replace("callieflowers.myshopify.com", "secure.callieflowers.com");
+        } 
+
+        if(window.location.hostname === 'devcallieflowers.gatsbyjs.io') {
+          checkoutUrl = checkout.webUrl.replace("dev-callieflowers.myshopify.com");
+        } 
+
+        if(window.location.hostname === 'localhost') {
+          checkoutUrl = checkout.webUrl.replace("dev-callieflowers.myshopify.com");
+        }
+      }
       window.open(checkoutUrl, "_self")
     } else {
       setHasData(false)
