@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import { graphql, Link  } from "gatsby"
 import PreviewCompatibleImage from "../components/preview-compatible-image"
-import Slider from "react-slick"
+// import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { StoreContext } from "../context/store-context"
@@ -10,8 +10,8 @@ import { AddToCart } from "../components/add-to-cart"
 import { formatPrice } from "../utils/format-price"
 import Seo from "../../shared/components/seo"
 import { GatsbyImage, getSrc } from "gatsby-plugin-image"
-import ChevronLeftSolid from '../../images/icons/chevron-left-solid.svg'
-import ChevronRightSolid from '../../images/icons/chevron-right-solid.svg'
+// import ChevronLeftSolid from '../../images/icons/chevron-left-solid.svg'
+// import ChevronRightSolid from '../../images/icons/chevron-right-solid.svg'
 
 
 export default function ProductTemplate(props) {
@@ -32,18 +32,18 @@ export default function ProductTemplate(props) {
     [productVariant.storefrontId, client.product]
   )
 
-  function handleGetAddOnsValue(event) {
-    if (event.target.checked) {
-      setStoreFrontId([
-        ...StoreFrontId,
-        { variantId: event.target.value, quantity: 1 }
-      ])
-    } else {
-      setStoreFrontId(
-        StoreFrontId.filter((storeFront) => storeFront.variantId !== event.target.value)
-      )
-    }
-  }
+  // function handleGetAddOnsValue(event) {
+  //   if (event.target.checked) {
+  //     setStoreFrontId([
+  //       ...StoreFrontId,
+  //       { variantId: event.target.value, quantity: 1 }
+  //     ])
+  //   } else {
+  //     setStoreFrontId(
+  //       StoreFrontId.filter((storeFront) => storeFront.variantId !== event.target.value)
+  //     )
+  //   }
+  // }
 
   React.useEffect(() => { checkAvailablity(product.storefrontId) }, [productVariant.storefrontId, checkAvailablity, product.storefrontId])
   const price = formatPrice( priceRangeV2.minVariantPrice.currencyCode, variant.price )
@@ -52,43 +52,43 @@ export default function ProductTemplate(props) {
   const hasMultipleImages = images.length > 1
   const addOnsLists = [];
   const otherProductLists = [];
-  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
-    <button {...props}
-      className={ "slick-prev slick-arrow" + (currentSlide === 0 ? " slick-disabled" : "")}
-      aria-hidden="true"
-      aria-disabled={currentSlide === 0 ? true : false}
-      type="button"
-    >
-      <ChevronLeftSolid />
-    </button>
-  );
-  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
-    <button {...props}
-      className={ "slick-next slick-arrow" + (currentSlide === slideCount - 1 ? " slick-disabled" : "") }
-      aria-hidden="true"
-      aria-disabled={currentSlide === slideCount - 1 ? true : false}
-      type="button"
-    >
-      <ChevronRightSolid />
-    </button>
-  );
-  const addOnsSlider = {
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    infinite: false,
-    nextArrow: <SlickArrowRight />,
-    prevArrow: <SlickArrowLeft />,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 2 }
-      },
-      {
-        breakpoint: 600,
-        settings: { slidesToShow: 1 }
-      },
-    ]
-  };
+  // const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+  //   <button {...props}
+  //     className={ "slick-prev slick-arrow" + (currentSlide === 0 ? " slick-disabled" : "")}
+  //     aria-hidden="true"
+  //     aria-disabled={currentSlide === 0 ? true : false}
+  //     type="button"
+  //   >
+  //     <ChevronLeftSolid />
+  //   </button>
+  // );
+  // const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+  //   <button {...props}
+  //     className={ "slick-next slick-arrow" + (currentSlide === slideCount - 1 ? " slick-disabled" : "") }
+  //     aria-hidden="true"
+  //     aria-disabled={currentSlide === slideCount - 1 ? true : false}
+  //     type="button"
+  //   >
+  //     <ChevronRightSolid />
+  //   </button>
+  // );
+  // const addOnsSlider = {
+  //   slidesToShow: 4,
+  //   slidesToScroll: 1,
+  //   infinite: false,
+  //   nextArrow: <SlickArrowRight />,
+  //   prevArrow: <SlickArrowLeft />,
+  //   responsive: [
+  //     {
+  //       breakpoint: 1024,
+  //       settings: { slidesToShow: 2 }
+  //     },
+  //     {
+  //       breakpoint: 600,
+  //       settings: { slidesToShow: 1 }
+  //     },
+  //   ]
+  // };
 
   // nextArrow: <FontAwesomeIcon className="slick-next slick-arrow fr-slick-next" aria-hidden="true" icon={faChevronRight}/>,
   // prevArrow: <FontAwesomeIcon className="slick-prev slick-arrow fr-slick-prev" aria-hidden="true" icon={faChevronLeft}/>,
@@ -98,8 +98,6 @@ export default function ProductTemplate(props) {
     else { otherProductLists.push(node) }
     return null;
   })
-
-  console.log('addOnsLists', addOnsLists)
 
   return (
     <Layout>
@@ -159,9 +157,10 @@ export default function ProductTemplate(props) {
                         </div>
                       }
                     </div>
-                    <p className="addons-title">Make it Extra Special with our add ons!</p>
+                    {/* <p className="addons-title">Make it Extra Special with our add ons!</p> */}
                     <div className="addons-carousel">
-                      <Slider {...addOnsSlider}>
+                      {/* <p style={{color: 'red'}}>Addons out of stock</p> */}
+                      {/* <Slider {...addOnsSlider}>
                         {addOnsLists && addOnsLists.map((addOns, index) => (
                           <div className="addons-item" key={addOns.id}>
                             <label htmlFor={addOns.id}>
@@ -185,7 +184,7 @@ export default function ProductTemplate(props) {
                             </label>
                         </div>
                         ))}
-                      </Slider>
+                      </Slider> */}
                     </div>
 
                     <AddToCart
