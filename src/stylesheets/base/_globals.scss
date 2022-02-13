@@ -597,6 +597,7 @@ main {
 .order__times-main ul.order__times-wrap {
   @include flexbox;
   padding-left: 0;
+  margin-bottom: 0;
 }
 
 .order__times-main ul.order__times-wrap li,

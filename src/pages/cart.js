@@ -170,6 +170,7 @@ export default function CartPage() {
                       <p className="custom">Custom Date</p>
                     </div>
                   </div>
+                  { !hasData && !deliveryDate ? <span className="color-red">Please select date</span> : null }
                     {
                       activeDP ? (
                         <div className="date-picker">
@@ -199,14 +200,19 @@ export default function CartPage() {
                         )) }
                       </ul>
                     ) : ( null )}
+                    { dateIsActive ? (
+                      <span>{ !hasData && !deliveryTime ? <span className="color-red">Please select time</span> : null }</span>
+                    ) : ( null )}
                   </div>
                   <div className="sender-holder">
                     <p>Sender Name*:</p>
                     <input className={!senderName && !hasData ? 'required' : ''} type="text" value={senderName} onChange={event => changeSenderHandler(event)}/>
+                    { !hasData && !senderName ? <span className="color-red">Please add sender name</span> : null }
                   </div>
                   <div className="personal-message">
                     <p>Choose your personal card message*:</p>
                     <textarea className={!cardDesc & !hasData ? 'required' : ''} placeholder="Write your message here..." value={cardDesc} onChange={event => changeCardHandler(event)}></textarea>
+                    { !hasData && !cardDesc ? <span className="color-red">Please add personal card message</span> : null }
                     <div className="automated-messages">
                       {messageList && messageList.map(data => (
                         <span role="button" tabIndex={0} key={data.title} onClick={() => { clickCardHandler(data.desc) }} onKeyDown={() => { clickCardHandler(data.desc) }}>{data.title}</span>
