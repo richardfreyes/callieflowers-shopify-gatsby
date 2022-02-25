@@ -7,15 +7,15 @@ import IconVday from '../../images/vday.svg'
 class ProductList extends React.Component {
   render() {
     const { data } = this.props;
-    // let featuredProducts = [];
-    let valentinesProducts = [];
+    let featuredProducts = [];
+    // let valentinesProducts = [];
     let budgetDealsProducts = [];
     let allProducts = [];
 
     if(!data) return null
     data.allShopifyCollection.edges.map(({node}) => {
-      if(node.handle.includes('valentines')) { valentinesProducts = node.products }
-      // if(node.handle.includes('featured')) { featuredProducts = node.products }
+      // if(node.handle.includes('valentines')) { valentinesProducts = node.products }
+      if(node.handle.includes('featured')) { featuredProducts = node.products }
       if(node.handle.includes('budget-deals')) { budgetDealsProducts = node.products }
       if(node.handle.includes('all')) { allProducts = node.products }
       return null;
@@ -24,7 +24,7 @@ class ProductList extends React.Component {
     return (
       <div>
         {/* Valentines */}
-        <div className="section featured-products">
+        {/* <div className="section featured-products">
           <div className="container">
             <h4 className="title">Valentines Sale</h4>
             <div className="row row-holder">
@@ -61,10 +61,10 @@ class ProductList extends React.Component {
               <Link className="btn-load-more" to="/collections/valentines">See more products</Link>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* featured */}
-        {/* <div className="section featured-products">
+        <div className="section featured-products">
           <div className="container">
             <h4 className="title">Featured Products</h4>
             <div className="row row-holder">
@@ -100,7 +100,7 @@ class ProductList extends React.Component {
               <Link className="btn-load-more" to="/collections/featured">See more products</Link>
             </div>
           </div>
-        </div> */}
+        </div>
 
         {/* budget deals */}
         <div className="section featured-products">

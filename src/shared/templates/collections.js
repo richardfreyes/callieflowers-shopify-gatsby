@@ -78,7 +78,7 @@ export default function CollectionTemplate(props) {
               return (
                 <div className="col-lg-2 col-sm-3 col-6 col-holder" key={node.shopifyId}>
                   <Link to={`/products/${node.handle}`} className="wrapper">
-                    { node.tags.map(tag => ( tag === 'vday' ? <IconVday key={tag} className='icon-vday' /> : '' ))}
+                    {/* { node.tags.map(tag => ( tag === 'vday' ? <IconVday key={tag} className='icon-vday' /> : '' ))} */}
                     <div className="img-holder">
                       <PreviewCompatibleImage imageInfo={{ image: node.images[0]?.originalSrc, alt: `${node.title}` }} />
                     </div>

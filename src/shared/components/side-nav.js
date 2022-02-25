@@ -44,8 +44,8 @@ export function SideNavigation() {
             </Link>
           </li>
           <li className="fb-nav-item">
-            <Link to="/collections/valentines" activeClassName="active">
-              <FontAwesomeIcon className="icon" icon={faHeart}/><span className="label" style={{color: "red"}}>Valentine's 2022</span>
+            <Link to="/collections/anniversary" activeClassName="active">
+              <FontAwesomeIcon className="icon" icon={faHeart}/><span className="label">Anniversary</span>
             </Link>
           </li>
           <li className="fb-nav-item">
